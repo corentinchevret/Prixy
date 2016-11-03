@@ -39,9 +39,10 @@
 					  		<li><a href="nousConnaitre.php"><i class="glyphicon glyphicon-eye-open"></i> Nous connaître</a></li>
 					  		<li><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i> Nos Formations</a></li>
 					  		<li><a href="nosAtouts.php"><i class="glyphicon glyphicon-plus-sign"></i> Nos Atouts</a></li>  
-					  		<li><a href="nousContacter.php"><i class="glyphicon glyphicon-phone"></i> Nous Contacter</a></li>  
+					  		<li><a href="nousContacter.php"><i class="glyphicon glyphicon-phone"></i> Nous Contacter</a></li>
+					  		<li class="pull-right"><a href="connexion.php"><i class="glyphicon glyphicon-connexion"></i>Connexion</a></li>    
 						</ul>
-						<form class="navbar-form navbar-right hidden-md hidden-sm hidden-xs" role="search">
+						<!--<form class="navbar-form navbar-right hidden-md hidden-sm hidden-xs" role="search">
 							<div class="input-group add-on">
 						        <input class="form-control" placeholder="Recherche..." name="recherche" id="recherche" type="text" onkeyup="autocomplet()">
 		                    	<ul id="list"></ul>
@@ -49,7 +50,7 @@
 						            <button class="form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 						        </div>
 						    </div>
-						</form>
+						</form>-->
 			        </div>
 				</nav>
 			</div>
