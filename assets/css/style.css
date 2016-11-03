@@ -1499,3 +1499,10 @@ html { height: 100%;}
 		margin-top: 18px;
 	}
 }
+
+#profil .case-profil
+{
+	border: solid 3px black;
+	border-radius: 5px;
+	margin : 3px;
+}
