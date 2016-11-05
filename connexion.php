@@ -110,7 +110,7 @@
 				<div class="col-lg-12"><div class = "col-lg-2 col-lg-offset-5 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3"><input type="submit" class="form-control bold" name = "validerConnexion" value = "Se Connecter"></div></div>
 				
 				<!-- lien vers l'inscription et l'oubli de mot de passe -->												
-				<div class = "col-lg-6 col-lg-push-1 col-sm-6 col-md-6 col-xs-6 text-left"><br><br><a href="inscription.php"><span class="bold"><i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire ?</span></a></div><div class = "col-lg-5 col-md-6 col-sm-6 col-xs-6 text-right"><br><br><a href="oubli_mdp.php?t=0"><span class="bold"><i class="fa fa-key" aria-hidden="true"></i> Mot de passe oublié ?</span></a><br></div>
+				<div class = "col-lg-6 col-lg-push-1 col-sm-6 col-md-6 col-xs-6 text-left"><br><br><a href="inscription.php"><span class="bold"><i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire ?</span></a></div><div class = "col-lg-5 col-md-6 col-sm-6 col-xs-6 text-right"><br><br><a href="mdpPerdu.php?t=0"><span class="bold"><i class="fa fa-key" aria-hidden="true"></i> Mot de passe oublié ?</span></a><br></div>
 				<div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12"><p><br><br></p></div>
 			</form>
 		</div>
