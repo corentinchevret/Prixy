@@ -1,9 +1,9 @@
-		<?php  $titre = 'Prixy - Notre Equipe'; include("barnav.php"); ?>		
+		<?php session_start(); $titre = 'Prixy - Notre Equipe'; include("barnav.php"); ?>		
 			<div class="container">
 				<div class="row">
 					<h1><a href="nosAtouts.php"><i class="glyphicon glyphicon-user"></i> Notre Equipe</a></h1>
 				</div>
-				<div class="row col-xs-12 col-md-8 col-md-offset-2 text-center">
+				<div class="row col-xs-12 text-center">
 					<p class="pres-equipe">
 						Depuis 2013, notre équipe accompagne les entreprises dans leurs 
 						démarches de formation. L'adaptabilité et la qualité des solutions

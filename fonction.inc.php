@@ -262,4 +262,147 @@
             ' h) - <b>Niveau du Public :</b> ' . $les_formations[$i][4] . '</h4></div><div class = "row">' . 
 		    '</div><p style="color:#337ab7;">Cliquez pour en savoir plus...</p></div></div></a>';
 	}
+
+	// Fonction injection SQL
+   	function injec_SQL($post)
+   	{
+   		// Remplace les ' par des \'
+   		if (preg_match("/'/i", "$post")) 
+		{ 
+			$post = str_replace("'", "\'", strtolower($post));
+		}
+
+		// Remplace les " par des \"
+		if (preg_match('/"/i', "$post")) 
+		{ 
+			$post = str_replace('"', '\"', strtolower($post));
+		}
+
+		// Remplace les select par des selects
+   		if (preg_match("/select/i", "$post")) 
+		{ 
+			$post = str_replace("select ", "selects ", strtolower($post));
+		}
+
+		// Remplace les from par des froms
+		if (preg_match("/from/i", "$post")) 
+		{ 
+			$post = str_replace("from ", "froms ", strtolower($post));
+		}
+
+		// Remplace les delete par des deletes
+		if (preg_match("/delete/i", "$post")) 
+		{ 
+			$post = str_replace("delete ", "deletes ", strtolower($post));
+		}
+
+		// Remplace les drop par des drops
+		if (preg_match("/drop/i", "$post")) 
+		{ 
+			$post = str_replace("drop ", "drops ", strtolower($post));
+		}
+
+		// Remplace les update par des updates
+		if (preg_match("/update/i", "$post")) 
+		{ 
+			$post = str_replace("update ", "updates ", strtolower($post));
+		}
+
+		// Remplace les insert into par des inserts into
+		if (preg_match("/insert into/i", "$post")) 
+		{ 
+			$post = str_replace("insert into", "inserts into", strtolower($post));
+		}
+
+		// Remplace les union par des unions
+		if (preg_match("/union/i", "$post")) 
+		{ 
+			$post = str_replace("union ", "unions ", strtolower($post));
+		}
+
+		// Remplace les view par des views
+		if (preg_match("/view/i", "$post")) 
+		{ 
+			$post = str_replace("view ", "views ", strtolower($post));
+		}
+		return $post;
+   	}
+
+   	// 	Initialisation des variables (bcp de variables :( )
+	$nom = null;
+	$prenom = null;
+	$sexe = null;
+	$dateNaiss = null;
+	$mail = null;
+	$adr = null;
+	$cp = null;
+	$ville = null;
+	$login = null;
+	$mdp = null;
+	$confMdp = null;
+	$errLogin = null;
+	$errMdp = null;
+	$inscrire = true;
+	$news = null;
+	$lettre_mois = null;
+
+	// Vérifie si on a appuyer sur valider => récupère les valeur des champs de saisis
+	if (isset($_POST["validerInscription"])) 
+	{
+
+		//$mysqli = new mysqli(BDD_HOST, BDD_USER, BDD_PASSWORD, BDD_BASE);
+		$nom = addslashes(injec_SQL($_POST['nom'])); //filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_STRING); $nom = mysqli_real_escape_string(strip_tags(stripslashes($nom))); var_dump($nom);
+		$prenom = addslashes(injec_SQL($_POST['prenom']));
+		$dateNaiss = $_POST['annee'] . "/" . $_POST['mois'] . "/" . $_POST['jour'];
+		$mail = addslashes(injec_SQL($_POST['mail'])); 
+		$adr = addslashes(injec_SQL($_POST['adr']));
+		$cp = injec_SQL($_POST['cp']);
+		$ville = addslashes(injec_SQL($_POST['ville']));
+		$login = addslashes(injec_SQL($_POST['login']));
+		$mdp = $_POST['mdp'];
+		$confMdp = $_POST['conf_mdp'];
+		$tel_fixe = injec_SQL($_POST['tel_fixe']);
+		$tel_mobile = injec_SQL($_POST['tel_mobile']);
+
+        
+        // Si sexe choisit => sexe pris en compte, sinon => sexe pas pris en compte (null)
+        if (!isset($_POST['radio'])) 
+            $sexe = "non renseigné";
+        else
+        	$sexe = $_POST['radio'];	
+
+        if (isset($_POST['news']))
+			$news = "oui";
+		else
+			$news = "non";
+
+		if (isset($_POST['lettre_mois']))
+			$lettre_mois = "oui";
+		else
+			$lettre_mois = "non";
+        
+        // Test si le login est déjà utilisé par un autre membre
+        if(execSQL_fetchall("SELECT id_pers FROM PERSONNE WHERE login_pers = '$login'"))
+        {
+        	$errLogin = "<p class = 'col-lg-6 col-lg-offset-3 text-danger text-left'>Le login <b>$login</b> est déjà utilisé par un autre membre !</p>";
+        	$inscrire = false;
+        }
+
+		// Test si le mdp est pareil que la confirmation de mdp avec message d'erreur si pas le cas
+        if ($mdp !== $confMdp) 
+        {
+            $errMdp .= "<p class = 'col-lg-6 col-lg-offset-3 text-danger text-left'>Les deux mots de passe ne sont pas identiques !</p>";
+        	$inscrire = false;
+        }
+
+        // Requête d'insertion qui va renseigner les infos du membres dans la BDD       
+        if($inscrire)
+        {
+	        $req_insc = "INSERT INTO PERSONNE(login_pers, nom_pers, prenom_pers, password_pers, email_pers, statut_pers, adr_pers, cp_pers, ville_pers, date_naissance_pers, sexe_pers, date_inscription_pers, tel_fixe_pers, tel_mobile_pers, newsletter, lettre_mois)
+	        			 VALUES('$login', '$nom', '$prenom', '".sha1($mdp)."', '$mail', 'membre', '$adr', '$cp', '$ville', '$dateNaiss', '$sexe', '" . date("Y-m-d") . "', '$tel_fixe', '$tel_mobile', '$news', '$lettre_mois');";
+	        execSQL_insert($req_insc);	   
+
+	        echo '<script type="text/javascript"> alert("Votre inscription a bien été prise en compte ! \nVous allez être redirigé vers la page de connexion !"); document.location.href="connexion.php"; </script>';   
+    	}
+    }
  ?>

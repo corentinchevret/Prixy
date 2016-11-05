@@ -1,6 +1,6 @@
 		<!-- BARRE DE NAVIGATION ET LES FONCTIONS PHP (pour les requêtes SQL surtout) -->
 
-			<?php $titre = 'Prixy - Nous Contacter'; ?>				
+			<?php session_start(); $titre = 'Prixy - Nous Contacter'; ?>				
 			<?php include('barnav.php'); ?>
 			<?php include("fonction.inc.php"); ?>
 						

@@ -1,4 +1,4 @@
-		<?php  $titre = 'Prixy - Notre Equipe'; include("barnav.php"); ?>		
+		<?php session_start(); $titre = 'Prixy - Notre Equipe'; include("barnav.php"); ?>		
 			<div class="container">
 				<div class="row">
 					<h1><a href="nosAtouts.php"><i class="fa fa-building" aria-hidden="true"></i> La société</a></h1><br>
@@ -13,29 +13,31 @@
 				<div class="row">
 					<h1><a href="nosAtouts.php"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i> Nos Prestations</a></h1><br>
 				</div>
-				<div class="row col-lg-6 text-justify">
-					<fieldset>
-						<legend class="text-center"><h1>Formation « catalogue »</h1></legend>
-					</fieldset>
-					<p class="pres-equipe">
-						Organisée dans les locaux de PRIXY selon un planning prédéfini, <b>les formations catalogue</b> (appelées aussi interentreprises) réunissent des participants issus d’entreprises et d’horizons différents.<br><br>
-						
-						PRIXY propose à ses clients un catalogue de près de <b>200 formations</b> dans des domaines aussi divers que la bureautique, le multimédia, la CAO/PAO, les progiciels de gestion intégrés, la gestion de projet, le management d’équipe, .... L’offre de formation catalogue est étudiée pour répondre aux besoins les plus variés et est actualisée et enrichie des retours d’expériences. Le catalogue offre également des formations « certifiantes ». Chacune de ces formations a été conçue pour permettre aux participants de se préparer à l’obtention de la <b>certification</b> associée. Le passage de la certification est inclus dans le temps de la formation.<br><br>
-						
-						Pour participer à une formation catalogue, <b>une inscription est nécessaire.</b><br><br class="hidden-lg">
-					</p>
+				<div class="row col-lg-12">
+					<div class="col-lg-6 text-justify">
+						<fieldset>
+							<legend class="text-center"><h1>Formation « catalogue »</h1></legend>
+						</fieldset>
+						<p class="pres-equipe">
+							Organisée dans les locaux de PRIXY selon un planning prédéfini, <b>les formations catalogue</b> (appelées aussi interentreprises) réunissent des participants issus d’entreprises et d’horizons différents.<br><br>
+							
+							PRIXY propose à ses clients un catalogue de près de <b>200 formations</b> dans des domaines aussi divers que la bureautique, le multimédia, la CAO/PAO, les progiciels de gestion intégrés, la gestion de projet, le management d’équipe, .... L’offre de formation catalogue est étudiée pour répondre aux besoins les plus variés et est actualisée et enrichie des retours d’expériences. Le catalogue offre également des formations « certifiantes ». Chacune de ces formations a été conçue pour permettre aux participants de se préparer à l’obtention de la <b>certification</b> associée. Le passage de la certification est inclus dans le temps de la formation.<br><br>
+							
+							Pour participer à une formation catalogue, <b>une inscription est nécessaire.</b><br><br class="hidden-lg">
+						</p>
+					</div>
+					<div class="row col-lg-6 text-justify">
+						<fieldset>
+							<legend class="text-center"><h1>Formation « sur mesure »</h1></legend>
+						</fieldset>
+						<p class="pres-equipe">
+							Pour répondre à un besoin de formation précis, PRIXY <b>organise un entretien de cadrage</b> pour définir avec son client un contenu spécifique et proposer un programme détaillé prenant en compte le contexte du projet, le profil des apprenants, les disponibilités,...<br><br>
+							
+							La formation sur-mesure est <b>exclusivement réservée aux collaborateurs de l’entreprise cliente</b> ; elle se déroule dans les locaux de PRIXY en plusieurs sessions le cas échéant.<br><br>
+						</p>
+					</div>
 				</div>
-				<div class="row col-lg-6 text-justify">
-					<fieldset>
-						<legend class="text-center"><h1>Formation « sur mesure »</h1></legend>
-					</fieldset>
-					<p class="pres-equipe">
-						Pour répondre à un besoin de formation précis, PRIXY <b>organise un entretien de cadrage</b> pour définir avec son client un contenu spécifique et proposer un programme détaillé prenant en compte le contexte du projet, le profil des apprenants, les disponibilités,...<br><br>
-						
-						La formation sur-mesure est <b>exclusivement réservée aux collaborateurs de l’entreprise cliente</b> ; elle se déroule dans les locaux de PRIXY en plusieurs sessions le cas échéant.<br><br>
-					</p>
-				</div>
-				<div class="row col-lg-6 col-lg-offset-3 text-justify">
+				<div class="row col-lg-6 col-lg-push-3 text-justify">
 					<fieldset>
 						<legend class="text-center"><h1>Organisation</h1></legend>
 					</fieldset>

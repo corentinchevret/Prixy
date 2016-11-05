@@ -3,5 +3,5 @@
 	define("BDD_USER", "root");
 	define("BDD_PASSWORD", "root");
 	define("BDD_BASE", "prixy_site");
-	define("BDD_TYPE", "PDO");
+	define("BDD_TYPE", "mysqli");
 ?>

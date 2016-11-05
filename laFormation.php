@@ -1,4 +1,4 @@
-<?php include("fonction.inc.php"); ?>
+<?php session_start(); include("fonction.inc.php"); ?>
 <?php $ref_formation = $_GET['formation']; ?>
 <?php $infos_formation = execSQL_fetchall("SELECT logo_form, nom_categ, nom_from, F.ref_form, duree_form, tarif, type_public, lib_certif, ref_form_FORMATION, date_debut_session FROM formation F INNER JOIN session S ON F.ref_form = S.ref_form INNER JOIN delivrer D ON F.ref_form = D.ref_form INNER JOIN certification CE ON D.id_certif = CE.id_certif LEFT OUTER JOIN necessiter N ON F.ref_form = N.ref_form INNER JOIN appartenir A ON F.ref_form = A.ref_form INNER JOIN categorie C ON C.id_categ = A.id_categ WHERE F.ref_form = '$ref_formation'");?>
 <?php $objectifs = execSQL_fetchall("SELECT lib_objectif FROM formation F INNER JOIN objectif O ON F.ref_form = O.ref_form WHERE F.ref_form = '$ref_formation'"); ?>

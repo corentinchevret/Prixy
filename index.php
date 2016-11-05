@@ -1,5 +1,6 @@
-		<?php $titre = 'Prixy - Accueil'; include("barnav.php"); ?>		
+		<?php session_start(); $titre = 'Prixy - Accueil'; include("barnav.php"); 		var_dump($_COOKIE); ?>		
 		
+
 		<div id="home" class="container-fluid"><br><br class="hidden-xs hidden-sm hidden-md"><br class="hidden-xs hidden-sm hidden-md">
 			
 			<div align="center">

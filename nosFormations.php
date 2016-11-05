@@ -1,3 +1,4 @@
+	<?php session_start(); ?>
 	<link rel="icon" type="image/png" href="images/iconePrixy.png" />
 
 	<!-- BARRE DE NAVIGATION ET LES FONCTIONS PHP (pour les requêtes SQL surtout) -->
@@ -10,7 +11,7 @@
         <?php include("barnav.php"); ?>
         <?php include("fonction.inc.php");?>
 
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation"  style="padding:0px">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand text-center">
                     <h2 style="color:#ddd; border-bottom:5px solid #ddd; padding:30px;"><i class = "glyphicon glyphicon-cog"></i> Filtre</h2>
