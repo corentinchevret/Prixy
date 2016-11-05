@@ -16,7 +16,7 @@
 					setTimeout(function(){
 					  $("#loaderIcon").delay(5000).hide();
 			    	  $("#user-availability-status").delay(5000).show();
-					}, 2000);		
+					}, 1500);		
 					//$("#user-availability-status").delay(5000).show();
 					//setTimeout(hideLoad, 5000);
 				},
@@ -63,38 +63,7 @@
 						  <input id="radio2" name="radio" type="radio" class="custom-control-input" value = "homme">
 						  <span class="custom-control-indicator"></span>
 						  <span class="custom-control-description bold">Homme</span>
-						</label>
-						<!--<span>&nbsp;</span>
-						<span class="funkyradio text-left hidden-lg hidden-md">	
-					        <span class="funkyradio-rose col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-					            <input type="radio" name="radio" id="radio1" value = "femme"/>
-					            <label for="radio1"><i class="fa fa-female fa-lg"></i>&emsp;Je suis une femme !</label>
-					        </span>
-					        <span class="funkyradio-primary col-sm-6 col-sm-push-2 col-xs-10 col-xs-offset-1">
-					            <input type="radio" name="radio" id="radio2" value = "homme"/>
-					            <label for="radio2"><i class="fa fa-male fa-lg"></i>&emsp;Je suis un homme !</label>
-					        </span>
-					    </span>	
-						<span class="funkyradio text-left hidden-md hidden-sm hidden-xs">	
-					        <span class="funkyradio-rose col-lg-3 col-lg-offset-3">
-					            <input type="radio" name="radio" id="radio3" value = "femme" <?php if($sexe == "femme") echo "checked"; ?>/>
-					            <label for="radio3"><i class="fa fa-female fa-lg"></i>&emsp;Je suis une femme !</label>
-					        </span>
-					        <span class="funkyradio-primary col-lg-3">
-					            <input type="radio" name="radio" id="radio4" value = "homme" <?php if($sexe == "homme") echo "checked"; ?>/>
-					            <label for="radio4"><i class="fa fa-male fa-lg"></i>&emsp;Je suis un homme !</label>
-					        </span>
-					    </span>	
-						<span class="funkyradio text-left hidden-lg hidden-sm hidden-xs">	
-					        <span class="funkyradio-rose col-md-3 col-md-offset-3">
-					            <input type="radio" name="radio" id="radio5" value = "femme"/>
-					            <label for="radio5"><i class="fa fa-female fa-lg"></i>&nbsp;&nbsp;Je suis une femme !</label>
-					        </span>
-					        <span class="funkyradio-primary col-md-3">
-					            <input type="radio" name="radio" id="radio6" value = "homme"/>
-					            <label for="radio6"><i class="fa fa-male fa-lg"></i>&nbsp;&nbsp;Je suis un homme !</label>
-					        </span>
-					    </span>-->			
+						</label>		
 					</div>
 				</div>
 
@@ -103,57 +72,9 @@
 					<div class="col-xs-12 col-lg-6 col-lg-push-3 col-md-push-3">
 						<div class="input-group">
 				          <span class="input-group-addon bold">Date de naissance</span>
-						  <input type="date" name="dateNaiss" class="form-control">
+						  <input type="date" name="dateNaiss" class="form-control" value="<?php if(isset($dateNaiss)) echo $dateNaiss; else echo "1997-02-18"; ?>">
 						</div>
-					</div>
-					<!--<div class="row-fluid">
-						<span>&emsp;&emsp;Date de naissance</span>
-					    <select id="basic" class="col-lg-1 selectpicker span3 show-tick" name = "jour" data-live-search="true"/>
-					    	<?php 
-					    		$zero = "0";
-					    		$selected = "";
-					    		for($i = 1; $i <= 31; $i++)
-					    		{
-					    			if($_POST['jour'] == $i)
-					    				$selected = "selected";
-					    			else
-					    				$selected = "";
-					    			if($i > 9)
-					    				$zero = "";
-					    			echo "<option $selected>$zero$i</option>";
-					    		}
-					    	?>
-					    </select>
-					    <select id="basic" class="col-lg-1 selectpicker span3 show-tick" name = "mois" data-live-search="true">
-					       	<?php 
-					       		$zero = "0";
-					       		$selected = "";
-					    		for($i = 1; $i <= 12; $i++)
-					    		{
-					    			if($_POST['jour'] == $i)
-					    				$selected = "selected";
-					    			else
-					    				$selected = "";
-					    			if($i > 9)
-					    				$zero = "";
-					    			echo "<option $selected>$zero$i</option>";
-					    		}
-					    	?>
-					    </select>
-					    <select id="basic" class="col-lg-2 selectpicker span2 show-tick" name = "annee" size = "10" data-live-search="true">
-					    	<?php 
-					    		$selected = "";
-					    		for($i = 2016; $i >= 1900; $i--)
-					    		{
-					    			if($_POST['jour'] == $i)
-					    				$selected = "selected";
-					    			else
-					    				$selected = "";
-					    			echo "<option $selected>$i</option>";
-					    		}
-					    	?>
-					    </select>
-				    </div><br>-->
+					</div>					
 				</div>
 
 				<!-- Zone de texte pour le mail, l'adresse, le cp et la ville -->	
@@ -179,7 +100,7 @@
 					<div class="col-xs-12 col-lg-6 col-lg-push-3 col-md-push-3">
 					    <div class="input-group">
 					          <span class="input-group-addon bold">CP</span>
-						      <input type="text" class="form-control" name = "cp" maxlength = "25" placeholder = "Veuillez insérer votre code postale ici." required = "required" value = "<?php if(isset($cp)) echo $cp; ?>">
+						      <input type="tel" class="form-control" name = "cp" maxlength = "25" placeholder = "Veuillez insérer votre code postale ici." required = "required" value = "<?php if(isset($cp)) echo $cp; ?>">
 						</div>
 					</div>
 				</div><br>
@@ -215,12 +136,12 @@
 
 				<!-- Zone de texte pour le login, le mdp et la confimation de mdp -->	
 				<div class="row">
-					<div class="col-xs-12 col-lg-6 col-lg-push-3 col-md-push-3">
+					<div class="col-xs-12 col-lg-6 col-lg-push-3 col-md-push-3" style="margin-bottom:-25px;">
 						<div id="frmCheckUsername" class="input-group">
 						  <span class="input-group-addon bold">Login</span>
-						  <input type="text" class="form-control" name = "login" maxlength = "25" placeholder = "Veuillez choisir un pseudo ici." required = "required" value = "<?php if(isset($login)) echo $login ?>" <?php if(isset($login)) echo "style = color:bb0000;"; ?> id="username" class="demoInputBox" onBlur="checkAvailability()">
+						  <input type="text" class="form-control" name = "login" maxlength = "25" placeholder = "Veuillez choisir un pseudo ici." required = "required" value = "<?php if(isset($login)) echo $login ?>" <?php //if(isset($login)) echo "style = color:bb0000;"; ?> id="username" class="demoInputBox" onBlur="checkAvailability()">
 						</div>
-						<span id="user-availability-status"  style="display:none"></span><span><img src="images/load.gif" id="loaderIcon" style="display:none" /></span><?php echo $errLogin; //var_dump($nom)?>
+						<h5 style="margin-top:5px;"><span id="user-availability-status" style="display:none" class="bold"></span><span><img src="images/load.gif" id="loaderIcon" style="display:none" /></span></h5><?php echo $errLogin; //var_dump($nom)?>
 						<br>
 					</div>
 				</div>
