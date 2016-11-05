@@ -1,5 +1,8 @@
 <?php include("db.inc.php");?>
-<?php 	
+<?php
+	
+	date_default_timezone_set( 'Europe/Paris' );
+
 	/* Vérifcation des infos et du captcha quand on appuie pour envoyer le mail */
 	$errEmail = "";
 	$errMessage = "";
@@ -118,6 +121,29 @@
 				$tab = $connexion->query($requete)->fetchAll();
 				$connexion = null;
 				return $tab;
+				break;
+		}	
+	}
+
+	// Fonction qui permet de faire une insertion par rapport à une reqûête SQL en paramètre
+	function execSQL_insert($requete)
+	{
+		switch (BDD_TYPE) 
+		{
+			case 'mysqli':
+
+				$mysqli = new mysqli(BDD_HOST, BDD_USER, BDD_PASSWORD, BDD_BASE);
+				$mysqli->set_charset("utf8");
+			    mysqli_query($mysqli, $requete);
+			    mysqli_close($mysqli);
+				break;
+			
+			case 'PDO':
+
+				$connexion = new PDO('mysql:host='. BDD_HOST .';dbname='. BDD_BASE . ";charset=utf8", BDD_USER, BDD_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\''));
+				$connexion->exec("SET NAMES utf8");
+				$connexion->query($requete);
+				$connexion = null;
 				break;
 		}	
 	}
@@ -349,9 +375,9 @@
 	// Verifie en instantanné dans la bdd si le pseudo est dispo ou non
 	if(!empty($_POST["username"])) {
 		if(execSQL_fetchall("SELECT * FROM MEMBRE WHERE login='" . $_POST["username"] . "'")) {
-		    echo "<span class='status-not-available'> Username Not Available.</span>";
+		    echo "<span class='status-not-available text-danger'> Mot de passe déjà pris !</span>";
 		}else{
-		    echo "<span class='status-available'> Username Available.</span>";
+		    echo "<span class='status-available text-success'> Mot de passe libre :)</span>";
 		}
 	}
 
@@ -360,16 +386,16 @@
 	{
 
 		//$mysqli = new mysqli(BDD_HOST, BDD_USER, BDD_PASSWORD, BDD_BASE);
+		$login = addslashes(injec_SQL($_POST['login']));
+		$mdp = $_POST['mdp'];
+		$confMdp = $_POST['conf_mdp'];
 		$nom = addslashes(injec_SQL($_POST['nom'])); //filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_STRING); $nom = mysqli_real_escape_string(strip_tags(stripslashes($nom))); var_dump($nom);
 		$prenom = addslashes(injec_SQL($_POST['prenom']));
-		$dateNaiss = $_POST['annee'] . "/" . $_POST['mois'] . "/" . $_POST['jour'];
+		$dateNaiss = $_POST['dateNaiss'];
 		$mail = addslashes(injec_SQL($_POST['mail'])); 
 		$adr = addslashes(injec_SQL($_POST['adr']));
 		$cp = injec_SQL($_POST['cp']);
 		$ville = addslashes(injec_SQL($_POST['ville']));
-		$login = addslashes(injec_SQL($_POST['login']));
-		$mdp = $_POST['mdp'];
-		$confMdp = $_POST['conf_mdp'];
 		$tel_fixe = injec_SQL($_POST['tel_fixe']);
 		$tel_mobile = injec_SQL($_POST['tel_mobile']);
 
@@ -378,37 +404,27 @@
         if (!isset($_POST['radio'])) 
             $sexe = "non renseigné";
         else
-        	$sexe = $_POST['radio'];	
-
-        if (isset($_POST['news']))
-			$news = "oui";
-		else
-			$news = "non";
-
-		if (isset($_POST['lettre_mois']))
-			$lettre_mois = "oui";
-		else
-			$lettre_mois = "non";
+        	$sexe = $_POST['radio'];
         
         // Test si le login est déjà utilisé par un autre membre
-        if(execSQL_fetchall("SELECT id_pers FROM PERSONNE WHERE login_pers = '$login'"))
+        /*if(execSQL_fetchall("SELECT id_pers FROM PERSONNE WHERE login_pers = '$login'"))
         {
-        	$errLogin = "<p class = 'col-lg-6 col-lg-offset-3 text-danger text-left'>Le login <b>$login</b> est déjà utilisé par un autre membre !</p>";
+        	$errLogin = "<p class = 'col-lg-6 text-danger text-left' style='padding=0px'>Le login <b>$login</b> est déjà utilisé par un autre membre !</p>";
         	$inscrire = false;
-        }
+        }*/
 
 		// Test si le mdp est pareil que la confirmation de mdp avec message d'erreur si pas le cas
         if ($mdp !== $confMdp) 
         {
-            $errMdp .= "<p class = 'col-lg-6 col-lg-offset-3 text-danger text-left'>Les deux mots de passe ne sont pas identiques !</p>";
+            $errMdp .= "<p class = 'col-lg-6 text-danger text-left' style='padding=0px'>Les deux mots de passe ne sont pas identiques !</p>";
         	$inscrire = false;
         }
 
         // Requête d'insertion qui va renseigner les infos du membres dans la BDD       
         if($inscrire)
         {
-	        $req_insc = "INSERT INTO PERSONNE(login_pers, nom_pers, prenom_pers, password_pers, email_pers, statut_pers, adr_pers, cp_pers, ville_pers, date_naissance_pers, sexe_pers, date_inscription_pers, tel_fixe_pers, tel_mobile_pers, newsletter, lettre_mois)
-	        			 VALUES('$login', '$nom', '$prenom', '".sha1($mdp)."', '$mail', 'membre', '$adr', '$cp', '$ville', '$dateNaiss', '$sexe', '" . date("Y-m-d") . "', '$tel_fixe', '$tel_mobile', '$news', '$lettre_mois');";
+	        $req_insc = "INSERT INTO MEMBRE(login, nom, prenom, password, email, adr, cp, ville, date_naissance, sexe, date_inscription, tel, tel_mobile)
+	        			 VALUES('$login', '$nom', '$prenom', '".sha1($mdp)."', '$mail', '$adr', '$cp', '$ville', '$dateNaiss', '$sexe', '" . date("Y-m-d") . "', '$tel_fixe', '$tel_mobile');";
 	        execSQL_insert($req_insc);	   
 
 	        echo '<script type="text/javascript"> alert("Votre inscription a bien été prise en compte ! \nVous allez être redirigé vers la page de connexion !"); document.location.href="connexion.php"; </script>';   
