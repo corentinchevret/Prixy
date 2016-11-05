@@ -1,1 +1,0 @@
-<?php setCookie('pseudo', false, time() - 360, '/'); unset($_COOKIE['pseudo']); header("Location: index.php");?>

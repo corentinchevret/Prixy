@@ -346,6 +346,15 @@
 	$news = null;
 	$lettre_mois = null;
 
+	// Verifie en instantanné dans la bdd si le pseudo est dispo ou non
+	if(!empty($_POST["username"])) {
+		if(execSQL_fetchall("SELECT * FROM MEMBRE WHERE login='" . $_POST["username"] . "'")) {
+		    echo "<span class='status-not-available'> Username Not Available.</span>";
+		}else{
+		    echo "<span class='status-available'> Username Available.</span>";
+		}
+	}
+
 	// Vérifie si on a appuyer sur valider => récupère les valeur des champs de saisis
 	if (isset($_POST["validerInscription"])) 
 	{
