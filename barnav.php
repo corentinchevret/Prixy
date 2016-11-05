@@ -37,7 +37,7 @@
 							{
 								echo '<button type="button" class="nav profil-center hidden-sm hidden-md hidden-lg bold" data-toggle="dropdown" style="margin:0;"><h5 style="color:white">' . $_SESSION['pseudonyme'] . '<span class="caret"></span></h5></button>
 							          <ul class="dropdown-menu pull-right">
-							            <li><a href="profil.php">Mon Profil</a></li>
+							            <li><a href="compte.php">Mon Compte</a></li>
 							            <li><a href="deconnexion.php">Deconnexion</a></li>
 							          </ul>';
 							}
@@ -71,7 +71,7 @@
 									  <li class="dropdown blanc">		
 					                	  <a class = "" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  ' . $_SESSION['pseudonyme'] . '<span class="caret"></span><br></a>
 								          <ul class="dropdown-menu">
-								            <li><a href="profil.php">Mon Profil</a></li>
+								            <li><a href="compte.php">Mon Compte</a></li>
 								            <li><a href="deconnexion.php">Deconnexion</a></li>
 								          </ul>
 					                  </li>';
