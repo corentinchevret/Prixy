@@ -1226,6 +1226,46 @@ INSERT INTO `session` (`id_session`, `date_debut_session`, `ref_form`) VALUES
 ('S015', '2016-09-08', 'B201'),
 ('S016', '2016-09-18', 'B201');
 
+
+# Ajout des nouvelles tables pour les inscriptions #
+
+#------------------------------------------------------------
+# Table: MEMBRE
+#------------------------------------------------------------
+
+CREATE TABLE MEMBRE(
+        id_membre               int (25) Auto_increment  NOT NULL ,
+        login                   Varchar (30) UNIQUE ,
+        password                Varchar (100) ,
+        nom                     Varchar (30) ,
+        prenom                  Varchar (30) ,
+        date_naissance          Date ,
+        email                   Varchar (50) ,
+        tel                     Varchar(15),
+        sexe                    boolean,
+        adr                     Varchar (50) ,
+        cp                      Varchar (10) ,
+        ville                   Varchar (50) ,
+        date_inscription        Date ,
+        PRIMARY KEY (id_membre )
+)ENGINE=InnoDB;
+
+#------------------------------------------------------------
+# Table: INSCRIRE
+#------------------------------------------------------------
+
+CREATE TABLE INSCRIRE(
+        etat_inscription    INT(2) ,
+        session_inscription Varchar (25) ,
+        id_membre           Varchar (25) NOT NULL ,
+        ref_form            Varchar (4) NOT NULL ,
+        PRIMARY KEY (id_membre ,ref_form )
+)ENGINE=InnoDB;
+
+
+ALTER TABLE INSCRIRE ADD CONSTRAINT FK_INSCRIRE_id_membre FOREIGN KEY (id_membre) REFERENCES MEMBRE(id_membre);
+ALTER TABLE INSCRIRE ADD CONSTRAINT FK_INSCRIRE_ref_form_insc FOREIGN KEY (ref_form) REFERENCES FORMATION(ref_form);
+
 --
 -- Index pour les tables exportées
 --

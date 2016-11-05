@@ -93,11 +93,19 @@ CREATE TABLE PROG_SOUS_ETAPE(
 #------------------------------------------------------------
 
 CREATE TABLE MEMBRE(
-        id_membre      Varchar (25) NOT NULL ,
-        nom_membre     Varchar (25) NOT NULL ,
-        prenom_membre  Varchar (25) NOT NULL ,
-        tel_membre     Varchar (25) NOT NULL ,
-        adresse_membre Varchar (50) NOT NULL ,
+        id_membre               int (25) Auto_increment  NOT NULL ,
+        login                   Varchar (25) UNIQUE ,
+        password                Varchar (25) ,
+        nom                     Varchar (25) ,
+        prenom                  Varchar (25) ,
+        date_naissance          Date ,
+        email                   Varchar (25) ,
+        tel                     Varchar(15),
+        sexe                    bool,
+        adr                     Varchar (25) ,
+        cp                      Varchar (10) ,
+        ville                   Varchar (25) ,
+        date_inscription        Date ,
         PRIMARY KEY (id_membre )
 )ENGINE=InnoDB;
 
