@@ -108,7 +108,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             
-            <div class = "container-fluid">
+            <div id="nosFormations" class = "container-fluid">
 
 				<!-- DIV OU IL Y AURA LES BOUTONS POUR LE FILTRAGE -->
 				

@@ -751,7 +751,7 @@ border-radius:20px;
  width: 900px; /* <-- Largeur de votre site */
  }
 
-a p {
+#nosFormations a p {
 	opacity: 0;
 }
 
@@ -1530,4 +1530,34 @@ html { height: 100%;}
 
 .jumbotron h1 {
 	font-size: 2.5em;
+}
+
+#compte div[class="col-lg-4"] a {
+	color:inherit;
+	-webkit-transition: all 0.1s ease-in;
+	-moz-transition: all 0.1s ease-in;
+	-ms-transition: all 0.1s ease-in;
+	-o-transition: all 0.1s ease-in;
+	transition: all 0.1s ease-in;
+}
+
+#compte div[class="col-lg-4"] a:hover {
+	color:#eee;
+	background-color: #444;
+}
+
+#compte .jumbotron {
+	-webkit-transition: all 0.1s ease-in;
+	-moz-transition: all 0.1s ease-in;
+	-ms-transition: all 0.1s ease-in;
+	-o-transition: all 0.1s ease-in;
+	transition: all 0.1s ease-in;
+}
+
+#compte a:hover .jumbotron {
+	background-color: inherit;
+}
+
+#compte img {
+	width:100vw;
 }
