@@ -1,18 +1,23 @@
 		<div role = "pied de page">
-			<?php $page = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>
+			<?php 
+				$pagePost = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+				$page = "footer";
+				$str = array();
+		 		$str = return_str($language, $page);
+			 ?>
 			<footer class="footer text-center" role ="pied de page">
 				<div class="navbar navbar-blue" role="navigation" style="padding:0px">
 				<div id="centrerNav">
 					<div class="col-lg-4 col-md-2 col-xs-2">
-						<form action="<?php echo $page ?>" method="post">
+						<form action="<?php echo $pagePost ?>" method="post">
 							<button type="submit" id="langue" name="langue" value="fr-FR" class="pull-right"><h4 class="flag-icon flag-icon-fr"></h4></button> 
 						</form>
 					</div>
 					<ul class="nav navbar-nav col-lg-4 col-md-8 col-xs-8" style="margin:0px;">
-						<li class="col-xs-12"><a href="mentions.php"><i class="fa fa-gavel" aria-hidden="true"></i> Mentions légales</a></li>
+						<li class="col-xs-12"><a href="mentions.php"><i class="fa fa-gavel" aria-hidden="true"></i> <?php echo $str["1"] ?></a></li>
 					</ul>
 					<div class="col-lg-4 col-md-2 col-xs-2">
-						<form action="<?php echo $page ?>" method="post">
+						<form action="<?php echo $pagePost ?>" method="post">
 							<button type="submit" id="langue" name="langue" value="en-EN"><h4 class="flag-icon flag-icon-gb"></h4></button> 
 							<!--<button type="submit" id="langue" name="langue" value="en-EN"><h4 class="flag-icon flag-icon-gb"></h4></button> 
 							<button type="submit" id="langue" name="langue" value="it-IT"><h4 class="flag-icon flag-icon-it"></h4></button>
@@ -33,7 +38,7 @@
 		                </div>
 		            </form>
 				<div>-->
-				<h4>Pour nous suivre sur internet voici quelques liens, n'hésitez pas !</h4>
+				<h4><?php echo $str["2"] ?></h4>
 				<a href="https://www.youtube.com/watch?v=MYZ67-Sh7kM" target="_blank" class="btn azm-social azm-btn azm-pill azm-shadow-bottom azm-youtube"><i class="fa fa-youtube"></i> YouTube</a>			
 				<a href="#" class="btn azm-social azm-btn azm-pill azm-shadow-bottom azm-facebook"><i class="fa fa-facebook"></i> Facebook</a>
 				<a href="#" class="btn azm-social azm-btn azm-pill azm-shadow-bottom azm-twitter"><i class="fa fa-twitter"></i> Twitter</a>
@@ -44,7 +49,7 @@
 				<div id = "copyright" class = "row">
 					<div class = "col-lg-10 col-lg-offset-1">
 						<hr>
-						<h4><i class="glyphicon glyphicon-copyright-mark"></i> Copyright - Droits de la création du site réservés à Corentin.C, Yohann et Marwane de la société Ella SIO.</h4>
+						<h4><i class="glyphicon glyphicon-copyright-mark"></i><?php echo $str["3"] ?></h4>
 					</div>						
 				</div>
 			</footer>

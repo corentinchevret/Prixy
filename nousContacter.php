@@ -1,20 +1,26 @@
 		<!-- BARRE DE NAVIGATION ET LES FONCTIONS PHP (pour les requêtes SQL surtout) -->
 
-			<?php session_start(); $titre = 'Prixy - Nous Contacter'; ?>				
-			<?php include('barnav.php'); ?>
-			<?php include("fonction.inc.php"); ?>
-						
+			<?php 
+			session_start(); include("fonction.inc.php");
+
+			$titre = 'Prixy - Nous Contacter'; include("barnav.php");
+
+			$page = "nousContacter";
+			$str = array();
+	 		$str = return_str($language, $page);
+
+	 		?>									
 			<script src='https://www.google.com/recaptcha/api.js'></script>
 
 			<div class = "row">
-				<h1><a href="nousContacter.php"><i class="glyphicon glyphicon-phone"></i> Nous Contacter</a></h1>
+				<h1><a href="nousContacter.php"><i class="glyphicon glyphicon-phone"></i> <?php echo $str["1"] ?></a></h1>
 
 				<!-- DIV QUI AFFICHE L'ADRESSE DE PRIXY -->
 
 				<div id = "adr" class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<article>
-						<h2>Adresse :</h2>
-						<p>Prixy, Inc.<br>40, Avenue des Sciences<br>69007 Lyon<br>Tel : 04.72.23.50.00<br>Email : communication@prixy.fr<br></p>
+						<h2><?php echo $str["2"] ?> :</h2>
+						<p>Prixy, Inc.<br>40, Avenue des Sciences<br>69007 Lyon<br><?php echo $str["3"] ?> : 04.72.23.50.00<br><?php echo $str["4"] ?> : communication@prixy.com<br></p>
 					</article>
 				</div>
 
@@ -28,26 +34,26 @@
 			</div>
 			<div class = "container-fluid">
 				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-				<h3 class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 ">Si vous souhaitez nous contacter, envoyez-nous par mail votre question !</h3> 
+				<h3 class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 bold"><?php echo $str["5"] ?></h3> 
 				<form class="form-horizontal" role="form" method="post" action="nousContacter.php">
 				    <div class="form-group">
 
 				    	<!-- ZONE DE SAISIE DE L'EMAIL -->
 
 				        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-				        	<div class="input-group">
+				        	<div class="input-group bold">
 						        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-				            	<input type="email" class="form-control" id="email" name="email" placeholder="exemple@domaine.com" value="<?php echo $garder_email; ?>">
+				            	<input type="email" class="form-control" id="email" name="email" placeholder="<?php echo $str["6"] ?>" value="<?php echo $garder_email; ?>">
 				            </div>
 				        </div>
 				        <?php echo $errEmail; ?> <!-- MESSAGE ERREUR SI ZONE VIDE -->
 				    </div>			    
-				    <div class="form-group">
+				    <div class="form-group bold">
 
 				    	<!-- ZONE DE TEXTE DU MESSAGE -->
 
 				        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-				            <textarea class="form-control" rows="4" name="message" placeholder="Posez-nous votre question..."><?php echo $garder_message; ?></textarea>
+				            <textarea class="form-control" rows="4" name="message" placeholder="<?php echo $str["7"] ?>"><?php echo $garder_message; ?></textarea>
 				        </div>
 				        <?php echo $errMessage; ?> <!-- MESSAGE ERREUR SI ZONE VIDE -->
 				    </div>			    
@@ -65,7 +71,7 @@
 				    	<!-- BOUTON DE VALIDATION POUR ENVOYER L'EMAIL -->
 
 				        <div class="col-lg-6 col-lg-offset-3">
-				            <input id="submit" name="submit" type="submit" value="Envoyer" class="btn btn-primary">
+				            <input id="submit" name="submit" type="submit" value="<?php echo $str["8"] ?>" class="bold form-control">
 				        </div>						
 				    </div>
 		   			<?php echo $result; ?> <!-- MESSAGE INFORMANT LA RÉUSSITE OU L'ÉCHEC DE L'ENVOIE DU MESSAGE -->

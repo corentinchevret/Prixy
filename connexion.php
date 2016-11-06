@@ -62,18 +62,22 @@
 		}*/		
 	}
 
-	include("barnav.php");	 
+	include("barnav.php");	
+
+	$page = "connexion";
+	$str = array();
+ 	$str = return_str($language, $page); 
 ?>
 		<div class="container plein contenu text-center">
-			<br><h1><br><br><a href="nousContacter.php"><i class="glyphicon glyphicon-log-in"></i> Interface de Connexion</a></h1><br>
+			<br><h1><br><br><a href="nousContacter.php"><i class="glyphicon glyphicon-log-in"></i> <?php echo $str["1"] ?></a></h1><br>
 			<form method = "post">
 
 				<!-- zone de texte pour le login -->
 				<div class="row">
 					<div class="col-xs-12 col-md-push-3  col-lg-6 col-lg-push-3">
-			        	<div class="input-group">
+			        	<div class="input-group bold">
 					        <span class="input-group-addon" id="basic-addon3"><i class="fa fa-user fa-fw"></i></span>
-					    	<input type="text" class="form-control" name = "login" maxlength = "25" value = "<?php if(isset($_COOKIE['pseudo'])) echo $_COOKIE['pseudo']?>" placeholder = "Renseignez votre identifiant de connexion" required = "required">
+					    	<input type="text" class="form-control" name = "login" maxlength = "25" value = "<?php if(isset($_COOKIE['pseudo'])) echo $_COOKIE['pseudo']?>" placeholder = "<?php echo $str["2"] ?>" required = "required">
 			            </div><br>
 			        </div>
 		        </div>
@@ -81,9 +85,9 @@
 				<!-- zone de texte pour le mot de passe -->
 				<div class="row">
 					<div class="col-xs-12 col-lg-6 col-lg-push-3 col-md-push-3">
-			        	<div class="input-group">
+			        	<div class="input-group bold">
 					        <span class="input-group-addon" id="basic-addon3"><i class="fa fa-key fa-fw"></i></span>
-			  				<input type="password" class="form-control" name = "mdp" maxlength = "25" value = "<?php if(isset($_COOKIE['pass'])) echo $_COOKIE['pass']?>" placeholder = "Renseignez votre mot de passe" required = "required">				  
+			  				<input type="password" class="form-control" name = "mdp" maxlength = "25" value = "<?php if(isset($_COOKIE['pass'])) echo $_COOKIE['pass']?>" placeholder = "<?php echo $str["3"] ?>" required = "required">				  
 			            </div><br>
 			        </div>
 			    </div>
@@ -96,21 +100,21 @@
 						<label class="custom-control custom-checkbox">
 						  <input type="checkbox" name = "cookie" value="" type="checkbox" class="custom-control-input" checked>
 						  <span class="custom-control-indicator"></span>
-						  <span class="custom-control-description">Connexion auto ?</span>
+						  <span class="custom-control-description"><?php echo $str["4"] ?></span>
 						</label>				
 					</div>
 				</div>
 
 				<div class="alert alert-info col-lg-10 col-lg-push-1 col-md-12 col-sm-12 col-xs-12">
-				  <strong>Information !</strong><br />En cochant la case ci-dessus, vous acceptez que nous utilisions vos informations pour vous connecter avec des cookies.
+				  <strong>Information !</strong><br /><?php echo $str["5"] ?>
 				</div>
 
 				<!-- ligne + bouton valider-->
 				<div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"><hr></div>
-				<div class="col-lg-12"><div class = "col-lg-2 col-lg-offset-5 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3"><input type="submit" class="form-control bold" name = "validerConnexion" value = "Se Connecter"></div></div>
+				<div class="col-lg-12"><div class = "col-lg-2 col-lg-offset-5 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3"><input type="submit" class="form-control bold" name = "validerConnexion" value = "<?php echo $str["6"] ?>"></div></div>
 				
 				<!-- lien vers l'inscription et l'oubli de mot de passe -->												
-				<div class = "col-lg-6 col-lg-push-1 col-sm-6 col-md-6 col-xs-6 text-left"><br><br><a href="inscription.php"><span class="bold"><i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire ?</span></a></div><div class = "col-lg-5 col-md-6 col-sm-6 col-xs-6 text-right"><br><br><a href="mdpPerdu.php?t=0"><span class="bold"><i class="fa fa-key" aria-hidden="true"></i> Mot de passe oublié ?</span></a><br></div>
+				<div class = "col-lg-6 col-lg-push-1 col-sm-6 col-md-6 col-xs-6 text-left"><br><br><a href="inscription.php"><span class="bold"><i class="fa fa-user-plus" aria-hidden="true"></i> <?php echo $str["7"] ?></span></a></div><div class = "col-lg-5 col-md-6 col-sm-6 col-xs-6 text-right"><br><br><a href="mdpPerdu.php?t=0"><span class="bold"><i class="fa fa-key" aria-hidden="true"></i> <?php echo $str["8"] ?></span></a><br></div>
 				<div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12"><p><br><br></p></div>
 			</form>
 		</div>

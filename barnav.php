@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title><?php echo $titre; $page = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?></title>
+		<title><?php echo $titre;?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    
 	    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 	</head>
 		<body>
 			<script type="text/javascript" src="bootstrap/js/fonctions.js"></script>
-
+			
 			<div id="top" role = "navigation">
 				<nav class="navbar navbar-blue navbar-fixed col-lg-12" role ="navigation" style="padding:0px">
 			        <!-- logo Prixy et bouton hamburger pour la version Mobile -->
@@ -32,14 +32,17 @@
 			            </button>
 
 						<?php
+							$page = "nav";
+							$str = array();
+					 		$str = return_str($language, $page);
 							// Si le membre ne veut pas de cookies, on va chercher le login dans la $_SESSION du membre et l'affiche à la place de Connexion
 							// Le bouton du login sera un menu déroulant oû l'on pourra accéder au profil ou se déconnecter 
 							if(isset($_SESSION['pseudonyme']))
 							{
 								echo '<button type="button" class="nav profil-center hidden-sm hidden-md hidden-lg bold" data-toggle="dropdown" style="margin:0;"><h5 style="color:white">' . $_SESSION['pseudonyme'] . '<span class="caret"></span></h5></button>
 							          <ul class="dropdown-menu pull-right">
-							            <li><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> Mon Compte</a></li>
-							            <li><a href="deconnexion.php"><i class="fa fa-times" aria-hidden="true"></i> Deconnexion</a></li>
+							            <li><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> '.$str["7"].'</a></li>
+							            <li><a href="deconnexion.php"><i class="fa fa-times" aria-hidden="true"></i> '.$str["8"].'</a></li>
 							          </ul>';
 							}
 							// Sinon le membre n'est pas connecté et le bouton Connexion apparait
@@ -56,11 +59,11 @@
 				        	<img id="prixy" src="images/prixy.png" class="hidden-xs" alt="Logo Prixy">
 			    		</a> 
 			            <ul class="nav navbar-nav">
-					  		<li class="active"><a href="index.php"><i class="glyphicon glyphicon-home"></i> Accueil</a></li>
-					  		<li><a href="nousConnaitre.php"><i class="glyphicon glyphicon-eye-open"></i> Nous connaître</a></li>
-					  		<li><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i> Nos Formations</a></li>
-					  		<li><a href="nosAtouts.php"><i class="glyphicon glyphicon-plus-sign"></i> Nos Atouts</a></li>  
-					  		<li><a href="nousContacter.php"><i class="glyphicon glyphicon-phone"></i> Nous Contacter</a></li>
+					  		<li class="active"><a href="index.php"><i class="glyphicon glyphicon-home"></i> <?php echo $str["1"] ?></a></li>
+					  		<li><a href="nousConnaitre.php"><i class="glyphicon glyphicon-eye-open"></i> <?php echo $str["2"] ?></a></li>
+					  		<li><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i> <?php echo $str["3"] ?></a></li>
+					  		<li><a href="nosAtouts.php"><i class="glyphicon glyphicon-plus-sign"></i> <?php echo $str["4"] ?></a></li>  
+					  		<li><a href="nousContacter.php"><i class="glyphicon glyphicon-phone"></i> <?php echo $str["5"] ?></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right hidden-xs">							
 						<?php
@@ -73,15 +76,15 @@
 									  <li class="dropdown blanc">		
 					                	  <a class = "" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  ' . $_SESSION['pseudonyme'] . '<span class="caret"></span><br></a>
 								          <ul class="dropdown-menu">
-								            <li><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> Mon Compte</a></li>
-								            <li><a href="deconnexion.php"><i class="fa fa-times" aria-hidden="true"></i> Deconnexion</a></li>
+								            <li><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> '.$str["7"].'</a></li>
+								            <li><a href="deconnexion.php"><i class="fa fa-times" aria-hidden="true"></i> '.$str["8"].'</a></li>
 								          </ul>
 					                  </li>';
 							}
 							// Sinon le membre n'est pas connecté et le bouton Connexion apparait
 							else
 							{
-								echo '<li><a href="connexion.php"><i class="glyphicon glyphicon-log-in"></i> Connexion</a></li>';
+								echo '<li><a href="connexion.php"><i class="glyphicon glyphicon-log-in"></i> '.$str["6"].'</a></li>';
 							}
 						?>				
 						</ul>

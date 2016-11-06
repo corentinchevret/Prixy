@@ -1,15 +1,26 @@
-		<?php session_start(); $titre = 'Prixy - Mon Compte'; include("barnav.php"); ?>		
+		<?php 
+		session_start(); include("fonction.inc.php");
+
+		$titre = 'Prixy - Mon Compte'; include("barnav.php");		
+
+		$page = "compte";
+		$str = array();
+ 		$str = return_str($language, $page);
+
+ 		?>
+
+
 			<div id="compte" class="container-fluid">
 				<div class="row">
-					<h1><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> Mon Compte</a></h1><br>
+					<h1><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> <?php echo $str["1"] ?></a></h1><br>
 				</div>
 
 				<div class="col-lg-4">
 					<a href="profil.php">
 						<div class="jumbotron jumbotron-fluid col-lg-12">
 						  <div class="container">
-						    <h1><i class="fa fa-id-card-o" aria-hidden="true"></i> Mon Profil</h1>
-						    <p class="lead text-justify">Vous pouvez voir et modifer toutes les informations que vous avez renseigné lors de l'inscription.</p>
+						    <h1><i class="fa fa-id-card-o" aria-hidden="true"></i> <?php echo $str["2"] ?></h1>
+						    <p class="lead text-justify"><?php echo $str["3"] ?></p>
 						  </div>
 						</div>
 					</a>
@@ -18,8 +29,8 @@
 					<a href="inscFormations.php">
 						<div class="jumbotron jumbotron-fluid col-lg-12">
 						  <div class="container">
-						    <h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Mes Inscriptions</h1>
-						    <p class="lead text-justify">Vous pouvez voir l'état et l'avancement de toutes vos demandes d'inscription à une formation Prixy.</p>
+						    <h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["4"] ?></h1>
+						    <p class="lead text-justify"><?php echo $str["5"] ?></p>
 						  </div>
 						</div>
 					</a>
@@ -28,8 +39,8 @@
 					<a href="eFormations.php">
 						<div class="jumbotron jumbotron-fluid col-lg-12">
 						  <div class="container">
-						    <h1><i class="fa fa-laptop" aria-hidden="true"></i> Mes eFormations</h1>
-						    <p class="lead text-justify">Vous pouvez acceder à tous vos eFormations (payées) pour faire une formation Prixy depuis chez vous !</p>
+						    <h1><i class="fa fa-laptop" aria-hidden="true"></i> <?php echo $str["6"] ?></h1>
+						    <p class="lead text-justify"><?php echo $str["7"] ?></p>
 						  </div>
 						</div>
 					</a>

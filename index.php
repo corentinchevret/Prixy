@@ -1,6 +1,22 @@
-		<?php session_start(); $titre = 'Prixy - Accueil'; include("barnav.php");?>		
-		
+		<?php 
+		session_start(); include("fonction.inc.php");	
 
+		$language = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 5); 
+		if(isset($_POST['langue'])) {
+			$expire = 365*24*3600;		
+			setcookie('langue',$_POST['langue'],time()+$expire);
+			header("location: http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+			exit;
+		}
+		$language = $_COOKIE['langue'];
+
+		$titre = 'Prixy - Accueil'; include("barnav.php");
+
+		$page = "accueil";
+		$str = array();
+ 		$str = return_str($language, $page);
+
+		?>				
 		<div id="home" class="container-fluid"><br><br class="hidden-xs hidden-sm hidden-md"><br class="hidden-xs hidden-sm hidden-md">
 			
 			<div align="center">
@@ -11,18 +27,14 @@
 				      <img src="images/prixy.png"></div>
 				    </div>
 				  </div>
-				<div class="txt_welcome">BIENVENUE</div>
+				<div class="txt_welcome"><?php echo $str[1] ?></div>
 			</div><br><br>
 			<div class="col-lg-8 col-lg-offset-2 col-xs-12 home-box">
-				<h1><br>Formations Professionnelles</h1>
+				<h1><br><?php echo $str[2] ?></h1><br>
 				<p>
-					Prixy est une société proposant des formations sur mesure à destination des professionnelles.<br><br>
-
-					Avec plus de 200 formations proposés, nous avons récemment rajouter une rubrique <strong>« Nos Formation »</strong> à notre menu de navigation.<br><br>
-					
-					Cette rubrique intégré par la société EllaSIO permettra désormais de visualiser notre catalogue de formation en ligne.<br><br>
+					<?php echo $str[3] ?>
 				</p>
-				<a href="nosFormations.php"><button>En savoir plus ...</button></a>
+				<a href="nosFormations.php"><button><?php echo $str[4] ?></button></a>
 			</div>
 			<div class="col-xs-12"><br></div>
 		</div>

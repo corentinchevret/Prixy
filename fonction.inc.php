@@ -1,6 +1,18 @@
 <?php include("db.inc.php");?>
 <?php
-	
+	// Détermine la page active, et la langue pour l'i18n
+	$pageActive = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+
+	$language = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 5); 
+	if(isset($_POST['langue'])) {
+		$expire = 365*24*3600;		
+		setcookie('langue',$_POST['langue'],time()+$expire);
+		header("location: $pageActive");
+		exit;
+	}
+	$language = $_COOKIE['langue'];
+
+	// Fuseau horaire pour le format des dates
 	date_default_timezone_set( 'Europe/Paris' );
 
 	/* Vérifcation des infos et du captcha quand on appuie pour envoyer le mail */
@@ -438,4 +450,22 @@
 	        		         FROM MEMBRE WHERE id_membre = '" . $_SESSION['id'] ."';";
 		$infos_membre = execSQL_fetchall($req_infos_membre);
 	}
+
+	// I18n du site => fonction qui renvoie un tableau de string en fonction de la langue et de la page spécifié en paramètre
+ 	
+ 	function return_str($lang, $page)
+	{
+		$sql = array();
+	 	$sql = execSQL_fetchall("SELECT data, id_data FROM STRING WHERE nom_langue = '$lang' AND page='$page' ORDER BY cast(id_data as unsigned)");
+
+	 	$str = array();
+
+	 	foreach ($sql as $v) 
+	 	{
+	 		$str[intval($v[1])] = $v[0];
+	 	}
+	 	
+	 	return $str;
+	}
+
  ?>
