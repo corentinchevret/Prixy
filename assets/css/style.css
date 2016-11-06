@@ -443,18 +443,30 @@ only screen and (                min-resolution: 2dppx) {
   color: #fff;
   border-bottom: 2px solid transparent;
 }
-.navbar-blue .navbar-nav > li > a:hover,
-.navbar-blue .navbar-nav > li > a:focus {
+#top .navbar-blue .navbar-nav > li > a:hover,
+#top .navbar-blue .navbar-nav > li > a:focus {
   color: #fff;
   background-color: #346FA1;
   border-bottom: 2px solid #fff;
+}
+footer .navbar-blue .navbar-nav > li > a:hover,
+footer .navbar-blue .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: #346FA1;
+  border-top: 2px solid #fff;
 }
 .navbar-blue .navbar-nav > .active > a{
   color: #fff;
   background-color: #5496cf;
 }
-.navbar-blue .navbar-nav > .active > a:hover,
-.navbar-blue .navbar-nav > .active > a:focus {
+#top .navbar-blue .navbar-nav > .active > a:hover,
+#top .navbar-blue .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #346FA1;
+  border-bottom: 2px solid #fff;
+}
+footer .navbar-blue .navbar-nav > .active > a:hover,
+footer .navbar-blue .navbar-nav > .active > a:focus {
   color: #fff;
   background-color: #346FA1;
   border-bottom: 2px solid #fff;
@@ -553,12 +565,30 @@ li {
   position: relative;
   bottom:0;
   /* Set the fixed height of the footer here */
-  background-color: #346FA1;
+  background-color: #428bca;
   padding: 0 20px;
   margin:0;
   border-radius: 4px 4px 0 0;
 }
+#copyright {
+  position: relative;
+  background-color: #428bca;
+  border-radius: 0 0 4px 4px;
+  padding:-10px;
+}
 
+footer button:first-child{
+	float:right;
+}
+
+footer button:last-child{
+	float:left;
+}
+
+footer button{
+	border:none;
+	background-color: transparent;
+}
 
 /*-------NOUS CONTACTER------*/
 
@@ -574,12 +604,6 @@ li {
 }
 #submit {
   margin-top: 10px;
-}
-#copyright {
-  position: relative;
-  background-color: #346FA1;
-  border-radius: 0 0 4px 4px;
-  padding:-10px;
 }
 div textarea{
   margin-top: 10px;
@@ -1590,3 +1614,30 @@ html { height: 100%;}
 .green-input input {
     border-color: green !important;
 }
+
+/* Internationalisation i18n */
+
+#btn-lang select{
+	/*margin-top: 10px;
+	padding:15px;*/
+	border:none;
+	color: white;
+	border-radius: 0px;
+	/*text-decoration: none;*/
+	background-color: transparent;
+	height:54px;
+	-o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+}
+
+#btn-lang select:hover{
+	background-color: #346FA1;
+}
+
+#btn-lang:hover select{
+	border-bottom:2px solid white;
+}
+

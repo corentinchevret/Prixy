@@ -1,12 +1,13 @@
 <html>
 	<head>
-		<title><?php echo $titre;?></title>
+		<title><?php echo $titre; $page = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    
 	    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	    <link href="bootstrap/bootstrap4/dist/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  	
 	    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	    <link rel="stylesheet" href="assets/flag-icon/css/flag-icon.css">
 	    <link rel="stylesheet" href="assets/css/style.css">
 	    <link rel="icon" type="image/png" href="images/iconePrixy.png" />
 
@@ -63,6 +64,7 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right hidden-xs">							
 						<?php
+						
 							// Si le membre ne veut pas de cookies, on va chercher le login dans la $_SESSION du membre et l'affiche à la place de Connexion
 							// Le bouton du login sera un menu déroulant oû l'on pourra accéder au profil ou se déconnecter 
 							if(isset($_SESSION['pseudonyme']))
@@ -96,3 +98,11 @@
 				</nav>
 			</div>
 
+<script type="text/javascript">
+	$( "button" ).click(function() {	  
+	  alert($(this).attr("value"));
+	  $("a > h5").removeClass();
+	  $("a > h5").addClass($(this).children("h5").attr("class"));
+	  $("#btn-lang span:nth-child(2)").text($(this).text());
+	});
+</script>

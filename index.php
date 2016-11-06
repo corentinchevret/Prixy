@@ -13,7 +13,6 @@
 				  </div>
 				<div class="txt_welcome">BIENVENUE</div>
 			</div><br><br>
-
 			<div class="col-lg-8 col-lg-offset-2 col-xs-12 home-box">
 				<h1><br>Formations Professionnelles</h1>
 				<p>

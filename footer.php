@@ -1,5 +1,26 @@
 		<div role = "pied de page">
-			<footer class=" row footer block" role ="pied de page">
+			<?php $page = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>
+			<footer class="footer text-center" role ="pied de page">
+				<div class="navbar navbar-blue" role="navigation" style="padding:0px">
+				<div id="centrerNav">
+					<div class="col-lg-4 col-md-2 col-xs-2">
+						<form action="<?php echo $page ?>" method="post">
+							<button type="submit" id="langue" name="langue" value="fr-FR" class="pull-right"><h4 class="flag-icon flag-icon-fr"></h4></button> 
+						</form>
+					</div>
+					<ul class="nav navbar-nav col-lg-4 col-md-8 col-xs-8" style="margin:0px;">
+						<li class="col-xs-12"><a href="mentions.php"><i class="fa fa-gavel" aria-hidden="true"></i> Mentions légales</a></li>
+					</ul>
+					<div class="col-lg-4 col-md-2 col-xs-2">
+						<form action="<?php echo $page ?>" method="post">
+							<button type="submit" id="langue" name="langue" value="en-EN"><h4 class="flag-icon flag-icon-gb"></h4></button> 
+							<!--<button type="submit" id="langue" name="langue" value="en-EN"><h4 class="flag-icon flag-icon-gb"></h4></button> 
+							<button type="submit" id="langue" name="langue" value="it-IT"><h4 class="flag-icon flag-icon-it"></h4></button>
+							<button type="submit" id="langue" name="langue" value="es-ES"><h4 class="flag-icon flag-icon-es"></h4></button>-->
+						</form>
+					</div>
+				</div>				
+			</div>
 				<!--<div class = "hidden-lg hidden-md">
 					<form class="navbar-form navbar-right" role="search">
 		                <div class="input-group">
