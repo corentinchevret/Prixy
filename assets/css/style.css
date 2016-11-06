@@ -1524,9 +1524,13 @@ html { height: 100%;}
 	color: #444 !important;
 }
 
+/* Page inscription */
+
 #insc .input-group-addon, #mdp .input-group-addon {
 	padding-bottom: 4px;
 }
+
+/* Page compte */
 
 .jumbotron h1 {
 	font-size: 2.5em;
@@ -1560,4 +1564,29 @@ html { height: 100%;}
 
 #compte img {
 	width:100vw;
+}
+
+/* Page Profil */
+
+.input-disabled fieldset input {
+    border:none;
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+.input-disabled td input {
+    border:none;
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+
+.red-input input {
+    border-color: red !important;
+}
+
+.green-input input {
+    border-color: green !important;
 }

@@ -1,4 +1,4 @@
-	<?php session_start(); ?>
+	<?php session_start();?>
 	<link rel="icon" type="image/png" href="images/iconePrixy.png" />
 
 	<!-- BARRE DE NAVIGATION ET LES FONCTIONS PHP (pour les requêtes SQL surtout) -->

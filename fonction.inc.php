@@ -430,4 +430,12 @@
 	        echo '<script type="text/javascript"> alert("Votre inscription a bien été prise en compte ! \nVous allez être redirigé vers la page de connexion !"); document.location.href="connexion.php"; </script>';   
     	}
     }
+
+    // Requête qui récupère tout les infos du client si il est connecté
+    if(isset($_SESSION['id']))
+    {
+	    $req_infos_membre = "SELECT nom, prenom, date_naissance, sexe, adr, cp, ville, tel, tel_mobile, login, password, email, date_inscription
+	        		         FROM MEMBRE WHERE id_membre = '" . $_SESSION['id'] ."';";
+		$infos_membre = execSQL_fetchall($req_infos_membre);
+	}
  ?>
