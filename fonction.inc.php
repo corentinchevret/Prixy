@@ -387,9 +387,9 @@
 	// Verifie en instantanné dans la bdd si le pseudo est dispo ou non
 	if(!empty($_POST["username"])) {
 		if(execSQL_fetchall("SELECT * FROM MEMBRE WHERE login='" . $_POST["username"] . "'")) {
-		    echo "<span class='status-not-available text-danger'> Mot de passe déjà pris !</span>";
+		    echo "<span class='status-not-available text-danger'> Login déjà pris !</span>";
 		}else{
-		    echo "<span class='status-available text-success'> Mot de passe libre :)</span>";
+		    echo "<span class='status-available text-success'> Login libre :)</span>";
 		}
 	}
 

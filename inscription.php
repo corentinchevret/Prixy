@@ -1,8 +1,6 @@
-		<?php $titre = 'Prixy - Inscription'; include("barnav.php"); include("fonction.inc.php") ?>		
+		<?php $titre = 'Prixy - Inscription'; include("fonction.inc.php"); include("barnav.php"); ?>		
 
 		<script>
-			function hideLoad() {     
-			    			 }
 
 			function checkAvailability() {
 				$("#user-availability-status").delay(5000).hide();

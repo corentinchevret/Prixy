@@ -1,4 +1,4 @@
-<?php $titre = "Mot de passe oublié"; include("barnav.php"); include('fonction.inc.php');
+<?php $titre = "Mot de passe oublié"; include('fonction.inc.php'); include("barnav.php");
 
 $message = "";
 
@@ -20,7 +20,7 @@ if($_GET['t'] == 0)
 			require('phpmailer/class.phpmailer.php'); 
 		    require("phpmailer/class.smtp.php");
 		    require 'phpmailer/PHPMailerAutoload.php';
-
+                                                                                                                                                                                                              
 		    ini_set("smtp_port", SMTP_PORT);
 		    //ini_set("sendmail_from", "test@orange.fr" );
 		    //ini_set("SMTP", "ssl://smtp.free.fr");
