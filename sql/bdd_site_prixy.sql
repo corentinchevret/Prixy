@@ -176,6 +176,25 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('9', 'fr-FR', "Confirmer mdp", "mdpPerdu"),
 ('10', 'fr-FR', "Confirmer le nouveau mdp", "mdpPerdu"),
 
+('1', 'fr-FR', "Notre Equipe", "atouts"),
+('2', 'fr-FR', "Depuis 2013, notre équipe accompagne les entreprises dans leurs 
+démarches de formation. L'adaptabilité et la qualité des solutions
+proposées sont l'accomplissement de la recherche menée par les deux
+associés, <span style='color:#ff1919; font-weight:bold;'>S. Millot</span> et <span style='color:#b7b700; font-weight:bold;'>C. Joubert</span>.", "atouts"),
+('3', 'fr-FR', "<span style='color:#ff1919; font-weight:bold;'>S. Millot</span>, co-fondateur de l'entreprise et consultant depuis plus de dix ans dans le secteur de
+la formation industrielle. Il assure les stages de formation et les évaluations. Il est également chargé de la gestion
+de la relation client.", "atouts"),
+('4', 'fr-FR', "<span style='color:#b7b700; font-weight:bold;'>C. Joubert</span>, co-fondateur de l'entreprise et expert-formateur spécialisé dans
+la formation aux technologies de l’information et de la
+communication. Il assure avec <span style='color:#ff1919; font-weight:bold;'>S. Millot</span> les stages de formation et les évaluations.", "atouts"),
+('5', 'fr-FR', "<span style='color:#ff69b4; font-weight:bold;'>L.Schmitt</span>, assistante de gestion, s'occupe de la gestion administrative, des inscriptions et est chargée d'accueil.", "atouts"),
+('6', 'fr-FR', "Nos Equipements", "atouts"),
+('7', 'fr-FR', "Nous mettons également à votre disposition le meilleur équipement pour la meilleure formation possible.", "atouts"),
+('8', 'fr-FR', "Deux salles informatiques <strong>« Jaspe »</strong> et <strong>« Opale »</strong> équipées chacune de <b>15 postes</b> de type PC 
+pour les apprenants plus un poste dédié au formateur relié à un système de vidéo-projection interactif.", "atouts"),
+('9', 'fr-FR', "Une nouvelle salle nommée <strong>« Beryl »</strong> dédiée aux formations plus théoriques. Elle est dotée d’un PC et d’un système 
+de vidéo-projection interactif et peut accueillir jusqu’à <b>30 participants</b>.", "atouts"),
+
 
 # EN
 INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
@@ -314,6 +333,23 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('9', 'en-EN', "Confirm pass", "mdpPerdu"),
 ('10', 'en-EN', "Confirm new password ", "mdpPerdu"),
 
+('1', 'en-EN', "Our Team", "atouts"),
+('2', 'en-EN', "Since 2013, Our team supports companies in their
+training approaches. Adaptability and quality solutions
+Proposed are the fulfillment of the research conducted by two
+Related, <span style='color:#ff1919; font-weight:bold;'>S. Millot</span> and <span style='color:#b7b700; font-weight:bold;'>C. Joubert</span>.", "atouts"),
+('3', 'en-EN', "<span style='color:#ff1919; font-weight:bold;'>S. Millot</span>, co-founder of the company and consultant for over ten years in the industry
+industrial training. It provides training courses and assessments. It is also responsible for managing
+customer relationship.", "atouts"),
+('4', 'en-EN', "<span style='color:#b7b700; font-weight:bold;'>C. Joubert</span>, co-founder of the company and specialized expert-trainer
+training in information technology and
+communication. He provides with <span style='color:#ff1919; font-weight:bold;'>S. Millot</span> training courses and assessments.", "atouts"),
+('5', 'en-EN', "<span style='color:#ff69b4; font-weight:bold;'>L.Schmitt</span>, management assistant, takes care of the administrative, enrollment and is responsible for reception.", "atouts"),
+('6', 'en-EN', "Our Equipments", "atouts"),
+('7', 'en-EN', "We also offer you the best equipment for the best possible training.", "atouts"),
+('8', 'en-EN', "Two computer rooms <strong>« Jaspe »</strong> and <strong>« Opale »</strong> each equipped with <b>15 PC-type positions</b> for learners plus a dedicated trainer position connected to an interactive video projection system.", "atouts"),
+('9', 'en-EN', "A new room named <strong>« Beryl »</strong> dedicated to more theoretical training. It is equipped with a PC and a system
+interactive video projection and can accommodate up <b>30 participants</b>.", "atouts"),
 
 --
 -- Structure de la table `appartenir`
