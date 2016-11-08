@@ -1,4 +1,5 @@
 	<?php session_start();?>
+	<?php include("fonction.inc.php");?>
 	<link rel="icon" type="image/png" href="images/iconePrixy.png" />
 
 	<!-- BARRE DE NAVIGATION ET LES FONCTIONS PHP (pour les requêtes SQL surtout) -->
@@ -9,12 +10,11 @@
 
         <?php $titre = 'Prixy - Nos Formations'; ?>
         <?php include("barnav.php"); ?>
-        <?php include("fonction.inc.php");?>
 
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation"  style="padding:0px">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand text-center">
-                    <h2 style="color:#ddd; border-bottom:5px solid #ddd; padding:30px;"><i class = "glyphicon glyphicon-cog"></i> Filtre</h2>
+                    <h2 style="color:#ddd; border-bottom:5px solid #ddd; padding:30px;"><i class = "glyphicon glyphicon-cog"></i> Filtres</h2>
                 </li>
                 	<div class = "col-xs-12"><br><br>
 						<form role="form" method="post" action="nosFormations.php">
