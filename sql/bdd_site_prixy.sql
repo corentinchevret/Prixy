@@ -164,7 +164,17 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('26', 'fr-FR', "Confirmer mdp", "insc"),
 ('27', 'fr-FR', "Confirmer votre mot de passe ici.", "insc"),
 ('28', 'fr-FR', "Valider", "insc"),
-('29', 'fr-FR', "Valider", "insc"),
+('29', 'fr-FR', "Le mot de passe requiert : 8 caractères min., 1 majuscule min., une minuscule min. et un nombre :)", "insc"),
+('1', 'fr-FR', "Demande de réinitialisation de mot de passe", "mdpPerdu"),
+('2', 'fr-FR', "Adresse mail", "mdpPerdu"),
+('3', 'fr-FR', "Renseignez votre adresse de connexion", "mdpPerdu"),
+('4', 'fr-FR', "Valider", "mdpPerdu"),
+('5', 'fr-FR', "Retour", "mdpPerdu"),
+('6', 'fr-FR', "Mot de passe *", "mdpPerdu"),
+('7', 'fr-FR', "Choissiez votre nouveau mdp", "mdpPerdu"),
+('8', 'fr-FR', "* Au moins 8 caractères avec au moins une majuscule, une minuscule et un nombre", "mdpPerdu"),
+('9', 'fr-FR', "Confirmer mdp", "mdpPerdu"),
+('10', 'fr-FR', "Confirmer le nouveau mdp", "mdpPerdu"),
 
 
 # EN
@@ -293,7 +303,16 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('27', 'en-EN', "Confirm your pass here.", "insc"),
 ('28', 'en-EN', "Validate", "insc"),
 ('29', 'en-EN', "The password requires 8 characters min. : 1 uppercase min., 1 lowcase min. and 1 number :)", "insc"),
-
+('1', 'en-EN', "Password reset request", "mdpPerdu"),
+('2', 'en-EN', "E-mail", "mdpPerdu"),
+('3', 'en-EN', "Enter your connection E-mail", "mdpPerdu"),
+('4', 'en-EN', "Validate", "mdpPerdu"),
+('5', 'en-EN', "Cancel", "mdpPerdu"),
+('6', 'en-EN', "Password *", "mdpPerdu"),
+('7', 'en-EN', "Choose a new password", "mdpPerdu"),
+('8', 'en-EN', "* At least 8 characters with at least one uppercase, one lowercase and one number", "mdpPerdu"),
+('9', 'en-EN', "Confirm pass", "mdpPerdu"),
+('10', 'en-EN', "Confirm new password ", "mdpPerdu"),
 
 
 --

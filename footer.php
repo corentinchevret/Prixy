@@ -1,6 +1,6 @@
 		<div role = "pied de page">
 			<?php 
-				$pagePost = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+				$pagePost = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 				$page = "footer";
 				$str = array();
 		 		$str = return_str($language, $page);

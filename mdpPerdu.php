@@ -1,4 +1,13 @@
-<?php $titre = "Mot de passe oublié"; include('fonction.inc.php'); include("barnav.php");
+<?php
+include('fonction.inc.php'); 
+
+//var_dump($_SERVER);
+
+$titre = "Mot de passe oublié";  include("barnav.php");
+
+$page = "mdpPerdu";
+$str = array();
+$str = return_str($language, $page);
 
 $message = "";
 
@@ -62,16 +71,16 @@ if($_GET['t'] == 0)
 			
 			
 	echo'<div id="mdp" class="container plein contenu text-center">';
-		echo"<h1><br><br><a href='#'><i class='fa fa-key' aria-hidden='true'></i> Demande de réinitialisation de mot de passe</h1></a><br>";
+		echo"<h1><br><br><a href='#'><i class='fa fa-key' aria-hidden='true'></i> ".$str["1"]."</h1></a><br>";
 
 		// formulaire d'inscription
-		echo'<form method = "post">';
+		echo'<form method = "post" class="bold">';
 			// Zone de texte pour le mail, l'adresse, le cp et la ville
 			echo'<div class="row">';	
 				echo'<div class="col-xs-12 col-md-push-3  col-lg-6 col-lg-push-3">';		
 					echo'<div class="input-group">';
-					  echo'<span class="input-group-addon" id="basic-addon3">Adresse mail</span>';
-					  echo'<input type="email" class="form-control" name = "mail" maxlength = "100" placeholder = "Veuillez insérer votre adresse mail de connexion" required = "required">';
+					  echo'<span class="input-group-addon bold" id="basic-addon3">'.$str["2"].'</span>';
+					  echo'<input type="email" class="form-control" name = "mail" maxlength = "100" placeholder = "'.$str["3"].'" required = "required">';
 					echo'</div><br>';
 				echo'</div>';
 			echo'</div>';
@@ -81,12 +90,12 @@ if($_GET['t'] == 0)
 
 			echo'<div class="row">';	
 				echo'<div class="col-xs-6 col-lg-3 col-lg-push-3">';
-					echo'<input type="submit" name = "validerDemande" class="form-control">';
+					echo'<input type="submit" name = "validerDemande" class="form-control" value="'.$str["4"].'">';
 				echo'</div> ';
 	    echo'</form>';
 	
 			echo'<div class = "col-xs-6 col-lg-3 col-lg-push-3" style="margin-bottom:20px; bottom:30px;"><br>';
-				echo'<a style = " text-decoration:none;" href = "connexion.php"><button class = "form-control">Retour</button></a>';
+				echo'<a style = " text-decoration:none;" href = "connexion.php"><button class = "form-control">'.$str["5"].'</button></a>';
 			echo'</div>';
 		echo'</div>';
 	echo'</div>';
@@ -116,18 +125,18 @@ if($_GET['t'] == 1)
         }
 	}
 	echo'<div id="mdp" class="container text-center">';
-		echo"<h1><br><br><a href='#'><i class='fa fa-key' aria-hidden='true'></i> Demande de réinitialisation de mot de passe</h1></a><br>";
+		echo"<h1><br><br><a href='#'><i class='fa fa-key' aria-hidden='true'></i> ".$str["1"]."</h1></a><br>";
 
 		// formulaire d'inscription
-		echo'<form method = "post">';
+		echo'<form method = "post" class="bold">';
 			// Zone de texte pour le mail, l'adresse, le cp et la ville
 			echo'<div class="row">';	
 				echo'<div class="col-xs-12 col-md-push-3  col-lg-6 col-lg-push-3">';	
 					echo'<div class="input-group">';
-					  echo'<span class="input-group-addon">Mot de passe *</span>';
-					  echo'<input type="password" class="form-control" name = "mdp" maxlength = "25" pattern="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" title = "Le mot de passe requiert 8 caractères min., 1 majuscule min., une minuscule min. et un nombre :)" placeholder = "Veuillez insérer votre mot de passe de connexion ici." required = "required">';
+					  echo'<span class="input-group-addon bold">'.$str["6"].'</span>';
+					  echo'<input type="password" class="form-control" name = "mdp" maxlength = "25" pattern="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" title = "Le mot de passe requiert 8 caractères min., 1 majuscule min., une minuscule min. et un nombre :)" placeholder = "'.$str["7"].'" required = "required">';
 					echo'</div>';
-					echo'<p class = "row col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">* Au moins 8 caractères avec au moins une majuscule, une minuscule et un nombre</p>';
+					echo'<p class = "row col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">'.$str["8"].'</p>';
 					echo'<br>';
 				echo'</div>';
 			echo'</div>';
@@ -135,8 +144,8 @@ if($_GET['t'] == 1)
 			echo'<div class="row">';	
 				echo'<div class="col-xs-12 col-md-push-3  col-lg-6 col-lg-push-3">';	
 				  echo'<div class="input-group">';			  
-					  echo'<span class="input-group-addon">Confirmer MdP</span>';
-					  echo'<input type="password" class="form-control" name = "conf_mdp" maxlength = "25" pattern="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" title = "Le mot de passe requiert 8 caractères min., 1 majuscule min., une minuscule min. et un nombre :)" placeholder = "Confirmer votre mot de passe." required = "required">';
+					  echo'<span class="input-group-addon bold">'.$str["9"].'</span>';
+					  echo'<input type="password" class="form-control" name = "conf_mdp" maxlength = "25" pattern="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" title = "Le mot de passe requiert 8 caractères min., 1 majuscule min., une minuscule min. et un nombre :)" placeholder = "'.$str["10"].'" required = "required">';
 				  echo'</div>';
 				echo'</div>';
 				echo $errMdp;
@@ -144,7 +153,7 @@ if($_GET['t'] == 1)
 			
 			echo'<div class="row">';	
 				echo'<div class="col-xs-12 col-sm-12 col-md-2 col-md-push-5 col-lg-2 col-lg-push-5">';
-					echo'<br><input type="submit" name = "validerDemande" class="form-control"><br>';
+					echo'<br><input type="submit" name = "validerDemande" class="form-control" value="'.$str["4"].'"><br>';
 			    echo'</div> ';
 		    echo'</div>';
 	        echo'</form>';

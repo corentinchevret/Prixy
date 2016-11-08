@@ -1,4 +1,9 @@
-		<?php session_start(); $titre = 'Prixy - Notre Equipe'; include("barnav.php"); ?>		
+		<?php 
+		session_start(); include("fonction.inc.php");
+
+		$titre = 'Prixy - Notre Equipe'; include("barnav.php"); 
+
+		?>		
 			<div class="container">
 				<div class="row">
 					<h1><a href="nosAtouts.php"><i class="glyphicon glyphicon-user"></i> Notre Equipe</a></h1>

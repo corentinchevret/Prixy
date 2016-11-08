@@ -19,7 +19,7 @@
 
 				<div id = "adr" class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<article>
-						<h2><?php echo $str["2"] ?> :</h2>
+						<h2><?php echo $str["2"] ?></h2>
 						<p>Prixy, Inc.<br>40, Avenue des Sciences<br>69007 Lyon<br><?php echo $str["3"] ?> : 04.72.23.50.00<br><?php echo $str["4"] ?> : communication@prixy.com<br></p>
 					</article>
 				</div>

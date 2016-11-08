@@ -1,7 +1,7 @@
 <?php include("db.inc.php");?>
 <?php
 	// Détermine la page active, et la langue pour l'i18n
-	$pageActive = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; 
+	$pageActive = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; // REQUEST_URI très important sinon pas $_GET dans l'URL
 
 	if(isset($_POST['langue'])) {
 		$expire = 365*24*3600;		
@@ -21,13 +21,8 @@
 	}
 	else
 		$language = $_COOKIE['langue'];	
-
-		/*$_SESSION["language"] = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 5);
-		$language = $_SESSION["language"];*/
 	
-
 	
-
 	// Fuseau horaire pour le format des dates
 	date_default_timezone_set( 'Europe/Paris' );
 
