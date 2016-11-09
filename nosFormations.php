@@ -1,5 +1,15 @@
 	<?php session_start();?>
-	<?php include("fonction.inc.php");?>
+	<?php 
+	include("fonction.inc.php");
+
+    $titre = 'Prixy - Nos Formations'; include("barnav.php"); 
+
+    $page = "nosFormations";
+	$str = array();
+	$str = return_str($language, $page);
+
+    ?>
+
 	<link rel="icon" type="image/png" href="images/iconePrixy.png" />
 
 	<!-- BARRE DE NAVIGATION ET LES FONCTIONS PHP (pour les requêtes SQL surtout) -->
@@ -8,13 +18,10 @@
   
         <!-- Sidebar -->
 
-        <?php $titre = 'Prixy - Nos Formations'; ?>
-        <?php include("barnav.php"); ?>
-
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation"  style="padding:0px">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand text-center">
-                    <h2 style="color:#ddd; border-bottom:5px solid #ddd; padding:30px;"><i class = "glyphicon glyphicon-cog"></i> Filtres</h2>
+                    <h2 style="color:#ddd; border-bottom:5px solid #ddd; padding:30px;"><i class = "glyphicon glyphicon-cog"></i> <?php echo $str["2"] ?></h2>
                 </li>
                 	<div class = "col-xs-12"><br><br>
 						<form role="form" method="post" action="nosFormations.php">
@@ -118,8 +125,8 @@
 		    			<span class="hamb-middle"></span>
 						<span class="hamb-bottom"></span>
 		            </button>
-					<h2 class="hamburger-text">Filtres</h2>
-					<h1><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i> Nos Formations</a></h1>
+					<h2 class="hamburger-text"> <?php echo $str["2"] ?></h2>
+					<h1><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i>  <?php echo $str["1"] ?></a></h1>
 				</div>
 	            
 	            <!-- Flèche qui permet de remonter en haut de la page -->

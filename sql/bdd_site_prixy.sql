@@ -41,6 +41,7 @@ CREATE TABLE STRING(
 
 # FR
 INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
+# navbar
 ('1', 'fr-FR', "Accueil", "nav"),
 ('2', 'fr-FR', "Nous Connaître", "nav"),
 ('3', 'fr-FR', "Nos Formations", "nav"),
@@ -49,15 +50,18 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('6', 'fr-FR', "Connexion", "nav"),
 ('7', 'fr-FR', "Mon Compte", "nav"),
 ('8', 'fr-FR', "Déconnexion", "nav"),
+# footer
 ('1', 'fr-FR', "Mentions légales", "footer"),
 ('2', 'fr-FR', "Pour nous suivre sur internet voici quelques liens, n'hésitez pas !", "footer"),
 ('3', 'fr-FR', " Copyright - Droits de la création du site réservés à Corentin.C, Yohann et Marwane de la société Ella SIO.", "footer"),
+# accueil
 ('1', 'fr-FR', "Bienvenue", "accueil"),
 ('2', 'fr-FR', "Formations Professionnelles", "accueil"),
 ('3', 'fr-FR', "Prixy est une société proposant des formations sur mesure à destination des professionnelles.<br><br>
                 Avec plus de 200 formations proposés, nous avons récemment rajouter une rubrique <strong>« Nos Formation »</strong> à notre menu de navigation.<br><br>
                 Cette rubrique intégré par la société EllaSIO permettra désormais de visualiser notre catalogue de formation en ligne.<br><br>", "accueil"),
 ('4', 'fr-FR', "En savoir plus...", "accueil"),
+# nousConnaitre
 ('1', 'fr-FR', "La Société", "nousConnaitre"),
 ('2', 'fr-FR', 'Créée fin 2013 par deux associés, <span style="color:#ff1919; font-weight:bold;">S. Millot</span> et <span style="color:#b7b700; font-weight:bold;">C. Joubert</span> et implantée à Lyon, la société PRIXY s\'occupe du marché de la formation à destination des professionnels. PRIXY s’adresse principalement aux petites et moyennes entreprises ainsi qu’aux collectivités ; elle accompagne ses clients dans la définition et la mise en oeuvre de solutions de formation. En 2015, PRIXY a assuré la montée en compétences de près de <b>2 500 collaborateurs</b> des secteurs privés et publics, pour un chiffre d’affaires de <b>950 000 €</b>.', "nousConnaitre"),
 ('3', 'fr-FR', "Nos Prestations", "nousConnaitre"),
@@ -71,6 +75,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('8', 'fr-FR', "Organisation", "nousConnaitre"),
 ('9', 'fr-FR', "Les formations durent de <b>2 à 5 jours.</b><br><br>
                 Les stages se déroulent de <b>9h00 à 17h30</b> garantissant 7 heures de formation par jour. Ces horaires <b>peuvent être adaptés</b> le dernier jour en fonction des impératifs des participants (train, avion). Le premier jour, les participants sont accueillis à partir de 8h45, la présentation de la session ayant lieu de 9h15 à 9h30.<br><br>", "nousConnaitre"),
+# nousContacter
 ('1', 'fr-FR', "Nous Contacter", "nousContacter"),
 ('2', 'fr-FR', "Adresse", "nousContacter"),
 ('3', 'fr-FR', "Tel", "nousContacter"),
@@ -79,6 +84,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('6', 'fr-FR', "exemple@domaine.com", "nousContacter"),
 ('7', 'fr-FR', "Posez-nous votre question...", "nousContacter"),
 ('8', 'fr-FR', "Envoyer", "nousContacter"),
+# connexion
 ('1', 'fr-FR', "Interface de connexion", "connexion"),
 ('2', 'fr-FR', "Renseignez votre identifiant", "connexion"),
 ('3', 'fr-FR', "Renseignez votre mot de passe", "connexion"),
@@ -87,6 +93,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('6', 'fr-FR', "Se connecter", "connexion"),
 ('7', 'fr-FR', "S'inscrire ?", "connexion"),
 ('8', 'fr-FR', "Mot de passe oublié ?", "connexion"),
+# compte
 ('1', 'fr-FR', "Mon Compte", "compte"),
 ('2', 'fr-FR', "Mon Profil", "compte"),
 ('3', 'fr-FR', "Vous pouvez voir et modifer toutes les informations que vous avez renseigné lors de l'inscription.", "compte"),
@@ -94,6 +101,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('5', 'fr-FR', "Vous pouvez voir l'état et l'avancement de toutes vos demandes d'inscription à une formation Prixy.", "compte"),
 ('6', 'fr-FR', "Mes eFormations", "compte"),
 ('7', 'fr-FR', "Vous pouvez acceder à tous vos eFormations (payées) pour faire une formation Prixy depuis chez vous !", "compte"),
+# profil
 ('1', 'fr-FR', "Mon Profil", "profil"),
 ('2', 'fr-FR', "Mes infos perso", "profil"),
 ('3', 'fr-FR', "Mes infos Prixy", "profil"),
@@ -112,6 +120,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('16', 'fr-FR', "Ancienneté", "profil"),
 ('17', 'fr-FR', "Chez Prixy depuis le", "profil"),
 ('18', 'fr-FR', "Modifier", "profil"),
+# modifProfil
 ('1', 'fr-FR', "Modification du Profil", "modifProfil"),
 ('2', 'fr-FR', "Mes infos perso", "modifProfil"),
 ('3', 'fr-FR', "Mes infos Prixy", "modifProfil"),
@@ -136,6 +145,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('22', 'fr-FR', "Chez Prixy depuis le", "modifProfil"),
 ('23', 'fr-FR', "Valider", "modifProfil"),
 ('24', 'fr-FR', "Retour", "modifProfil"),
+# inscription
 ('1', 'fr-FR', "Formulaire d'inscription", "insc"),
 ('2', 'fr-FR', "Nom", "insc"),
 ('3', 'fr-FR', "Exemple : Bono", "insc"),
@@ -165,6 +175,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('27', 'fr-FR', "Confirmer votre mot de passe ici.", "insc"),
 ('28', 'fr-FR', "Valider", "insc"),
 ('29', 'fr-FR', "Le mot de passe requiert : 8 caractères min., 1 majuscule min., une minuscule min. et un nombre :)", "insc"),
+# mdpPerdu
 ('1', 'fr-FR', "Demande de réinitialisation de mot de passe", "mdpPerdu"),
 ('2', 'fr-FR', "Adresse mail", "mdpPerdu"),
 ('3', 'fr-FR', "Renseignez votre adresse de connexion", "mdpPerdu"),
@@ -175,7 +186,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('8', 'fr-FR', "* Au moins 8 caractères avec au moins une majuscule, une minuscule et un nombre", "mdpPerdu"),
 ('9', 'fr-FR', "Confirmer mdp", "mdpPerdu"),
 ('10', 'fr-FR', "Confirmer le nouveau mdp", "mdpPerdu"),
-
+# nosAtouts
 ('1', 'fr-FR', "Notre Equipe", "atouts"),
 ('2', 'fr-FR', "Depuis 2013, notre équipe accompagne les entreprises dans leurs 
 démarches de formation. L'adaptabilité et la qualité des solutions
@@ -198,6 +209,7 @@ de vidéo-projection interactif et peut accueillir jusqu’à <b>30 participants
 
 # EN
 INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
+# navbar
 ('1', 'en-EN', "Home", "nav"),
 ('2', 'en-EN', "Know us", "nav"),
 ('3', 'en-EN', "Our Training", "nav"),
@@ -206,28 +218,31 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('6', 'en-EN', "Connection", "nav"),
 ('7', 'en-EN', "My Account", "nav"),
 ('8', 'en-EN', "Log out", "nav"),
+# footer
 ('1', 'en-EN', "Legal Notices", "footer"),
 ('2', 'en-EN', "Pour nous suivre sur internet voici quelques liens, don't hesitate !", "footer"),
 ('3', 'en-EN', "Copyright - Rights of the creation of the site reserved for Corentin.C, Yohann and Marwan of Ella SIO company.", "footer"),
+# accueil
 ('1', 'en-EN', "Welcome", "accueil"),
 ('2', 'en-EN', "Professional training", "accueil"),
 ('3', 'en-EN', 'Prixy is a company offering customized training to professional.<br><br>
                 With over 200 courses on offer, we have recently added a section on <strong>"Our Training"</strong> to our navigation menu.<br><br>
                 This section built by EllaSIO company now will see our online training catalog.<br><br>', "accueil"),
 ('4', 'en-EN', 'More here...', "accueil"),
+# nousConnaitre
 ('1', 'en-EN', "The Company", "nousConnaitre"),
-('2', 'en-EN', 'Founded in late 2013 by two partners, <span style = "color: # ff1919; font-weight: bold;"> S. Millot </ span> and <span style = "color: # b7b700; font-weight: bold;"> C. Joubert </ span> and based in Lyon, the company PRIXY occupies market training for professionals. PRIXY is intended primarily for small and medium businesses and communities; it supports its clients in the definition and implementation of training solutions. In 2015, PRIXY assured the skills rise near <b> 2500 employees </ b> private and public sectors, for a turnover of <b> € 950,000 </ b>.', "nousConnaitre"),
+('2', 'en-EN', 'Founded in late 2013 by two partners, <span style = "color: #ff1919; font-weight: bold;"> S. Millot </span> and <span style = "color: #b7b700; font-weight: bold;"> C. Joubert </span> and based in Lyon, the company PRIXY occupies market training for professionals. PRIXY is intended primarily for small and medium businesses and communities; it supports its clients in the definition and implementation of training solutions. In 2015, PRIXY assured the skills rise near <b> 2500 employees </b> private and public sectors, for a turnover of <b> € 950,000 </b>.', "nousConnaitre"),
 ('3', 'en-EN', "Our services", "nousConnaitre"),
 ('4', 'en-EN', 'Training "catalog"', "nousConnaitre"),
 ('5', 'en-EN', 'Organized in the premises of PRIXY according to a predefined schedule, <b> the training catalog </b> (also called multi-employer) together participants from companies and from different backgrounds. <br><br>
-                PRIXY offers its customers a catalog of about <b> 200 trainings </b> in fields as diverse as office, multimedia, CAD / CAM, the ERP, project management, management of team .... the catalog of training is designed to meet the most varied requirements and is updated and enriched experience feedback. The catalog also offers training "certifying". Each of these courses has been designed to enable participants to prepare for obtaining the <b> certification </ b> associated. The passage of the certification is included in the time of training. <br><br>
+                PRIXY offers its customers a catalog of about <b> 200 trainings </b> in fields as diverse as office, multimedia, CAD / CAM, the ERP, project management, management of team .... the catalog of training is designed to meet the most varied requirements and is updated and enriched experience feedback. The catalog also offers training "certifying". Each of these courses has been designed to enable participants to prepare for obtaining the <b> certification </b> associated. The passage of the certification is included in the time of training. <br><br>
                 To participate in a training catalog, <b> registration is required. </b> <br><br class="hidden-lg">', "nousConnaitre"),
 ('6', 'en-EN', 'Training "custom"', "nousConnaitre"),
-('7', 'en-EN', "To answer a need for specific training, PRIXY <b> organize a framing service </ b> to set his client specific content and propose a detailed program taking into account the context of the project, the learner profile, availability ... <br><br>
-                The customized training is <b> client exclusively for company employees </ b>; it takes place in the premises of PRIXY in several sessions if necessary. <br><br>", "nousConnaitre"),
+('7', 'en-EN', "To answer a need for specific training, PRIXY <b> organize a framing service </b> to set his client specific content and propose a detailed program taking into account the context of the project, the learner profile, availability ... <br><br>
+                The customized training is <b> client exclusively for company employees </b>; it takes place in the premises of PRIXY in several sessions if necessary. <br><br>", "nousConnaitre"),
 ('8', 'en-EN', 'Organization', "nousConnaitre"),
-('9', 'en-EN', "The courses last from <b> 2 to 5 days. </ b> <br><br>
-                The internships take place <b> 9:00 a.m. to 5:30 p.m. </ b> ensures 7 hours of training per day. These schedules <b> can be adapted </ b> on the last day according to the requirements of participants (train, plane). The first day, participants were welcomed at 8:45 am, the presentation of the session taking place from 9:15 am to 9:30 am. <br><br>", "nousConnaitre"),
+('9', 'en-EN', "The courses last from <b> 2 to 5 days. </b> <br><br>
+                The internships take place <b> 9:00 a.m. to 5:30 p.m. </b> ensures 7 hours of training per day. These schedules <b> can be adapted </b> on the last day according to the requirements of participants (train, plane). The first day, participants were welcomed at 8:45 am, the presentation of the session taking place from 9:15 am to 9:30 am. <br><br>", "nousConnaitre"),
 ('1', 'en-EN', "Contact us", "nousContacter"),
 ('2', 'en-EN', "Address :", "nousContacter"),
 ('3', 'en-EN', "Phone", "nousContacter"),
@@ -236,6 +251,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('6', 'en-EN', "email@example.com", "nousContacter"),
 ('7', 'en-EN', "Ask your question...", "nousContacter"),
 ('8', 'en-EN', "Send", "nousContacter"),
+# connexion
 ('1', 'en-EN', "Connection Interface", "connexion"),
 ('2', 'en-EN', "Enter your username", "connexion"),
 ('3', 'en-EN', "Enter your password", "connexion"),
@@ -244,6 +260,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('6', 'en-EN', "Log in", "connexion"),
 ('7', 'en-EN', "Subscribe ?", "connexion"),
 ('8', 'en-EN', "Forgot your password ?", "connexion"),
+# compte
 ('1', 'en-EN', "My Account", "compte"),
 ('2', 'en-EN', "My Profile", "compte"),
 ('3', 'en-EN', "You can view and edit all the information you provided during registration.", "compte"),
@@ -251,6 +268,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('5', 'en-EN', "You can see the status and progress of all your applications to register for a training Prixy.", "compte"),
 ('6', 'en-EN', "My E-Trainings", "compte"),
 ('7', 'en-EN', "You can access all your training (paid) to a Prixy training from home!", "compte"),
+# profil
 ('1', 'en-EN', "My Profile", "profil"),
 ('2', 'en-EN', "My private infos", "profil"),
 ('3', 'en-EN', "My Prixy infos", "profil"),
@@ -269,6 +287,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('16', 'en-EN', "Seniority", "profil"),
 ('17', 'en-EN', "In Prixy since", "profil"),
 ('18', 'en-EN', "Modifier", "profil"),
+# modifProfil
 ('1', 'en-EN', "My Profile", "modifProfil"),
 ('2', 'en-EN', "My private infos", "modifProfil"),
 ('3', 'en-EN', "My Prixy infos", "modifProfil"),
@@ -293,6 +312,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('22', 'en-EN', "In Prixy", "modifProfil"),
 ('23', 'en-EN', "Validate", "modifProfil"),
 ('24', 'en-EN', "Cancel", "modifProfil"),
+# inscription
 ('1', 'en-EN', "Registration Form", "insc"),
 ('2', 'en-EN', "Surname", "insc"),
 ('3', 'en-EN', "Example : Norris", "insc"),
@@ -332,7 +352,6 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('8', 'en-EN', "* At least 8 characters with at least one uppercase, one lowercase and one number", "mdpPerdu"),
 ('9', 'en-EN', "Confirm pass", "mdpPerdu"),
 ('10', 'en-EN', "Confirm new password ", "mdpPerdu"),
-
 ('1', 'en-EN', "Our Team", "atouts"),
 ('2', 'en-EN', "Since 2013, Our team supports companies in their
 training approaches. Adaptability and quality solutions
