@@ -29,10 +29,10 @@
 						<!-- BOUTON DÉROULANT POUR SELECTIONNER UNE CATGORIE -->
 
 
-						<label for="categ"><h4>Catégories</h4></label>
+						<label for="categ"><h4><?php echo $str["3"] ?></h4></label>
 						<div class="form-group">
 						    <select class="form-control" name = "categ" id="categ">
-						  	<option value = "Toutes Catégories" <?php if($categ == "Toutes Catégories") echo"selected" ?>>Toutes Catégories</option>
+						  	<option value = "Toutes Catégories" <?php if($categ == "Toutes Catégories") echo"selected" ?>><?php echo $str["4"] ?></option>
 						  	<option value = "Systèmes d'exploitation" <?php if($categ == "Systèmes d'exploitation") echo"selected" ?>>Systèmes d'exploitation</option>
 						    <option value = "Bureautique" <?php if($categ == "Bureautique") echo"selected" ?>>Bureautique</option>
 						    <option value = "Langages de programmation" <?php if($categ == "Langages de programmation") echo"selected" ?>>Langages de programmation</option>
@@ -44,17 +44,17 @@
 
 						<!-- SLIDER POUR SELECTIONNER UNE FOURCHETTE DE PRIX -->
 	
-						<label for="tarif"><h4>Tarif</h4></label>
+						<label for="tarif"><h4><?php echo $str["5"] ?></h4></label>
 						<div class="form-group">
-							<span>De<input class = "tarif_min inputtarif" type="tel" name = "tarif_min"/>
-							à<input class = "tarif_max inputtarif" type="tel" name = "tarif_max"/>€</span>
+							<span><?php echo $str["6"] ?><input class = "tarif_min inputtarif" type="tel" name = "tarif_min"/>
+							<?php echo $str["7"] ?><input class = "tarif_max inputtarif" type="tel" name = "tarif_max"/>€</span>
 						    <!--<div id="bornes_tarif">De <span id="tarif_min" name = "min"></span> à <span id="tarif_max"></span> €</div>-->
 						    <div id="slider_tarif"></div>
 						</div>
 
 						<!-- ZONE DE SAISIE QUI AFFICHER UN CALENDRIER POUR SELECTIONNER UNE DATE -->
 
-						<label for="session"><h4>Session</h4></label>
+						<label for="session"><h4><?php echo $str["8"] ?></h4></label>
 						<div class="form-group">	
 							<div class='input-group date'>
 				                <input class="form-control" type="date" id="datepicker" name = "date" placeholder = "Toutes Dates" value = '<?php echo $garder_date ?>'>
@@ -64,30 +64,30 @@
 
 						<!-- SLIDER POUR SELECTIONNER UNE LA DURÉE DE LA FORMATION -->
 
-						<label for="duree"><h4>Durée</h4></label>
+						<label for="duree"><h4><?php echo $str["9"] ?></h4></label>
 						<div class="form-group">													
-							<span>De<input class = "duree_min inputduree" type="tel" name = "duree_min"/>
-							à<input class = "duree_max inputduree" type="tel" name = "duree_max"/>Jours</span>
+							<span><?php echo $str["6"] ?><input class = "duree_min inputduree" type="tel" name = "duree_min"/>
+							<?php echo $str["7"] ?><input class = "duree_max inputduree" type="tel" name = "duree_max"/>Jours</span>
 						    <!--<div><span id="duree">De <span class="duree_min"></span> à <span class="duree_max"></span> Jours</div>-->
 						    <div id="slider_duree"></div>
 						</div>
 
 						<!-- BOUTONS POUR SÉLECTIONNER "OUI" OU "NON" (OU RIEN CE QUI SIGNIFICATION AVEC ET SANS CERTIFICAT) -->
 
-						<label for="certif"><h4>Certification</h4></label>
+						<label for="certif"><h4><?php echo $str["10"] ?></h4></label>
 						<div class="form-group">						
 						    <div id="radio">			 
-							    <input type="checkbox" id="radio1" class = "options" name="certif" value = "oui" <?php if($certif == "oui") echo"checked" ?>><label for="radio1">Oui</label>
-							    <input type="checkbox" id="radio2" class = "options" name="certif" value = "non" <?php if($certif == "non") echo"checked" ?>><label for="radio2">Non</label>
+							    <input type="checkbox" id="radio1" class = "options" name="certif" value = "oui" <?php if($certif == "oui") echo"checked" ?>><label for="radio1"><?php echo $str["11"] ?></label>
+							    <input type="checkbox" id="radio2" class = "options" name="certif" value = "non" <?php if($certif == "non") echo"checked" ?>><label for="radio2"><?php echo $str["12"] ?></label>
 						    </div>
 						</div>
 
 						<!-- BOUTON DÉROULANT POUR SELECTIONNER LA DIFFICULTÉ DE LA FORMATION (TYPE DE PUBLIC) -->
 
-						<label for="public"><h4>Type public</h4></label>
+						<label for="public"><h4><?php echo $str["13"] ?></h4></label>
 						<div class="form-group">											    
 							<select class="form-control" name = "public" id="public">
-							  	<option value = "Tout Public" <?php if($public == "Tout Public") echo"selected" ?>>Tout Public</option>
+							  	<option value = "Tout Public" <?php if($public == "Tout Public") echo"selected" ?>><?php echo $str["14"] ?></option>
 							    <option value = "Débutant" <?php if($public == "Débutant") echo"selected" ?>>Débutant</option>
 							    <option value = "Amateur" <?php if($public == "Amateur") echo"selected" ?>>Amateur</option>
 							    <option value = "Pro" <?php if($public == "Pro") echo"selected" ?>>Pro</option>
@@ -99,13 +99,13 @@
 						<!-- BOUTON VALIDER POUR VALIDER LE FILTRAGE -->
 						
 				        <div class="col-xs-6">
-				            <input id="submit" name="valide" type="submit" value="Valider" class="btn btn-primary form-control"  style="margin:0px">
+				            <input id="submit" name="valide" type="submit" value="<?php echo $str["15"] ?>" class="btn btn-primary form-control"  style="margin:0px">
 				        </div>
 				        <br>
 					</form>
 						
 					<div class="col-xs-6">
-			            <button class="btn btn-primary form-control annule" data-toggle="offcanvas" style="margin-top:-44px; margin-left:130px">Annuler</button>
+			            <button class="btn btn-primary form-control annule" data-toggle="offcanvas" style="margin-top:-44px; margin-left:130px"><?php echo $str["16"] ?></button>
 			        </div>
 	            </div>
             </ul>

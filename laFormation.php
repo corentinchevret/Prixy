@@ -4,7 +4,13 @@
 <?php $objectifs = execSQL_fetchall("SELECT lib_objectif FROM formation F INNER JOIN objectif O ON F.ref_form = O.ref_form WHERE F.ref_form = '$ref_formation'"); ?>
 <?php $etape = execSQL_fetchall("SELECT lib_etape FROM formation F INNER JOIN prog_etape PE ON F.ref_form = PE.ref_form WHERE F.ref_form = '$ref_formation'");	?>		
 <?php $titre = 'Prixy - ' . $infos_formation[0][2]; ?>
-<?php include("barnav.php"); ?>
+<?php include("barnav.php"); 
+
+$page = "laFormation";
+$str = array();
+$str = return_str($language, $page);
+
+?>
 			<div class = "container-fluid">
 
 				<!-- LES 2 IMAGES + LE THEME ET LE TITRE + L'OBJECTIF, LES PRÉ-REQUIS ET LE PROGRAMME DÉTAILLÉ (treès compliqué)-->
@@ -13,16 +19,16 @@
 					<img class = "img1 align-center" src ='<?php echo $infos_formation[0][0] ?>'>
 					<img class = "img2 align-center" src ='<?php echo $infos_formation[0][0] ?>'>
 				</div>
-				<h1>THEME : <?php echo $infos_formation[0][1] ?></h1>
+				<h1><?php echo $str["1"] ?><?php echo $infos_formation[0][1] ?></h1>
 				<h1><a href = "laFormation.php?formation=<?php echo $infos_formation[0][3];?>"><i class="glyphicon glyphicon-file"></i> <?php echo $infos_formation[0][2] ?></a></h1>
 				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 				<div class = "col-lg-8 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-8 col-sm-offset-2">
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-screenshot"></i> OBJECTIFS DE LA FORMATION</h2><p class="text-left"><?php for($i = 0; $i < count($objectifs); $i++){ echo "- " . $objectifs[$i][0] . ".<br>"; }?>
+					<h2 class="text-left"><i class="glyphicon glyphicon-screenshot"></i> <?php echo $str["2"] ?></h2><p class="text-left"><?php for($i = 0; $i < count($objectifs); $i++){ echo "- " . $objectifs[$i][0] . ".<br>"; }?>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-backward"></i> PRÉ-REQUIS</h2><p class="text-left"><?php if($infos_formation[0][8] == null) {echo "Pas de pré-requis nécessaires";} else {echo $infos_formation[0][8] . ': "' . execSQL_fetchall("SELECT nom_from FROM formation F WHERE F.ref_form = '" . $infos_formation[0][8] . "'")[0][0] . '"';} ?></p>
+					<h2 class="text-left"><i class="glyphicon glyphicon-backward"></i> <?php echo $str["3"] ?></h2><p class="text-left"><?php if($infos_formation[0][8] == null) {echo "Pas de pré-requis nécessaires";} else {echo $infos_formation[0][8] . ': "' . execSQL_fetchall("SELECT nom_from FROM formation F WHERE F.ref_form = '" . $infos_formation[0][8] . "'")[0][0] . '"';} ?></p>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-list-alt"></i> PROGRAMME DÉTAILLÉ</h2>
+					<h2 class="text-left"><i class="glyphicon glyphicon-list-alt"></i> <?php echo $str["4"] ?></h2>
 					<p class="text-left">
 						<?php 
 
@@ -51,7 +57,7 @@
 				<div class = "row col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 hidden-lg hidden-md">				
 					<hr>
 					<br>
-					<h2>INFOS ET DATES IMPORTANTES : <h2>
+					<h2><?php echo $str["13"] ?><h2>
 					<br>
 				</div>
 
@@ -60,17 +66,17 @@
 
 				<div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12">
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-pushpin"></i> Ref. : <?php echo $infos_formation[0][3] ?></h2>
+					<h2 class="text-left"><i class="glyphicon glyphicon-pushpin"></i> <?php echo $str["5"] ?><?php echo $infos_formation[0][3] ?></h2>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-time"></i> Durée : <?php $s = ""; if($infos_formation[0][4] > 1) { $s = "s"; }echo $infos_formation[0][4] . " Jour$s (" .  6 * ($infos_formation[0][4]); ?>h)</h2>
+					<h2 class="text-left"><i class="glyphicon glyphicon-time"></i> <?php echo $str["6"] ?><?php echo $infos_formation[0][4] . " ".$str["7"]." (" .  6 * ($infos_formation[0][4]); ?>h)</h2>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-piggy-bank"></i> Tarif : <?php echo $infos_formation[0][5] ?> € HT</h2>
+					<h2 class="text-left"><i class="glyphicon glyphicon-piggy-bank"></i> <?php echo $str["8"] ?> <?php echo $infos_formation[0][5] ?> € <?php echo $str["9"] ?></h2>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-user"></i> Public</h2> <p class="text-left"><?php echo $infos_formation[0][6] ?></p>
+					<h2 class="text-left"><i class="glyphicon glyphicon-user"></i> <?php echo $str["10"] ?></h2> <p class="text-left"><?php echo $infos_formation[0][6] ?></p>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-education"></i> Certification</h2><p class="text-left"><?php echo $infos_formation[0][7] ?></p>
+					<h2 class="text-left"><i class="glyphicon glyphicon-education"></i> <?php echo $str["11"] ?></h2><p class="text-left"><?php echo $infos_formation[0][7] ?></p>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-calendar"></i> Dates des sessions</h2> <p class="text-left"><?php for($i = 0; $i < count($infos_formation); $i++){ echo date_format(date_create($infos_formation[$i][9]),"d/m/Y") . '<br>'; } ?> <br><br></p>
+					<h2 class="text-left"><i class="glyphicon glyphicon-calendar"></i> <?php echo $str["12"] ?></h2> <p class="text-left"><?php for($i = 0; $i < count($infos_formation); $i++){ echo date_format(date_create($infos_formation[$i][9]),"d/m/Y") . '<br>'; } ?> <br><br></p>
 				</div>
 				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 			</div>

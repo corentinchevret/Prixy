@@ -6,7 +6,6 @@
 -- Généré le :  Jeu 05 Mai 2016 à 08:20
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.4.31
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -205,6 +204,20 @@ communication. Il assure avec <span style='color:#ff1919; font-weight:bold;'>S. 
 pour les apprenants plus un poste dédié au formateur relié à un système de vidéo-projection interactif.", "atouts"),
 ('9', 'fr-FR', "Une nouvelle salle nommée <strong>« Beryl »</strong> dédiée aux formations plus théoriques. Elle est dotée d’un PC et d’un système 
 de vidéo-projection interactif et peut accueillir jusqu’à <b>30 participants</b>.", "atouts"),
+# laFormation
+('1', 'fr-FR', "THÈME : ", "laFormation"),
+('2', 'fr-FR', "OBJECTIFS DE LA FORMATION", "laFormation"),
+('3', 'fr-FR', "PRÉ-REQUIS", "laFormation"),
+('4', 'fr-FR', "PROGRAMME DÉTAILLÉ", "laFormation"),
+('5', 'fr-FR', "Ref.", "laFormation"),
+('6', 'fr-FR', "Durée : ", "laFormation"),
+('7', 'fr-FR', "Jour(s)", "laFormation"),
+('8', 'fr-FR', "Tarif : ", "laFormation"),
+('9', 'fr-FR', "HT", "laFormation"),
+('10', 'fr-FR', "Public", "laFormation"),
+('11', 'fr-FR', "Certification", "laFormation"),
+('12', 'fr-FR', "Dates de session", "laFormation"),
+('13', 'fr-FR', "INFOS ET DATES IMPORTANTES :", "laFormation"),
 
 
 # EN
@@ -369,6 +382,21 @@ communication. He provides with <span style='color:#ff1919; font-weight:bold;'>S
 ('8', 'en-EN', "Two computer rooms <strong>« Jaspe »</strong> and <strong>« Opale »</strong> each equipped with <b>15 PC-type positions</b> for learners plus a dedicated trainer position connected to an interactive video projection system.", "atouts"),
 ('9', 'en-EN', "A new room named <strong>« Beryl »</strong> dedicated to more theoretical training. It is equipped with a PC and a system
 interactive video projection and can accommodate up <b>30 participants</b>.", "atouts"),
+# laFormation
+('1', 'en-EN', "THEME : ", "laFormation"),
+('2', 'en-EN', "TRAINING GOALS", "laFormation"),
+('3', 'en-EN', "PREREQUISITES", "laFormation"),
+('4', 'en-EN', "DETAILED PROGRAM", "laFormation"),
+('5', 'en-EN', "Ref.", "laFormation"),
+('6', 'en-EN', "Duration : ", "laFormation"),
+('7', 'en-EN', "Day(s)", "laFormation"),
+('8', 'en-EN', "Price list : ", "laFormation"),
+('9', 'en-EN', "excl tax", "laFormation"),
+('10', 'en-EN', "Public", "laFormation"),
+('11', 'en-EN', "Certification", "laFormation"),
+('12', 'en-EN', "Session dates", "laFormation"),
+('13', 'en-EN', "INFORMATIONS AND IMPORTANT DATES :", "laFormation"),
+
 
 --
 -- Structure de la table `appartenir`
@@ -410,6 +438,7 @@ INSERT INTO `appartenir` (`ref_form`, `id_categ`) VALUES
 
 CREATE TABLE IF NOT EXISTS `categorie` (
   `id_categ` varchar(4) NOT NULL DEFAULT '',
+   nom_langue Varchar (25) NOT NULL,
   `nom_categ` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -433,6 +462,7 @@ INSERT INTO `categorie` (`id_categ`, `nom_categ`) VALUES
 
 CREATE TABLE IF NOT EXISTS `certification` (
   `id_certif` varchar(4) NOT NULL DEFAULT '',
+   nom_langue Varchar (25) NOT NULL,
   `lib_certif` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -489,6 +519,7 @@ INSERT INTO `delivrer` (`ref_form`, `id_certif`) VALUES
 
 CREATE TABLE IF NOT EXISTS `formation` (
   `ref_form` varchar(4) NOT NULL DEFAULT '',
+   nom_langue Varchar (25) NOT NULL,
   `nom_from` varchar(200) DEFAULT NULL,
   `tarif` float DEFAULT NULL,
   `duree_form` float DEFAULT NULL,
@@ -550,6 +581,7 @@ INSERT INTO `necessiter` (`ref_form`, `ref_form_FORMATION`) VALUES
 
 CREATE TABLE IF NOT EXISTS `objectif` (
   `id_objectif` varchar(5) NOT NULL DEFAULT '',
+   nom_langue Varchar (25) NOT NULL,
   `lib_objectif` varchar(180) DEFAULT NULL,
   `ref_form` varchar(4) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -640,6 +672,7 @@ INSERT INTO `objectif` (`id_objectif`, `lib_objectif`, `ref_form`) VALUES
 
 CREATE TABLE IF NOT EXISTS `prog_etape` (
   `id_etape` varchar(5) NOT NULL DEFAULT '',
+   nom_langue Varchar (25) NOT NULL,
   `lib_etape` varchar(100) DEFAULT NULL,
   `ref_form` varchar(4) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -845,6 +878,7 @@ INSERT INTO `prog_etape` (`id_etape`, `lib_etape`, `ref_form`) VALUES
 
 CREATE TABLE IF NOT EXISTS `prog_sous_etape` (
   `id_sous_etape` varchar(5) NOT NULL DEFAULT '',
+   nom_langue Varchar (25) NOT NULL,
   `lib_sous_etape` varchar(250) DEFAULT NULL,
   `id_etape` varchar(5) NOT NULL DEFAULT '',
   `ref_form` varchar(4) NOT NULL DEFAULT ''
@@ -1629,13 +1663,13 @@ ALTER TABLE `appartenir`
 -- Index pour la table `categorie`
 --
 ALTER TABLE `categorie`
- ADD PRIMARY KEY (`id_categ`);
+ ADD PRIMARY KEY (`id_categ`,nom_langue);
 
 --
 -- Index pour la table `certification`
 --
 ALTER TABLE `certification`
- ADD PRIMARY KEY (`id_certif`);
+ ADD PRIMARY KEY (`id_certif`,nom_langue);
 
 --
 -- Index pour la table `delivrer`
@@ -1647,7 +1681,7 @@ ALTER TABLE `delivrer`
 -- Index pour la table `formation`
 --
 ALTER TABLE `formation`
- ADD PRIMARY KEY (`ref_form`);
+ ADD PRIMARY KEY (`ref_form`,nom_langue);
 
 --
 -- Index pour la table `necessiter`
@@ -1659,19 +1693,19 @@ ALTER TABLE `necessiter`
 -- Index pour la table `objectif`
 --
 ALTER TABLE `objectif`
- ADD PRIMARY KEY (`id_objectif`,`ref_form`), ADD KEY `FK_OBJECTIF_ref_form` (`ref_form`);
+ ADD PRIMARY KEY (`id_objectif`,nom_langue,`ref_form`), ADD KEY `FK_OBJECTIF_ref_form` (`ref_form`);
 
 --
 -- Index pour la table `prog_etape`
 --
 ALTER TABLE `prog_etape`
- ADD PRIMARY KEY (`id_etape`,`ref_form`), ADD KEY `FK_PROG_ETAPE_ref_form` (`ref_form`);
+ ADD PRIMARY KEY (`id_etape`,nom_langue,`ref_form`), ADD KEY `FK_PROG_ETAPE_ref_form` (`ref_form`);
 
 --
 -- Index pour la table `prog_sous_etape`
 --
 ALTER TABLE `prog_sous_etape`
- ADD PRIMARY KEY (`id_sous_etape`,`id_etape`,`ref_form`), ADD KEY `FK_PROG_SOUS_ETAPE_id_etape` (`id_etape`), ADD KEY `FK_PROG_SOUS_ETAPE_ref_form` (`ref_form`);
+ ADD PRIMARY KEY (`id_sous_etape`,nom_langue,`id_etape`,`ref_form`), ADD KEY `FK_PROG_SOUS_ETAPE_id_etape` (`id_etape`), ADD KEY `FK_PROG_SOUS_ETAPE_ref_form` (`ref_form`);
 
 --
 -- Index pour la table `session`
