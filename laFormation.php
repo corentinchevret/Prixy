@@ -10,10 +10,18 @@ $page = "laFormation";
 $str = array();
 $str = return_str($language, $page);
 
+var_dump($_SESSION);
+
+if(isset($_POST["radio"]))
+{
+	echo $_POST["radio"];
+	execSQL_insert("INSERT INTO inscrire(ref_form, id_membre, session_inscription, etat_inscription)
+		VALUES('".$_GET["formation"]."', '".$_SESSION["id"]."', '".$_POST["radio"]."', 'en cours')");
+}
 ?>
 			<div class = "container-fluid">				
 
-				<!-- LES 2 IMAGES + LE THEME ET LE TITRE + L'OBJECTIF, LES PRÉ-REQUIS ET LE PROGRAMME DÉTAILLÉ (treès compliqué)-->
+				<!-- LES 2 IMAGES + LE THEME ET LE TITRE + L'OBJECTIF, LES PRÉ-REQUIS ET LE PROGRAMME DÉTAILLÉ (très compliqué)-->
 				
 				<div>
 					<img class = "img1 align-center" src ='<?php echo $infos_formation[0][0] ?>'>
@@ -94,29 +102,31 @@ $str = return_str($language, $page);
 
 			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 				  <div class="modal-dialog modal-lg">
-				    <div class="modal-content">
-				      <div class="modal-header">
-			            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			              <span aria-hidden="true">&times;</span>
-			            </button>
-			            <h4 class="modal-title" id="exampleModalLabel" style='color:inherit;'>Choissisez votre date de session</h4>
-			          </div>
-				      <div class="modal-body">
-				      <?php 
-					    for($i = 0; $i < count($infos_formation); $i++){ 
-					    	echo'<label class="custom-control custom-radio">
-								<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'">
-								<span class="custom-control-indicator"></span>
-								<span class="custom-control-description bold">'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'</span>
-							</label><br>'; 
-					    } 
-				      ?>
-				      </div>
-				      <div class="modal-footer">		          
-			            <button type="button" class="btn btn-primary">Valider</button>
-			            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-			          </div>
-				    </div>
+				  	<form method="post">
+				    	<div class="modal-content">
+					      <div class="modal-header">
+				            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				              <span aria-hidden="true">&times;</span>
+				            </button>
+				            <h4 class="modal-title" id="exampleModalLabel" style='color:inherit;'>Choissisez votre date de session</h4>
+				          </div>
+					      <div class="modal-body">
+					      <?php 
+						    for($i = 0; $i < count($infos_formation); $i++){ 
+						    	echo'<label class="custom-control custom-radio">
+									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'">
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description bold">'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'</span>
+								</label><br>'; 
+						    } 
+					      ?>
+					      </div>
+					      <div class="modal-footer">		          
+				            <button type="submit" class="btn btn-primary">Valider</button>
+				            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+				          </div>
+				    	</div>
+				    </form>
 				  </div>
 			</div>
 
