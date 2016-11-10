@@ -10,10 +10,18 @@ $page = "laFormation";
 $str = array();
 $str = return_str($language, $page);
 
-?>
-			<div class = "container-fluid">
+var_dump($_SESSION);
 
-				<!-- LES 2 IMAGES + LE THEME ET LE TITRE + L'OBJECTIF, LES PRÉ-REQUIS ET LE PROGRAMME DÉTAILLÉ (treès compliqué)-->
+if(isset($_POST["radio"]))
+{
+	echo $_POST["radio"];
+	execSQL_insert("INSERT INTO inscrire(ref_form, id_membre, session_inscription, etat_inscription)
+		VALUES('".$_GET["formation"]."', '".$_SESSION["id"]."', '".$_POST["radio"]."', 'en cours')");
+}
+?>
+			<div class = "container-fluid">				
+
+				<!-- LES 2 IMAGES + LE THEME ET LE TITRE + L'OBJECTIF, LES PRÉ-REQUIS ET LE PROGRAMME DÉTAILLÉ (très compliqué)-->
 				
 				<div>
 					<img class = "img1 align-center" src ='<?php echo $infos_formation[0][0] ?>'>
@@ -22,6 +30,11 @@ $str = return_str($language, $page);
 				<h1><?php echo $str["1"] ?><?php echo $infos_formation[0][1] ?></h1>
 				<h1><a href = "laFormation.php?formation=<?php echo $infos_formation[0][3];?>"><i class="glyphicon glyphicon-file"></i> <?php echo $infos_formation[0][2] ?></a></h1>
 				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+
+				<div class="center-text">
+					<button class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> S'inscrire !</button>
+				</div>
+				
 				<div class = "col-lg-8 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-8 col-sm-offset-2">
 					<br>
 					<h2 class="text-left"><i class="glyphicon glyphicon-screenshot"></i> <?php echo $str["2"] ?></h2><p class="text-left"><?php for($i = 0; $i < count($objectifs); $i++){ echo "- " . $objectifs[$i][0] . ".<br>"; }?>
@@ -85,6 +98,36 @@ $str = return_str($language, $page);
 
 			<div>
 				<a style="display: none" style="display: none" class = 'badge remonte  hidden-sm hidden-xs' href="#top"><i class="fa fa-chevron-up fa-3x" aria-hidden="true"></i></a>
+			</div>
+
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-lg">
+				  	<form method="post">
+				    	<div class="modal-content">
+					      <div class="modal-header">
+				            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				              <span aria-hidden="true">&times;</span>
+				            </button>
+				            <h4 class="modal-title" id="exampleModalLabel" style='color:inherit;'>Choissisez votre date de session</h4>
+				          </div>
+					      <div class="modal-body">
+					      <?php 
+						    for($i = 0; $i < count($infos_formation); $i++){ 
+						    	echo'<label class="custom-control custom-radio">
+									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'">
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description bold">'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'</span>
+								</label><br>'; 
+						    } 
+					      ?>
+					      </div>
+					      <div class="modal-footer">		          
+				            <button type="submit" class="btn btn-primary">Valider</button>
+				            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+				          </div>
+				    	</div>
+				    </form>
+				  </div>
 			</div>
 
 			<!-- PIED DE PAGE DU SITE -->
