@@ -26,7 +26,7 @@
 					</a>
 				</div>
 				<div class="col-lg-4">
-					<a href="inscFormations.php">
+					<a href="mesInscriptions.php">
 						<div class="jumbotron jumbotron-fluid col-lg-12">
 						  <div class="container">
 						    <h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["4"] ?></h1>

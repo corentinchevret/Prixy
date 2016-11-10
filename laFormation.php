@@ -10,12 +10,11 @@ $page = "laFormation";
 $str = array();
 $str = return_str($language, $page);
 
-var_dump($_SESSION);
+$msgVal = "";
 
 if(isset($_SESSION["id"])) {
 	if(isset($_POST["radio"]))
 	{
-		echo $_POST["radio"];
 		execSQL_insert("INSERT INTO inscrire(ref_form, id_membre, session_inscription, etat_inscription)
 			VALUES('".$_GET["formation"]."', '".$_SESSION["id"]."', '".$_POST["radio"]."', 'en cours')");
 		$msgVal = '<script>$("#modal-val").click();</script>' ;
@@ -36,7 +35,7 @@ if(isset($_SESSION["id"])) {
 				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 
 				<div class="center-text">
-					<button id="modal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> S'inscrire !</button>
+					<button id="modal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["14"] ?></button>
 					<button id="modal-val" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 					<button id="modal-pb" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 
@@ -97,7 +96,7 @@ if(isset($_SESSION["id"])) {
 					<br>
 					<h2 class="text-left"><i class="glyphicon glyphicon-education"></i> <?php echo $str["11"] ?></h2><p class="text-left"><?php echo $infos_formation[0][7] ?></p>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-calendar"></i> <?php echo $str["12"] ?></h2> <p class="text-left"><?php for($i = 0; $i < count($infos_formation); $i++){ echo date_format(date_create($infos_formation[$i][9]),"d/m/Y") . '<br>'; } ?> <br><br></p>
+					<h2 class="text-left"><i class="glyphicon glyphicon-calendar"></i> <?php echo $str["12"] ?></h2> <p class="text-left"><?php for($i = 0; $i < count($infos_formation); $i++){ if($language == "fr-FR") echo date_format(date_create($infos_formation[$i][9]),"d/m/Y") . '<br>'; else echo $infos_formation[$i][9] . '<br>'; } ?> <br><br></p>
 				</div>
 				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 			</div>
@@ -116,23 +115,25 @@ if(isset($_SESSION["id"])) {
 				            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				              <span aria-hidden="true">&times;</span>
 				            </button>
-				            <h4 class="modal-title" id="exampleModalLabel" style='color:inherit;'>Choissisez votre date de session</h4>
+				            <h4 class="modal-title" id="exampleModalLabel" style='color:inherit;'><?php echo $str["15"] ?></h4>
 				          </div>
 					      <div class="modal-body">
 					      <?php 
 						    for($i = 0; $i < count($infos_formation); $i++){ 
+						    	if($language == "fr-FR")
+						    		$infos_formation[$i][9] = date_format(date_create($infos_formation[$i][9]),"d/m/Y");
 						    	echo'<label class="custom-control custom-radio">
 									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'" required>
 									<span class="custom-control-indicator"></span>
-									<span class="custom-control-description bold">'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'</span>
+									<span class="custom-control-description bold">'.$infos_formation[$i][9].'</span>
 								</label><br>'; 
 						    } 
 					      ?>
 					      <span id="erreur"></span>
 					      </div>
 					      <div class="modal-footer">		          
-				            <button id="val" type="submit" class="btn btn-primary">Valider</button>
-				            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+				            <button id="val" type="submit" class="btn btn-primary"><?php echo $str["17"] ?></button>
+				            <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo $str["18"] ?></button>
 				          </div>
 				    	</div>
 				    </form>
@@ -146,14 +147,14 @@ if(isset($_SESSION["id"])) {
 				            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				              <span aria-hidden="true">&times;</span>
 				            </button>
-				            <h4 class="modal-title text-success" id="exampleModalLabel" style='color:inherit;'>Votre inscription à cette formation a été prise en compte</h4>
+				            <h4 class="modal-title text-success" id="exampleModalLabel" style='color:inherit;'><?php echo $str["19"] ?></h4>
 				          </div>
 				        <div class="modal-body">
-						    Vous pourrez consulter l'état d'avancement de la validation de votre inscription dans votre compte page "Mes Inscriptions".
+						    <?php echo $str["20"] ?>
 				        </div>
 				        <div class="modal-footer">		          
-				            <button type="button" class="btn btn-primary"><a style="color:white;" href="inscFormations.php">Aller à "Mes Inscriptions"</a></button>
-				            <button type="button" class="btn btn-secondary" data-dismiss="modal">Continuer ici</button>
+				            <button type="button" class="btn btn-primary"><a style="color:white;" href="inscFormations.php"><?php echo $str["21"] ?></a></button>
+				            <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo $str["22"] ?></button>
 			            </div>
 			        </div>
 				</div>
@@ -170,7 +171,7 @@ if(isset($_SESSION["id"])) {
 				    {
 				    	$("#val").click(function(){
 				    		$(this).attr("type", "button");
-				    		$("#erreur").html("<span class='text-danger'>Veuillez vous connecter afin de valider votre demande.</span>")
+				    		$("#erreur").html("<span class='text-danger'><?php echo $str["16"] ?></span>")
 				    	});
 				    }
 			</script>

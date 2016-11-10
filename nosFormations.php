@@ -67,7 +67,7 @@
 						<label for="duree"><h4><?php echo $str["9"] ?></h4></label>
 						<div class="form-group">													
 							<span><?php echo $str["6"] ?><input class = "duree_min inputduree" type="tel" name = "duree_min"/>
-							<?php echo $str["7"] ?><input class = "duree_max inputduree" type="tel" name = "duree_max"/>Jours</span>
+							<?php echo $str["7"] ?><input class = "duree_max inputduree" type="tel" name = "duree_max"/><?php echo $str["17"] ?></span>
 						    <!--<div><span id="duree">De <span class="duree_min"></span> à <span class="duree_max"></span> Jours</div>-->
 						    <div id="slider_duree"></div>
 						</div>
@@ -149,6 +149,40 @@
 				</div>
 			</div>
 
+			<main>
+	<h1>Add to Cart Interaction</h1>
+	<a href="#0" class="cd-add-to-cart" data-price="25.99">Add To Cart</a>
+</main>
+
+<div class="cd-cart-container empty">
+	<a href="#0" class="cd-cart-trigger">
+		Cart
+		<ul class="count"> <!-- cart items count -->
+			<li>0</li>
+			<li>0</li>
+		</ul> <!-- .count -->
+	</a>
+
+	<div class="cd-cart">
+		<div class="wrapper">
+			<header>
+				<h2>Cart</h2>
+				<span class="undo">Item removed. <a href="#0">Undo</a></span>
+			</header>
+			
+			<div class="body">
+				<ul>
+					<!-- products added to the cart will be inserted here using JavaScript -->
+				</ul>
+			</div>
+
+			<footer>
+				<a href="#0" class="checkout btn"><em>Checkout - $<span>0</span></em></a>
+			</footer>
+		</div>
+	</div> <!-- .cd-cart -->
+</div>
+
 			<!-- PIED DE PAGE DU SITE -->
 
 			<?php include("footer.php"); ?>				
@@ -194,3 +228,4 @@
 
 		});
 	</script>
+    <script src="add-to-cart-interaction/js/main.js"></script> <!-- Resource jQuery -->

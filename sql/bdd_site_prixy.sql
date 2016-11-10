@@ -218,6 +218,15 @@ de vidéo-projection interactif et peut accueillir jusqu’à <b>30 participants
 ('11', 'fr-FR', "Certification", "laFormation"),
 ('12', 'fr-FR', "Dates de session", "laFormation"),
 ('13', 'fr-FR', "INFOS ET DATES IMPORTANTES :", "laFormation"),
+('14', 'fr-FR', "S'inscrire", "laFormation"),
+('15', 'fr-FR', "Choissisez votre date de session", "laFormation"),
+('16', 'fr-FR', "Veuillez vous connecter afin de valider votre demande.", "laFormation"),
+('17', 'fr-FR', "Valider", "laFormation"),
+('18', 'fr-FR', "Annuler", "laFormation"),
+('19', 'fr-FR', "Votre inscription à cette formation a été prise en compte", "laFormation"),
+('20', 'fr-FR', "Vous pourrez consulter l'état d'avancement de la validation de votre inscription dans votre compte page 'Mes Inscriptions'.", "laFormation"),
+('21', 'fr-FR', "Aller à 'Mes Inscriptions'", "laFormation"),
+('22', 'fr-FR', "Continuer ici", "laFormation"),
 # mentions
 ('1', 'fr-FR', "Mentions légales", "mentions"),
 ('2', 'fr-FR', "1. Présentation du site.", "mentions"),
@@ -238,6 +247,17 @@ Crédits : les mentions légales ont été générées et offertes par Subdeliri
 <p>Prixy s’efforce de fournir sur le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> des informations aussi précises que possible. Toutefois, il ne pourra être tenue responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
 <p>Tous les informations indiquées sur le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> sont données à titre indicatif, et sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant sur le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>", "mentions"),
 ('10', 'fr-FR', "", "mentions"),
+# mesInscriptions
+('1', 'fr-FR', "Mes Inscriptions", "mesInscriptions"),
+('2', 'fr-FR', "Nom Formation", "mesInscriptions"),
+('3', 'fr-FR', "Date Session", "mesInscriptions"),
+('4', 'fr-FR', "État", "mesInscriptions"),
+('5', 'fr-FR', "Supp.", "mesInscriptions"),
+('6', 'fr-FR', "Suppression de votre demande d'inscription", "mesInscriptions"),
+('7', 'fr-FR', "Attention ! Vous allez supprimer votre demande d'inscription ainsi que l'état d'avancement de sa validation !", "mesInscriptions"),
+('8', 'fr-FR', "Supprimer", "mesInscriptions"),
+('9', 'fr-FR', "Annuler", "mesInscriptions"),
+
 
 # EN
 INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
@@ -417,6 +437,15 @@ interactive video projection and can accommodate up <b>30 participants</b>.", "a
 ('11', 'en-EN', "Certification", "laFormation"),
 ('12', 'en-EN', "Session dates", "laFormation"),
 ('13', 'en-EN', "INFORMATIONS AND IMPORTANT DATES :", "laFormation"),
+('14', 'en-EN', "Suscribe", "laFormation"),
+('15', 'en-EN', "Choose your session date", "laFormation"),
+('16', 'en-EN', "Please sign in to validate your request.", "laFormation"),
+('17', 'en-EN', "Validate", "laFormation"),
+('18', 'en-EN', "Cancel", "laFormation"),
+('19', 'en-EN', "Your registration for this training was taken into account", "laFormation"),
+('20', 'en-EN', "You can check the status of the validation of your registration in your account page 'My Subscriptions'.", "laFormation"),
+('21', 'en-EN', "Go to 'My Subscriptions'", "laFormation"),
+('22', 'en-EN', "Continue here", "laFormation"),
 # mentions
 ('1', 'en-EN', "Mentions légales", "mentions"),
 ('2', 'en-EN', "1. Presentation of the site.", "mentions"),
@@ -437,6 +466,16 @@ Credits: legal notices were generated and offered by <a SubDelirium target='_bla
 <p> Prixy strives to provide the site <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> as accurate information as possible. However, it can not be held responsible for omissions, inaccuracies and deficiencies in the update, whether its fact or because of third party partners that provide this information. </p>
 <p> All information listed on the website <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> are given indication, and may change. Furthermore, the information on the website <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> are not exhaustive . They are given subject to changes being made since they are online. </p>", "mentions"),
 ('10', 'en-EN', "", "mentions"),
+# mesInscriptions
+('1', 'en-EN', "My Subscriptions", "mesInscriptions"),
+('2', 'en-EN', "Formation Name", "mesInscriptions"),
+('3', 'en-EN', "Session date", "mesInscriptions"),
+('4', 'en-EN', "Status", "mesInscriptions"),
+('5', 'en-EN', "Del.", "mesInscriptions"),
+('6', 'en-EN', "Cancellation of your suscribe request", "mesInscriptions"),
+('7', 'en-EN', "Warning ! You will remove your suscribe request and the status of its validation !", "mesInscriptions"),
+('8', 'en-EN', "Delete", "mesInscriptions"),
+('9', 'en-EN', "Cancel", "mesInscriptions"),
 
 
 --
