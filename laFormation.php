@@ -17,6 +17,7 @@ if(isset($_POST["radio"]))
 	echo $_POST["radio"];
 	execSQL_insert("INSERT INTO inscrire(ref_form, id_membre, session_inscription, etat_inscription)
 		VALUES('".$_GET["formation"]."', '".$_SESSION["id"]."', '".$_POST["radio"]."', 'en cours')");
+	$msgVal = '<script>$("#modal-val").click();</script>' ;
 }
 ?>
 			<div class = "container-fluid">				
@@ -32,8 +33,10 @@ if(isset($_POST["radio"]))
 				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
 
 				<div class="center-text">
-					<button class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> S'inscrire !</button>
+					<button id="modal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> S'inscrire !</button>
+					<button id="modal-val" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 				</div>
+
 				
 				<div class = "col-lg-8 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-8 col-sm-offset-2">
 					<br>
@@ -114,7 +117,7 @@ if(isset($_POST["radio"]))
 					      <?php 
 						    for($i = 0; $i < count($infos_formation); $i++){ 
 						    	echo'<label class="custom-control custom-radio">
-									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'">
+									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'" required>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description bold">'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'</span>
 								</label><br>'; 
@@ -122,13 +125,37 @@ if(isset($_POST["radio"]))
 					      ?>
 					      </div>
 					      <div class="modal-footer">		          
-				            <button type="submit" class="btn btn-primary">Valider</button>
+				            <button id="val" type="submit" class="btn btn-primary">Valider</button>
 				            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
 				          </div>
 				    	</div>
 				    </form>
 				  </div>
 			</div>
+
+			<div class="modal fade modal-val" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+					    <div class="modal-header">
+				            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				              <span aria-hidden="true">&times;</span>
+				            </button>
+				            <h4 class="modal-title text-success" id="exampleModalLabel" style='color:inherit;'>Votre inscription à cette formation a été prise en compte</h4>
+				          </div>
+				        <div class="modal-body">
+						    Vous pourrez consulter l'état d'avancement de la validation de votre inscription dans votre compte page "Mes Inscriptions".
+				        </div>
+				        <div class="modal-footer">		          
+				            <button type="button" class="btn btn-primary"><a style="color:white;" href="inscFormations.php">Aller à "Mes Inscriptions"</a></button>
+				            <button type="button" class="btn btn-secondary" data-dismiss="modal">Continuer ici</button>
+			            </div>
+			        </div>
+				</div>
+			</div>
+
+			<?php
+				echo $msgVal;
+			?>			
 
 			<!-- PIED DE PAGE DU SITE -->
 
