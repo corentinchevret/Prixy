@@ -12,13 +12,16 @@ $str = return_str($language, $page);
 
 var_dump($_SESSION);
 
-if(isset($_POST["radio"]))
-{
-	echo $_POST["radio"];
-	execSQL_insert("INSERT INTO inscrire(ref_form, id_membre, session_inscription, etat_inscription)
-		VALUES('".$_GET["formation"]."', '".$_SESSION["id"]."', '".$_POST["radio"]."', 'en cours')");
-	$msgVal = '<script>$("#modal-val").click();</script>' ;
+if(isset($_SESSION["id"])) {
+	if(isset($_POST["radio"]))
+	{
+		echo $_POST["radio"];
+		execSQL_insert("INSERT INTO inscrire(ref_form, id_membre, session_inscription, etat_inscription)
+			VALUES('".$_GET["formation"]."', '".$_SESSION["id"]."', '".$_POST["radio"]."', 'en cours')");
+		$msgVal = '<script>$("#modal-val").click();</script>' ;
+	}
 }
+
 ?>
 			<div class = "container-fluid">				
 
@@ -35,6 +38,8 @@ if(isset($_POST["radio"]))
 				<div class="center-text">
 					<button id="modal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> S'inscrire !</button>
 					<button id="modal-val" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+					<button id="modal-pb" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
 				</div>
 
 				
@@ -123,6 +128,7 @@ if(isset($_POST["radio"]))
 								</label><br>'; 
 						    } 
 					      ?>
+					      <span id="erreur"></span>
 					      </div>
 					      <div class="modal-footer">		          
 				            <button id="val" type="submit" class="btn btn-primary">Valider</button>
@@ -156,6 +162,18 @@ if(isset($_POST["radio"]))
 			<?php
 				echo $msgVal;
 			?>			
+
+			<script type="text/javascript">
+				    var id = '<?php if(!isset($_SESSION['id'])) echo""; else echo $_SESSION['id']; ?>';
+
+				    if(id == "")
+				    {
+				    	$("#val").click(function(){
+				    		$(this).attr("type", "button");
+				    		$("#erreur").html("<span class='text-danger'>Veuillez vous connecter afin de valider votre demande.</span>")
+				    	});
+				    }
+			</script>
 
 			<!-- PIED DE PAGE DU SITE -->
 
