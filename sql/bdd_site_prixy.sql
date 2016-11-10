@@ -221,10 +221,23 @@ de vidéo-projection interactif et peut accueillir jusqu’à <b>30 participants
 # mentions
 ('1', 'fr-FR', "Mentions légales", "mentions"),
 ('2', 'fr-FR', "1. Présentation du site.", "mentions"),
-('3', 'fr-FR', "En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href='http://www.prixy.entere/' title='Prixy - www.prixy.entere'>www.prixy.entere</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :", "mentions"),
-('4', 'fr-FR', "", "mentions"),
-('5', 'fr-FR', "", "mentions"),
-
+('3', 'fr-FR', "En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :", "mentions"),
+('4', 'fr-FR', "<strong>Propriétaire</strong> : Prixy – SARL – 40, Avenue des Sciences, 69007 Lyon<br />
+<strong>Créateur</strong>  : <a href='www.ella-sio.com'>EllaSIO</a><br />
+<strong>Responsable publication</strong> : C. Joubert – communication@prixy.com<br />
+Le responsable publication est une personne physique ou une personne morale.<br />
+<strong>Webmaster</strong> : EllaSIO – communication@ella-sio.com<br />
+<strong>Hébergeur</strong> : OVH – 2, rue Kellermann, 59100 Roubaix<br />
+Crédits : les mentions légales ont été générées et offertes par Subdelirium <a target='_blank' href='http://www.subdelirium.com/generateur-de-mentions-legales/'>Mentions légales</a>", "mentions"),
+('5', 'fr-FR', "2. Conditions générales d’utilisation du site et des services proposés.", "mentions"),
+('6', 'fr-FR', "L’utilisation du site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> sont donc invités à les consulter de manière régulière.", "mentions"),
+('7', 'fr-FR', "<p>Ce site est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de maintenance technique peut être toutefois décidée par Prixy, qui s’efforcera alors de communiquer préalablement aux utilisateurs les dates et heures de l’intervention.</p>
+<p>Le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> est mis à jour régulièrement par C. Joubert. De la même façon, les mentions légales peuvent être modifiées à tout moment : elles s’imposent néanmoins à l’utilisateur qui est invité à s’y référer le plus souvent possible afin d’en prendre connaissance.</p>", "mentions"),
+('8', 'fr-FR', "3. Description des services fournis.", "mentions"),
+('9', 'fr-FR', "<p>Le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> a pour objet de fournir une information concernant l’ensemble des activités de la société.</p>
+<p>Prixy s’efforce de fournir sur le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> des informations aussi précises que possible. Toutefois, il ne pourra être tenue responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
+<p>Tous les informations indiquées sur le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> sont données à titre indicatif, et sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant sur le site <a href='http://www.prixy.com/' title='Prixy - www.prixy.com'>www.prixy.com</a> ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>", "mentions"),
+('10', 'fr-FR', "", "mentions"),
 
 # EN
 INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
@@ -407,9 +420,23 @@ interactive video projection and can accommodate up <b>30 participants</b>.", "a
 # mentions
 ('1', 'en-EN', "Mentions légales", "mentions"),
 ('2', 'en-EN', "1. Presentation of the site.", "mentions"),
-('3', 'en-EN', "Under Article 6 of Law No. 2004-575 of 21 June 2004 on confidence in the digital economy, it is clear to users of the website <a href = 'http: //www.prixy.entere/ 'title =' Prixy - www.prixy.entere '> www.prixy.entere </a> identity of the various stakeholders as part of its implementation and monitoring:", "mentions"),
-('4', 'en-EN', "", "mentions"),
-('5', 'en-EN', "", "mentions"),
+('3', 'en-EN', "Under Article 6 of Law No. 2004-575 of 21 June 2004 on confidence in the digital economy, it is clear to users of the website <a href = 'http: //www.prixy.com/ 'title =' Prixy - www.prixy.com '> www.prixy.com </a> identity of the various stakeholders as part of its implementation and monitoring:", "mentions"),
+('4', 'en-EN', "<strong> Ownership </strong>: Prixy - SARL - 40, Avenue of Science, 69007 Lyon <br />
+<strong> Creator </strong>: <a href='www.ella-sio.com'> EllaSIO </a> <br />
+<strong> Publish Manager </strong>: C. Joubert - communication@prixy.com <br />
+The Publish Manager is a natural person or a legal person. <br />
+<strong> Affiliate </strong>: EllaSIO - communication@ella-sio.com <br />
+<strong> Host </strong>: OVH - 2 rue Kellermann, 59100 Roubaix <br />
+Credits: legal notices were generated and offered by <a SubDelirium target='_blank' href='http://www.subdelirium.com/generateur-de-mentions-legales/'> Legal </a>", "mentions"),
+('5', 'en-EN', "2. Terms of Use and the services offered.", "mentions"),
+('6', 'en-EN', "Use of the website <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> implies full acceptance of terms and conditions described below it. These terms of use may be modified at any time, users of the website <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www .prixy.com </a> are invited to consult them regularly.", "mentions"),
+('7', 'en-EN', "<p> This site is normally accessible at all times to users. Interruption due to technical maintenance can be however decided by Prixy, who will then endeavor to communicate to users before the date and time of the intervention. </p>
+<p> <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> is updated regularly by C. Joubert. Similarly, the disclaimer may be modified at any time: they are needed, however the user is encouraged to refer to it as often as possible in order to become acquainted </p>.", "mentions"),
+('8', 'en-EN', "3. Description of services provided.", "mentions"),
+('9', 'en-EN', "<p> <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> aims to provide information on all the company's activities. </p>
+<p> Prixy strives to provide the site <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> as accurate information as possible. However, it can not be held responsible for omissions, inaccuracies and deficiencies in the update, whether its fact or because of third party partners that provide this information. </p>
+<p> All information listed on the website <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> are given indication, and may change. Furthermore, the information on the website <a href='http://www.prixy.com/' title='Prixy-www.prixy.com'> www.prixy.com </a> are not exhaustive . They are given subject to changes being made since they are online. </p>", "mentions"),
+('10', 'en-EN', "", "mentions"),
 
 
 --
