@@ -1,19 +1,20 @@
 		<?php 
 		session_start(); include("fonction.inc.php");
 
-		$titre = 'Prixy - Notre Equipe'; include("barnav.php"); 
+		$titre = 'Prixy - Notre Equipe'; include("barnav.php");
+
+		$page = "atouts";
+		$str = array();
+ 		$str = return_str($language, $page);
 
 		?>		
 			<div class="container">
 				<div class="row">
-					<h1><a href="nosAtouts.php"><i class="glyphicon glyphicon-user"></i> Notre Equipe</a></h1>
+					<h1><a href="nosAtouts.php"><i class="glyphicon glyphicon-user"></i> <?php echo $str["1"] ?></a></h1>
 				</div>
 				<div class="row col-xs-12 text-center">
 					<p class="pres-equipe">
-						Depuis 2013, notre équipe accompagne les entreprises dans leurs 
-						démarches de formation. L'adaptabilité et la qualité des solutions
-						proposées sont l'accomplissement de la recherche menée par les deux
-						associés, <span style="color:#ff1919; font-weight:bold;">S. Millot</span> et <span style="color:#b7b700; font-weight:bold;">C. Joubert</span>.
+						<?php echo $str["2"] ?>
 
 					</p>
 				</div>
@@ -26,9 +27,7 @@
 						<div class="row col-lg-12">
 							<br>
 							<p>
-								<span style="color:#ff1919; font-weight:bold;">S. Millot</span>, co-fondateur de l'entreprise et consultant depuis plus de dix ans dans le secteur de
-								la formation industrielle. Il assure les stages de formation et les évaluations. Il est également chargé de la gestion
-								de la relation client.
+								<?php echo $str["3"] ?>
 							</p>
 						</div>
 					</div>
@@ -40,9 +39,7 @@
 						<div class="row col-lg-12">
 							<br>
 							<p>
-								<span style="color:#b7b700; font-weight:bold;">C. Joubert</span>, co-fondateur de l'entreprise et expert-formateur spécialisé dans
-								la formation aux technologies de l’information et de la
-								communication. Il assure avec <span style="color:#ff1919; font-weight:bold;">S. Millot</span> les stages de formation et les évaluations.
+								<?php echo $str["4"] ?>
 							</p>
 						</div>
 					</div>
@@ -54,7 +51,7 @@
 						<div class="row col-lg-12">
 							<br>
 							<p>
-								<span style="color:#ff69b4; font-weight:bold;">L.Schmitt</span>, assistante de gestion, s'occupe de la gestion administrative, des inscriptions et est chargée d'accueil.
+								<?php echo $str["5"] ?>
 							</p>
 							<br>
 							<br>
@@ -63,12 +60,12 @@
 				</div>
 
 				<div class="row">
-					<h1><a href="nosAtouts.php"><i class="fa fa-desktop" aria-hidden="true"></i> Nos Equipements</a></h1>
+					<h1><a href="nosAtouts.php"><i class="fa fa-desktop" aria-hidden="true"></i> <?php echo $str["6"] ?></a></h1>
 				</div>
 
 				<div class="row col-xs-12 col-md-12 text-center">
 					<p class="pres-equipe">
-						Nous mettons également à votre disposition le meilleur équipement pour la meilleure formation possible.
+						<?php echo $str["7"] ?>
 					</p><br>
 				</div>
 				<div class="row">
@@ -79,8 +76,7 @@
 						<div class="row col-lg-12">
 							<br>
 							<p>
-								Deux salles informatiques <strong>« Jaspe »</strong> et <strong>« Opale »</strong> équipées chacune de <b>15 postes</b> de type PC 
-								pour les apprenants plus un poste dédié au formateur relié à un système de vidéo-projection interactif.
+								<?php echo $str["8"] ?>
 							</p>
 						</div>
 					</div>
@@ -91,8 +87,7 @@
 						<div class="row col-lg-12">
 							<br>
 							<p>
-								Une nouvelle salle nommée <strong>« Beryl »</strong> dédiée aux formations plus théoriques. Elle est dotée d’un PC et d’un système 
-								de vidéo-projection interactif et peut accueillir jusqu’à <b>30 participants</b>.
+								<?php echo $str["9"] ?>
 							</p>
 						</div>
 					</div>

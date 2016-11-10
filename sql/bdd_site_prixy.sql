@@ -355,6 +355,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('27', 'en-EN', "Confirm your pass here.", "insc"),
 ('28', 'en-EN', "Validate", "insc"),
 ('29', 'en-EN', "The password requires 8 characters min. : 1 uppercase min., 1 lowcase min. and 1 number :)", "insc"),
+# mdpPerdu
 ('1', 'en-EN', "Password reset request", "mdpPerdu"),
 ('2', 'en-EN', "E-mail", "mdpPerdu"),
 ('3', 'en-EN', "Enter your connection E-mail", "mdpPerdu"),
@@ -365,6 +366,7 @@ INSERT INTO STRING (id_data, nom_langue, data, page) VALUES
 ('8', 'en-EN', "* At least 8 characters with at least one uppercase, one lowercase and one number", "mdpPerdu"),
 ('9', 'en-EN', "Confirm pass", "mdpPerdu"),
 ('10', 'en-EN', "Confirm new password ", "mdpPerdu"),
+# nosAtouts
 ('1', 'en-EN', "Our Team", "atouts"),
 ('2', 'en-EN', "Since 2013, Our team supports companies in their
 training approaches. Adaptability and quality solutions
