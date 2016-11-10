@@ -218,6 +218,12 @@ de vidéo-projection interactif et peut accueillir jusqu’à <b>30 participants
 ('11', 'fr-FR', "Certification", "laFormation"),
 ('12', 'fr-FR', "Dates de session", "laFormation"),
 ('13', 'fr-FR', "INFOS ET DATES IMPORTANTES :", "laFormation"),
+# mentions
+('1', 'fr-FR', "Mentions légales", "mentions"),
+('2', 'fr-FR', "1. Présentation du site.", "mentions"),
+('3', 'fr-FR', "En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href='http://www.prixy.entere/' title='Prixy - www.prixy.entere'>www.prixy.entere</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :", "mentions"),
+('4', 'fr-FR', "", "mentions"),
+('5', 'fr-FR', "", "mentions"),
 
 
 # EN
@@ -398,6 +404,12 @@ interactive video projection and can accommodate up <b>30 participants</b>.", "a
 ('11', 'en-EN', "Certification", "laFormation"),
 ('12', 'en-EN', "Session dates", "laFormation"),
 ('13', 'en-EN', "INFORMATIONS AND IMPORTANT DATES :", "laFormation"),
+# mentions
+('1', 'en-EN', "Mentions légales", "mentions"),
+('2', 'en-EN', "1. Presentation of the site.", "mentions"),
+('3', 'en-EN', "Under Article 6 of Law No. 2004-575 of 21 June 2004 on confidence in the digital economy, it is clear to users of the website <a href = 'http: //www.prixy.entere/ 'title =' Prixy - www.prixy.entere '> www.prixy.entere </a> identity of the various stakeholders as part of its implementation and monitoring:", "mentions"),
+('4', 'en-EN', "", "mentions"),
+('5', 'en-EN', "", "mentions"),
 
 
 --
