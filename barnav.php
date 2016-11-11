@@ -9,6 +9,8 @@
 	    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 	    <link rel="stylesheet" href="assets/flag-icon/css/flag-icon.css">
 	    <link rel="stylesheet" href="assets/css/style.css">
+	    <link rel="stylesheet" href="content-filter-assets/css/reset.css"> <!-- CSS reset -->
+		<link rel="stylesheet" href="content-filter-assets/css/style.css"> <!-- Resource style -->
 	    <link rel="icon" type="image/png" href="images/iconePrixy.png" />
 
 	    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -16,6 +18,7 @@
 		<script src="bootstrap/js/jquery-1.12.4.js"></script>
 		<script src="bootstrap/bootstrap4/dist/js/bootstrap.js"></script>
 		<script type="text/javascript" src="bootstrap/jquery-ui/jquery-ui.js"></script> 
+		<script src="content-filter-assets/js/modernizr.js"></script> <!-- Modernizr -->
 	</head>
 		<body>
 			<script type="text/javascript" src="bootstrap/js/fonctions.js"></script>

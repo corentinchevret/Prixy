@@ -8,186 +8,164 @@
 	$str = array();
 	$str = return_str($language, $page);
 
+	$formations = execSQL_fetchall("SELECT nom_from, id_categ, id_certif, type_public
+									FROM formation F
+									INNER JOIN appartenir A ON A.ref_form = F.ref_form
+									INNER JOIN delivrer D ON D.ref_form = F.ref_form
+									ORDER BY nom_from;");
+
+	//var_dump($formations);
+
+	$listeF = "";
+	$categ = "";
+	$certif = "";
+	$public;
+	for ($i=0; $i < count($formations); $i++) { 
+		// On récupère la catégorie
+		$categ = $formations[$i][1];
+
+		//On récupère la certif
+		if($formations[$i][2] != "C000")
+			$certif = "cert";
+		else
+			$certif = "no-cert";
+
+		$public = substr($formations[$i][3],0,1);
+
+		// Création de la div avec les filtres recupérer précédemment
+		$listeF .= "<li id='form' class='mix color-1 $public $certif $categ'>".$formations[$i][0]."<img src='images/test.jpg'></li>\n";
+	}	
+
     ?>
 
-	<link rel="icon" type="image/png" href="images/iconePrixy.png" />
-
-	<!-- BARRE DE NAVIGATION ET LES FONCTIONS PHP (pour les requêtes SQL surtout) -->
-    <div id="wrapper">
-        <div class="overlay"></div>
-  
-        <!-- Sidebar -->
-
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation"  style="padding:0px">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand text-center">
-                    <h2 style="color:#ddd; border-bottom:5px solid #ddd; padding:30px;"><i class = "glyphicon glyphicon-cog"></i> <?php echo $str["2"] ?></h2>
-                </li>
-                	<div class = "col-xs-12"><br><br>
-						<form role="form" method="post" action="nosFormations.php">
-
-						<!-- BOUTON DÉROULANT POUR SELECTIONNER UNE CATGORIE -->
+    <link rel="stylesheet" href="content-filter-assets/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="content-filter-assets/css/style.css"> <!-- Resource style -->
+	<script src="content-filter-assets/js/modernizr.js"></script> <!-- Modernizr -->
 
 
-						<label for="categ"><h4><?php echo $str["3"] ?></h4></label>
-						<div class="form-group">
-						    <select class="form-control" name = "categ" id="categ">
-						  	<option value = "Toutes Catégories" <?php if($categ == "Toutes Catégories") echo"selected" ?>><?php echo $str["4"] ?></option>
-						  	<option value = "Systèmes d'exploitation" <?php if($categ == "Systèmes d'exploitation") echo"selected" ?>>Systèmes d'exploitation</option>
-						    <option value = "Bureautique" <?php if($categ == "Bureautique") echo"selected" ?>>Bureautique</option>
-						    <option value = "Langages de programmation" <?php if($categ == "Langages de programmation") echo"selected" ?>>Langages de programmation</option>
-						    <option value = "Le développement web" <?php if($categ == "Le développement web") echo"selected" ?>>Le développement web</option>
-						    <option value = "Bases de données" <?php if($categ == "Bases de données") echo"selected" ?>>Bases de données</option>
-						    </select>
-						</div>
+	<div id="nosFormations"><br><br>   
+		<header  class="cd-header" style="background-color:#ccc; margin-top:25px; height:240px">
+			<h1><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i> <?php echo $str["1"] ?></a></h1>
+		</header>     	
 
+		<main class="cd-main-content">
+			<div class="cd-tab-filter-wrapper">
+				<div class="cd-tab-filter">
+					<ul class="cd-filters">
+						<li class="placeholder"> 
+							<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
+						</li> 
+						<li class="filter"><a class="selected" href="#0">Tous</a></li>
+						<li class="filter" data-filter=".CA03"><a href="#0">Systèmes d'exploitation</a></li>
+						<li class="filter" data-filter=".CA01"><a href="#0">Bureautique</a></li>
+						<li class="filter" data-filter=".CA02"><a href="#0">Langages de programmation</a></li>
+						<li class="filter" data-filter=".CA05"><a href="#0">Le développment web</a></li>
+						<li class="filter" data-filter=".CA04"><a href="#0">Base de données</a></li>
+						<li class="filter" data-filter=".CA06"><a href="#0">MOOC</a></li>
+					</ul> <!-- cd-filters -->
+				</div> <!-- cd-tab-filter -->
+			</div> <!-- cd-tab-filter-wrapper  MixItUpCFEB09-->
 
-						<!-- SLIDER POUR SELECTIONNER UNE FOURCHETTE DE PRIX -->
-	
-						<label for="tarif"><h4><?php echo $str["5"] ?></h4></label>
-						<div class="form-group">
-							<span><?php echo $str["6"] ?><input class = "tarif_min inputtarif" type="tel" name = "tarif_min"/>
-							<?php echo $str["7"] ?><input class = "tarif_max inputtarif" type="tel" name = "tarif_max"/>€</span>
-						    <!--<div id="bornes_tarif">De <span id="tarif_min" name = "min"></span> à <span id="tarif_max"></span> €</div>-->
-						    <div id="slider_tarif"></div>
-						</div>
-
-						<!-- ZONE DE SAISIE QUI AFFICHER UN CALENDRIER POUR SELECTIONNER UNE DATE -->
-
-						<label for="session"><h4><?php echo $str["8"] ?></h4></label>
-						<div class="form-group">	
-							<div class='input-group date'>
-				                <input class="form-control" type="date" id="datepicker" name = "date" placeholder = "Toutes Dates" value = '<?php echo $garder_date ?>'>
-				                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-		            		</div>
-						</div>
-
-						<!-- SLIDER POUR SELECTIONNER UNE LA DURÉE DE LA FORMATION -->
-
-						<label for="duree"><h4><?php echo $str["9"] ?></h4></label>
-						<div class="form-group">													
-							<span><?php echo $str["6"] ?><input class = "duree_min inputduree" type="tel" name = "duree_min"/>
-							<?php echo $str["7"] ?><input class = "duree_max inputduree" type="tel" name = "duree_max"/><?php echo $str["17"] ?></span>
-						    <!--<div><span id="duree">De <span class="duree_min"></span> à <span class="duree_max"></span> Jours</div>-->
-						    <div id="slider_duree"></div>
-						</div>
-
-						<!-- BOUTONS POUR SÉLECTIONNER "OUI" OU "NON" (OU RIEN CE QUI SIGNIFICATION AVEC ET SANS CERTIFICAT) -->
-
-						<label for="certif"><h4><?php echo $str["10"] ?></h4></label>
-						<div class="form-group">						
-						    <div id="radio">			 
-							    <input type="checkbox" id="radio1" class = "options" name="certif" value = "oui" <?php if($certif == "oui") echo"checked" ?>><label for="radio1"><?php echo $str["11"] ?></label>
-							    <input type="checkbox" id="radio2" class = "options" name="certif" value = "non" <?php if($certif == "non") echo"checked" ?>><label for="radio2"><?php echo $str["12"] ?></label>
-						    </div>
-						</div>
-
-						<!-- BOUTON DÉROULANT POUR SELECTIONNER LA DIFFICULTÉ DE LA FORMATION (TYPE DE PUBLIC) -->
-
-						<label for="public"><h4><?php echo $str["13"] ?></h4></label>
-						<div class="form-group">											    
-							<select class="form-control" name = "public" id="public">
-							  	<option value = "Tout Public" <?php if($public == "Tout Public") echo"selected" ?>><?php echo $str["14"] ?></option>
-							    <option value = "Débutant" <?php if($public == "Débutant") echo"selected" ?>>Débutant</option>
-							    <option value = "Amateur" <?php if($public == "Amateur") echo"selected" ?>>Amateur</option>
-							    <option value = "Pro" <?php if($public == "Pro") echo"selected" ?>>Pro</option>
-							    <option value = "Pro Avancé" <?php if($public == "Pro Avancé") echo"selected" ?>>Pro Avancé</option>
-							    <option value = "Expert" <?php if($public == "Expert") echo"selected" ?>>Expert</option>
-							</select>
-						</div><br>
-
-						<!-- BOUTON VALIDER POUR VALIDER LE FILTRAGE -->
-						
-				        <div class="col-xs-6">
-				            <input id="submit" name="valide" type="submit" value="<?php echo $str["15"] ?>" class="btn btn-primary form-control"  style="margin:0px">
-				        </div>
-				        <br>
-					</form>
-						
-					<div class="col-xs-6">
-			            <button class="btn btn-primary form-control annule" data-toggle="offcanvas" style="margin-top:-44px; margin-left:130px"><?php echo $str["16"] ?></button>
-			        </div>
-	            </div>
-            </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            
-            <div id="nosFormations" class = "container-fluid">
-
-				<!-- DIV OU IL Y AURA LES BOUTONS POUR LE FILTRAGE -->
-				
-				<div class="text-center filtre">
-					<button style="color:#444" type="button" class="hamburger is-closed" data-toggle="offcanvas">
-		                <span class="hamb-top"></span>
-		    			<span class="hamb-middle"></span>
-						<span class="hamb-bottom"></span>
-		            </button>
-					<h2 class="hamburger-text"> <?php echo $str["2"] ?></h2>
-					<h1><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i>  <?php echo $str["1"] ?></a></h1>
-				</div>
-	            
-	            <!-- Flèche qui permet de remonter en haut de la page -->
-
-				<div>
-					<a style="display: none" class = 'badge remonte hidden-sm hidden-xs' href="#top"><i class="fa fa-chevron-up fa-3x" aria-hidden="true"></i></a>
-				</div>
-
-	            <!-- BOUCLE QUI AFFICHE LES FORMATIONS DISPONIBLES LES UNS EN DESSOUS DES AUTRES -->
-
-				<div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12"><br>			
+			<section class="cd-gallery">
+				<ul id="MixItUpCFEB09">
 					<?php 
-						if(empty($les_formations))
-								echo '<div><p class = "btnfos text-danger col-lg-10 col-md-10 col-sm-8 col-xs-6">Aucun résultat trouvé !</p></div>';
-						for($i = 0; $i < count($les_formations); $i++) 
-						{
-							echo $phrases[$i];
-						}
+						echo $listeF; 
 					?>
-				</div>
-			</div>
-
-			<main>
-	<h1>Add to Cart Interaction</h1>
-	<a href="#0" class="cd-add-to-cart" data-price="25.99">Add To Cart</a>
-</main>
-
-<div class="cd-cart-container empty">
-	<a href="#0" class="cd-cart-trigger">
-		Cart
-		<ul class="count"> <!-- cart items count -->
-			<li>0</li>
-			<li>0</li>
-		</ul> <!-- .count -->
-	</a>
-
-	<div class="cd-cart">
-		<div class="wrapper">
-			<header>
-				<h2>Cart</h2>
-				<span class="undo">Item removed. <a href="#0">Undo</a></span>
-			</header>
-			
-			<div class="body">
-				<ul>
-					<!-- products added to the cart will be inserted here using JavaScript -->
 				</ul>
-			</div>
+				<div class="cd-fail-message text-danger"><h3>Aucunes formations trouvées</h3></div>
+			</section><!-- cd-gallery -->
 
-			<footer>
-				<a href="#0" class="checkout btn"><em>Checkout - $<span>0</span></em></a>
-			</footer>
-		</div>
-	</div> <!-- .cd-cart -->
-</div>
+			<div class="cd-filter">
+				<form>
+					<div class="cd-filter-block">
+						<h4>Search</h4>
+						
+						<div class="cd-filter-content">
+							<input type="search" placeholder="Try color-1...">
+						</div> <!-- cd-filter-content -->
+					</div> <!-- cd-filter-block -->
+
+					<div class="cd-filter-block">
+						<h4>Check boxes</h4>
+
+						<ul class="cd-filter-content cd-filters list">
+							<li>
+								<input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
+				    			<label class="checkbox-label" for="checkbox1">Option 1</label>
+							</li>
+
+							<li>
+								<input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
+								<label class="checkbox-label" for="checkbox2">Option 2</label>
+							</li>
+
+							<li>
+								<input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
+								<label class="checkbox-label" for="checkbox3">Option 3</label>
+							</li>
+						</ul> <!-- cd-filter-content -->
+					</div> <!-- cd-filter-block -->
+
+					<div class="cd-filter-block">
+						<h4>Tarif</h4>
+						
+						<div class="cd-filter-content col-xs-6">
+							<input type="search" placeholder="min">
+						</div> <!-- cd-filter-content -->
+						<div class="cd-filter-content col-xs-6">
+							<input type="search" placeholder="max">
+						</div> <!-- cd-filter-content -->
+					</div><br><br><br>
+
+					<div class="cd-filter-block">
+						<h4>Niveau de la formation</h4>
+						
+						<div class="cd-filter-content">
+							<div class="cd-select cd-filters">
+								<select class="filter" name="selectThis" id="selectThis">
+									<option value="">Tout Public</option>
+									<option value=".1">Débutant</option>
+									<option value=".2">Amateur</option>
+									<option value=".3">Pro</option>
+									<option value=".4">Pro avancé</option>
+									<option value=".5">Expert</option>
+								</select>
+							</div> <!-- cd-select -->
+						</div> <!-- cd-filter-content -->
+					</div> <!-- cd-filter-block -->
+
+					<div class="cd-filter-block">
+						<h4>Formation certifié</h4>
+
+						<ul class="cd-filter-content cd-filters list">
+							<li>
+								<input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
+								<label class="radio-label" for="radio1">OSEF</label>
+							</li>
+
+							<li>
+								<input class="filter" data-filter=".cert" type="radio" name="radioButton" id="radio2">
+								<label class="radio-label" for="radio2">Oui</label>
+							</li>
+
+							<li>
+								<input class="filter" data-filter=".no-cert" type="radio" name="radioButton" id="radio3">
+								<label class="radio-label" for="radio3">Non</label>
+							</li>
+						</ul> <!-- cd-filter-content -->
+					</div> <!-- cd-filter-block -->
+				</form>
+
+				<a href="#0" class="cd-close">Close</a>
+			</div> <!-- cd-filter -->
+
+			<a href="#0" class="cd-filter-trigger">Filters</a>
+		</main> <!-- cd-main-content -->
+	</div>
 
 			<!-- PIED DE PAGE DU SITE -->
 
 			<?php include("footer.php"); ?>				
-        </div>
-    </div>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -228,4 +206,6 @@
 
 		});
 	</script>
-    <script src="add-to-cart-interaction/js/main.js"></script> <!-- Resource jQuery -->
+    <script src="content-filter-assets/js/jquery-2.1.1.js"></script>
+	<script src="content-filter-assets/js/jquery.mixitup.min.js"></script>
+	<script src="content-filter-assets/js/main.js"></script> <!-- Resource jQuery -->
