@@ -242,7 +242,7 @@ xtab-filter
   .cd-tab-filter.is-open ul li {
     display: inline-block;
   }
-  .cd-filters {
+  .cd-tab-filter-wrapper .cd-filters {
         margin-left: 30px;
   }
 }
@@ -260,7 +260,7 @@ xtab-filter
     /* reduce width when filter is visible */
     width: 80%;
   }
-  .cd-filters {
+  .cd-tab-filter-wrapper .cd-filters {
         margin-left: 115px;
   }
 }
@@ -295,6 +295,10 @@ xgallery
   width: 100%;
 }
 .cd-gallery .cd-fail-message {
+  display: none;
+  text-align: center;
+}
+.cd-gallery .cd-success-message {
   display: none;
   text-align: center;
 }
@@ -464,13 +468,18 @@ xfilter
     background-position: left center;
     -webkit-transition: color 0.3s;
     -moz-transition: color 0.3s;
-    transition: color 0.3s;
+    transition: color 0.3s;    
   }
   .no-touch .cd-filter-trigger:hover {
     color: #346FA1;
   }
   .cd-filter-trigger.filter-is-visible, .cd-filter-trigger.filter-is-visible:hover {
     color: #ffffff;
+  }
+  @media only screen and (max-width: 1725px) {
+    .cd-tab-filter.filter-is-visible {
+      height:100px;
+    }
   }
 }
 

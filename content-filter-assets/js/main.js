@@ -27,6 +27,7 @@ jQuery(document).ready(function($){
 		if( $(event.target).is(filter_tab_placeholder) ) {
 			(filter_tab_placeholder_default_value == filter_tab_placeholder.text()) ? filter_tab_placeholder.text(filter_tab_placeholder_text) : filter_tab_placeholder.text(filter_tab_placeholder_default_value) ;
 			$('.cd-tab-filter').toggleClass('is-open');
+			$(".cd-gallery .cd-success-message h3").text($("[style*='inline-block']").length + " formation(s) correspondante(s)");
 
 		//check if user has clicked a filter already selected 
 		} else if( filter_tab_placeholder.data('type') == selected_filter ) {
@@ -76,13 +77,17 @@ jQuery(document).ready(function($){
 	    },
 	    callbacks: {
 	    	onMixStart: function(){
-	    		$('.cd-fail-message').fadeOut(200);
+	    		$('.cd-fail-message').fadeOut(0);
+	    		$('.cd-success-message').fadeIn(200); 
+	    		//$(".cd-gallery .cd-success-message h3").text($("[style*='inline-block']").length + " formation(s) correspondante(s)");   
 	    	},
 	      	onMixFail: function(){
 	      		$('.cd-fail-message').fadeIn(200);
+	      		$('.cd-success-message').fadeOut(0); 
 	    	}
 	    }
 	});
+
 
 	//search filtering
 	//credits http://codepen.io/edprats/pen/pzAdg
@@ -102,24 +107,121 @@ jQuery(document).ready(function($){
 	  	delay(function(){
 	    	inputText = $(".cd-filter-content input[type='search']").val().toLowerCase();
 	   		// Check to see if input field is empty
-	    	if ((inputText.length) > 0) {            
+	              
 	      		$('.mix').each(function() {
 		        	var $this = $(this);
 		        
 		        	// add item to be filtered out if input text matches items inside the title   
-		        	if($this.attr('class').toLowerCase().match(inputText)) {
-		          		$matching = $matching.add(this);
+		        	if($this.find("h4").text().toLowerCase().match(inputText) || $this.find("h3").text().toLowerCase().match(inputText)) {
+		          		//$matching = $matching.add(this);
+		          		$this.addClass("search");
 		        	} else {
+		        		$this.removeClass("search");
 		          		// removes any previously matched item
-		          		$matching = $matching.not(this);
+		          		//$matching = $matching.not(this);
 		        	}
 	      		});
-	      		$('.cd-gallery ul').mixItUp('filter', $matching);
-	    	} else {
-	      		// resets the filter to show all item if input is empty
-	      		$('.cd-gallery ul').mixItUp('filter', 'all');
-	    	}
-	  	}, 200 );
+	      		//$('.cd-gallery ul').mixItUp('filter', $matching);
+
+	  	}, 0 );
+	});
+
+		$(".cd-filter-content #min, .cd-filter-content #max, .cd-filter-content #dureeMin, .cd-filter-content #dureeMax").click(function(){
+			$(this).val('');
+		});
+
+		$(".cd-filter-content #min, .cd-filter-content #max").keyup(function(){
+			//var self = this;
+			
+
+		  	// Delay function invoked to make sure user stopped typing
+		  	var min = $('.cd-filter-content #min');
+		  	var max = $('.cd-filter-content #max');
+		    delay(function(){
+		        /*if(min != null)
+		       		$("#min2").attr("value", min.val());
+		       	if(max != null)
+		        	$("#max2").attr("value", max.val());	*/
+
+		       	/*var min2 = $("#min2").attr("value");
+		       	var max2 = $("#max2").attr("value");*/
+
+		       	$("#min").attr("value", min.val());
+		        $("#max").attr("value", max.val());
+
+		       	min = $('.cd-filter-content #min').attr("value");
+		       	max = $('.cd-filter-content #max').attr("value");
+
+				console.log(min);
+				console.log(max);
+
+			        
+			  		$('.mix').each(function() {
+			        	var $this = $(this);
+			        
+			        	// add item to be filtered out if input text matches items inside the title   
+			        	if(($this.attr('data-price') <= Number(max)) && ($this.attr('data-price') >= Number(min))) {
+			          		//$matching = $matching.add(this);
+			          		//group.active.push("caca");
+			          		//self.concatenate();
+
+			          		$this.addClass("prix");
+
+			        	} else {
+			          		// removes any previously matched item
+			          		//$matching = $matching.not(this);
+			          		$this.removeClass("prix");
+			        	}
+			  		});
+			  		//$('.cd-gallery ul').mixItUp('filter', $matching);
+		    }, 0);
+		});
+
+		$(".cd-filter-content #dureeMin, .cd-filter-content #dureeMax").keyup(function(){
+		//var self = this;
+		
+
+	  	// Delay function invoked to make sure user stopped typing
+	  	var min = $('.cd-filter-content #dureeMin');
+	  	var max = $('.cd-filter-content #dureeMax');
+	    delay(function(){
+	        /*if(min != null)
+	       		$("#min2").attr("value", min.val());
+	       	if(max != null)
+	        	$("#max2").attr("value", max.val());	*/
+
+	       	/*var min2 = $("#min2").attr("value");
+	       	var max2 = $("#max2").attr("value");*/
+
+	       	$("#dureeMin").attr("value", min.val());
+	        $("#dureeMax").attr("value", max.val());
+
+	       	min = $('.cd-filter-content #dureeMin').attr("value");
+	       	max = $('.cd-filter-content #dureeMax').attr("value");
+
+			console.log(min);
+			console.log(max);
+
+		        
+		  		$('.mix').each(function() {
+		        	var $this = $(this);
+		        
+		        	// add item to be filtered out if input text matches items inside the title   
+		        	if(($this.attr('data-duree') <= Number(max)) && ($this.attr('data-duree') >= Number(min))) {
+		          		//$matching = $matching.add(this);
+		          		//group.active.push("caca");
+		          		//self.concatenate();
+
+		          		$this.addClass("duree");
+
+		        	} else {
+		          		// removes any previously matched item
+		          		//$matching = $matching.not(this);
+		          		$this.removeClass("duree");
+		        	}
+		  		});
+		  		//$('.cd-gallery ul').mixItUp('filter', $matching);
+	    }, 0);
 	});
 });
 
@@ -172,6 +274,7 @@ var buttonFilter = {
 	    // loop through each filter group and grap the active filter from each one.
 	    for(var i = 0, group; group = self.groups[i]; i++){
 	    	group.active = [];
+
 	    	group.$inputs.each(function(){
 	    		var $this = $(this);
 	    		if($this.is('input[type="radio"]') || $this.is('input[type="checkbox"]')) {
@@ -182,10 +285,17 @@ var buttonFilter = {
 	    			group.active.push($this.val());
 	    		} else if( $this.find('.selected').length > 0 ) {
 	    			group.active.push($this.attr('data-filter'));
+	    		} else if($this.attr('data-filter') == 'prix'){
+	    			group.active.push('.prix');
+	    		} else if($this.attr('data-filter') == 'duree'){
+	    			group.active.push('.duree');
+	    		} else if($this.attr('data-filter') == 'search'){
+	    			group.active.push('.search');
 	    		}
-	    	});
+	    	});    	
 	    }
 	    self.concatenate();
+
   	},
   
   	concatenate: function(){
@@ -196,13 +306,18 @@ var buttonFilter = {
 	    for(var i = 0, group; group = self.groups[i]; i++){
 	      	self.outputString += group.active;
 	    }
+
+	    //this.outputString += '.prix';
     
 	    // If the output string is empty, show all rather than none:    
 	    !self.outputString.length && (self.outputString = 'all'); 
-	
-    	// Send the output string to MixItUp via the 'filter' method:    
+
+
+
+		    	// Send the output string to MixItUp via the 'filter' method:    
 		if(self.$container.mixItUp('isLoaded')){
-	    	self.$container.mixItUp('filter', self.outputString);
+	    	self.$container.mixItUp('filter', self.outputString);	    	
 		}
-  	}
+		console.log(self.outputString);		
+	}
 };

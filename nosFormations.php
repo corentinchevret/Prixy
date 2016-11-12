@@ -40,7 +40,7 @@
 		$public = substr($formations[$i][3],0,1);
 
 		// Création de la div avec les filtres recupérer précédemment
-		$listeF .= "<li id='form$i' class='text-left mix color-1 $public $certif $categ'>
+		$listeF .= "<li id='form$i' data-my-order='$i' data-price='".$formations[$i][6]."' data-duree='".$formations[$i][7]."' class='text-left mix color-1 prix duree search $public $certif $categ'>
 						<div class='card-container'>
 							<div class='card'>
 								<div class='front'>
@@ -51,8 +51,8 @@
 								<div class='back'>
 									<img src='images/test.jpg'>
 									<h3>
-										Tarif : ".$formations[$i][6]." <br>
-										Durée : ".$formations[$i][7]." <br>
+										Tarif : ".$formations[$i][6]." € <br>
+										Durée : ".$formations[$i][7]." Jour(s) <br>
 										Certification : $certMsg
 									</h3>
 									<a href='laFormation.php?formation=".$formations[$i][5]."'>
@@ -97,12 +97,14 @@
 			</div> <!-- cd-tab-filter-wrapper  MixItUpCFEB09-->
 
 			<section class="cd-gallery">
+				<div class="cd-success-message text-danger"><h3></h3></div>
 				<ul id="MixItUpCFEB09">
 					<?php 
 						echo $listeF; 
 					?>
 				</ul>
-				<div class="cd-fail-message text-danger"><h3>Aucunes formations trouvées</h3></div>
+
+				<div class="cd-fail-message text-danger"><h3>Aucunes formations correspondantes</h3></div>			
 			</section><!-- cd-gallery -->
 
 			<div class="cd-filter">
@@ -110,15 +112,15 @@
 					<div class="cd-filter-block">
 						<h4>Search</h4>
 						
-						<div class="cd-filter-content">
-							<input type="search" placeholder="Try color-1...">
+						<div class="cd-filter-content cd-filters">
+							<input data-filter="search" class="filter" type="search" placeholder="Try color-1...">
 						</div> <!-- cd-filter-content -->
 					</div> <!-- cd-filter-block -->
 
 					<div class="cd-filter-block">
-						<h4>Check boxes</h4>
+						<h4>Date Formation</h4>
 
-						<ul class="cd-filter-content cd-filters list">
+						<!--<ul class="cd-filter-content cd-filters list">
 							<li>
 								<input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
 				    			<label class="checkbox-label" for="checkbox1">Option 1</label>
@@ -133,17 +135,19 @@
 								<input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
 								<label class="checkbox-label" for="checkbox3">Option 3</label>
 							</li>
-						</ul> <!-- cd-filter-content -->
+						</ul>--> <!-- cd-filter-content -->
 					</div> <!-- cd-filter-block -->
 
 					<div class="cd-filter-block">
 						<h4>Tarif</h4>
 						
-						<div class="cd-filter-content col-xs-6">
-							<input type="search" placeholder="min">
+						<div class="cd-filter-content col-xs-6 cd-filters">
+							<input data-filter="prix" class="filter" id="min" type="search" placeholder="min" value="0">
+							<!--<input id='min2' type="text" value="0">-->
 						</div> <!-- cd-filter-content -->
-						<div class="cd-filter-content col-xs-6">
-							<input type="search" placeholder="max">
+						<div class="cd-filter-content col-xs-6 cd-filters">
+							<input class="filter" id="max" type="search" placeholder="max" value="5000">
+							<!--<input id='max2' type="text" value="5000">-->
 						</div> <!-- cd-filter-content -->
 						<div class="row"></div>
 					</div>
@@ -164,6 +168,20 @@
 							</div> <!-- cd-select -->
 						</div> <!-- cd-filter-content -->
 					</div> <!-- cd-filter-block -->
+
+					<div class="cd-filter-block">
+						<h4>Durée Formation</h4>
+						
+						<div class="cd-filter-content col-xs-6 cd-filters">
+							<input data-filter="duree" class="filter" id="dureeMin" type="search" placeholder="min" value="0">
+							<!--<input id='min2' type="text" value="0">-->
+						</div> <!-- cd-filter-content -->
+						<div class="cd-filter-content col-xs-6 cd-filters">
+							<input class="filter" id="dureeMax" type="search" placeholder="max" value="10">
+							<!--<input id='max2' type="text" value="5000">-->
+						</div> <!-- cd-filter-content -->
+						<div class="row"></div>
+					</div>
 
 					<div class="cd-filter-block">
 						<h4>Formation certifié</h4>
@@ -240,3 +258,7 @@
     <script src="content-filter-assets/js/jquery-2.1.1.js"></script>
 	<script src="content-filter-assets/js/jquery.mixitup.min.js"></script>
 	<script src="content-filter-assets/js/main.js"></script> <!-- Resource jQuery -->
+	<script type="text/javascript">
+		$(".cd-gallery .cd-success-message h3").text($(".cd-gallery ul > li").length + " formation(s) correspondante(s)");
+	</script>
+
