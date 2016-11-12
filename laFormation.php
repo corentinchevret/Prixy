@@ -22,17 +22,17 @@ if(isset($_SESSION["id"])) {
 }
 
 ?>
-			<div class = "container-fluid">				
+			<div class = "container-fluid">			
 
 				<!-- LES 2 IMAGES + LE THEME ET LE TITRE + L'OBJECTIF, LES PRÉ-REQUIS ET LE PROGRAMME DÉTAILLÉ (très compliqué)-->
 				
-				<div>
-					<img class = "img1 align-center" src ='<?php echo $infos_formation[0][0] ?>'>
+				<div><br><br>
+					<img style="margin-top: 15px" class = "img1 align-center" src ='<?php echo $infos_formation[0][0] ?>'>
 					<img class = "img2 align-center" src ='<?php echo $infos_formation[0][0] ?>'>
 				</div>
-				<h1><?php echo $str["1"] ?><?php echo $infos_formation[0][1] ?></h1>
-				<h1><a href = "laFormation.php?formation=<?php echo $infos_formation[0][3];?>"><i class="glyphicon glyphicon-file"></i> <?php echo $infos_formation[0][2] ?></a></h1>
-				<hr class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+				<h1><br><?php echo $str["1"] ?><?php echo $infos_formation[0][1] ?></h1>
+				<h1><a href = "laFormation.php?formation=<?php echo $infos_formation[0][3];?>"><i class="glyphicon glyphicon-file"></i> <?php echo $infos_formation[0][2] ?></a></h1>	
+				<br><hr><br>
 
 				<div class="center-text">
 					<button id="modal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["14"] ?></button>
@@ -122,8 +122,9 @@ if(isset($_SESSION["id"])) {
 						    for($i = 0; $i < count($infos_formation); $i++){ 
 						    	if($language == "fr-FR")
 						    		$infos_formation[$i][9] = date_format(date_create($infos_formation[$i][9]),"d/m/Y");
+						    	
 						    	echo'<label class="custom-control custom-radio">
-									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.date_format(date_create($infos_formation[$i][9]),"d/m/Y").'" required>
+									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.$infos_formation[$i][9].'" required>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description bold">'.$infos_formation[$i][9].'</span>
 								</label><br>'; 

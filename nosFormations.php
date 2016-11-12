@@ -8,7 +8,7 @@
 	$str = array();
 	$str = return_str($language, $page);
 
-	$formations = execSQL_fetchall("SELECT nom_from, id_categ, id_certif, type_public
+	$formations = execSQL_fetchall("SELECT nom_from, id_categ, id_certif, type_public, logo_form, F.ref_form, tarif, duree_form
 									FROM formation F
 									INNER JOIN appartenir A ON A.ref_form = F.ref_form
 									INNER JOIN delivrer D ON D.ref_form = F.ref_form
@@ -19,6 +19,7 @@
 	$listeF = "";
 	$categ = "";
 	$certif = "";
+	$certMsg = "";
 	$public;
 	for ($i=0; $i < count($formations); $i++) { 
 		// On récupère la catégorie
@@ -26,14 +27,43 @@
 
 		//On récupère la certif
 		if($formations[$i][2] != "C000")
+		{
 			$certif = "cert";
+			$certMsg = "Oui";
+		}
 		else
+		{
 			$certif = "no-cert";
+			$certMsg = "Non";
+		}
 
 		$public = substr($formations[$i][3],0,1);
 
 		// Création de la div avec les filtres recupérer précédemment
-		$listeF .= "<li id='form' class='mix color-1 $public $certif $categ'>".$formations[$i][0]."<img src='images/test.jpg'></li>\n";
+		$listeF .= "<li id='form$i' class='text-left mix color-1 $public $certif $categ'>
+						<div class='card-container'>
+							<div class='card'>
+								<div class='front'>
+									<img src='images/test.jpg'>
+									<img src='".$formations[$i][4]."'>
+									<h4>".$formations[$i][0]."<h4>
+								</div>
+								<div class='back'>
+									<img src='images/test.jpg'>
+									<h3>
+										Tarif : ".$formations[$i][6]." <br>
+										Durée : ".$formations[$i][7]." <br>
+										Certification : $certMsg
+									</h3>
+									<a href='laFormation.php?formation=".$formations[$i][5]."'>
+										<div class='btnForm'>
+											En savoir plus
+										</div>
+									</a>							
+								</div>
+							</div>
+						</div>
+					</li>\n";
 	}	
 
     ?>
@@ -43,8 +73,8 @@
 	<script src="content-filter-assets/js/modernizr.js"></script> <!-- Modernizr -->
 
 
-	<div id="nosFormations"><br><br>   
-		<header  class="cd-header" style="background-color:#ccc; margin-top:25px; height:240px">
+	<div id="nosFormations"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">      
+		<header  class="cd-header" style="background-color:#ccc; height:240px">
 			<h1><a href="nosFormations.php"><i class="glyphicon glyphicon-list"></i> <?php echo $str["1"] ?></a></h1>
 		</header>     	
 
@@ -115,7 +145,8 @@
 						<div class="cd-filter-content col-xs-6">
 							<input type="search" placeholder="max">
 						</div> <!-- cd-filter-content -->
-					</div><br><br><br>
+						<div class="row"></div>
+					</div>
 
 					<div class="cd-filter-block">
 						<h4>Niveau de la formation</h4>
