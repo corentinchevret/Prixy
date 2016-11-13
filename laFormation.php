@@ -34,8 +34,8 @@ if(isset($_SESSION["id"])) {
 				<h1><a href = "laFormation.php?formation=<?php echo $infos_formation[0][3];?>"><i class="glyphicon glyphicon-file"></i> <?php echo $infos_formation[0][2] ?></a></h1>	
 				<br><hr><br>
 
-				<div class="center-text">
-					<button id="modal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["14"] ?></button>
+				<div class="center-text centrois">
+					<button id="modal" class="btn btn-success" style="font-weight:bold" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["14"] ?></button>
 					<button id="modal-val" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 					<button id="modal-pb" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 
@@ -112,29 +112,29 @@ if(isset($_SESSION["id"])) {
 				  	<form method="post">
 				    	<div class="modal-content">
 					      <div class="modal-header">
-				            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				            <button type="button" class="close centrois" data-dismiss="modal" aria-label="Close">
 				              <span aria-hidden="true">&times;</span>
 				            </button>
-				            <h4 class="modal-title" id="exampleModalLabel" style='color:inherit;'><?php echo $str["15"] ?></h4>
+				            <h3 class="modal-title text-success" id="exampleModalLabel" style='color:inherit;'><?php echo $str["15"] ?></h3>
 				          </div>
-					      <div class="modal-body">
+					      <div class="modal-body centrois"><br>
 					      <?php 
 						    for($i = 0; $i < count($infos_formation); $i++){ 
 						    	if($language == "fr-FR")
 						    		$infos_formation[$i][9] = date_format(date_create($infos_formation[$i][9]),"d/m/Y");
 						    	
-						    	echo'<label class="custom-control custom-radio">
+						   echo'<label class="custom-control custom-radio">
 									<input id="radio1" name="radio" type="radio" class="custom-control-input" value = "'.$infos_formation[$i][9].'" required>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description bold">'.$infos_formation[$i][9].'</span>
-								</label><br>'; 
+								</label><div style="height:10px"></div>'; 
 						    } 
 					      ?>
-					      <span id="erreur"></span>
+					      <h4 id="erreur" style="font-size: 1.3rem"></h4>
 					      </div>
-					      <div class="modal-footer">		          
-				            <button id="val" type="submit" class="btn btn-primary"><?php echo $str["17"] ?></button>
-				            <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo $str["18"] ?></button>
+					      <div class="modal-footer centrois">		          
+				            <button id="val" type="submit" class="btn btn-success" style="font-weight:bold"><?php echo $str["17"] ?></button>
+				            <button type="button" class="btn btn-secondary" style="font-weight:bold" data-dismiss="modal"><?php echo $str["18"] ?></button>
 				          </div>
 				    	</div>
 				    </form>
@@ -145,17 +145,17 @@ if(isset($_SESSION["id"])) {
 				<div class="modal-dialog modal-lg">
 				    <div class="modal-content">
 					    <div class="modal-header">
-				            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				            <button type="button" class="close centrois" data-dismiss="modal" aria-label="Close">
 				              <span aria-hidden="true">&times;</span>
 				            </button>
-				            <h4 class="modal-title text-success" id="exampleModalLabel" style='color:inherit;'><?php echo $str["19"] ?></h4>
-				          </div>
+				            <h3 class="modal-title text-success" id="exampleModalLabel" style='color:inherit;'><?php echo $str["19"] ?></h3>
+				        </div>
 				        <div class="modal-body">
 						    <?php echo $str["20"] ?>
 				        </div>
-				        <div class="modal-footer">		          
-				            <button type="button" class="btn btn-primary"><a style="color:white;" href="inscFormations.php"><?php echo $str["21"] ?></a></button>
-				            <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo $str["22"] ?></button>
+				        <div class="modal-footer centrois">		          
+				            <button type="button" class="btn btn-success"><a style="color:white; font-weight:bold" href="inscFormations.php"><?php echo $str["21"] ?></a></button>
+				            <button type="button" class="btn btn-secondary" style="font-weight:bold" data-dismiss="modal"><?php echo $str["22"] ?></button>
 			            </div>
 			        </div>
 				</div>

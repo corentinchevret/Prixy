@@ -1,4 +1,4 @@
-<html lang="fr-FR">
+<html lang="fr">
 	<head>
 		<title><?php echo $titre;?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,7 +26,7 @@
 			<div id="top" role = "navigation">
 				<nav class="navbar navbar-blue navbar-fixed col-lg-12" role ="navigation" style="padding:0px">
 			        <!-- logo Prixy et bouton hamburger pour la version Mobile -->
-			        <div class="navbar-header">
+			        <div class="navbar-header centrois">
 			            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
 			                <span class="sr-only">Toggle navigation</span>
 			                <span class="icon-bar"></span>
@@ -42,8 +42,8 @@
 							// Le bouton du login sera un menu déroulant oû l'on pourra accéder au profil ou se déconnecter 
 							if(isset($_SESSION['pseudonyme']))
 							{
-								echo '<button type="button" class="nav profil-center hidden-sm hidden-md hidden-lg bold" data-toggle="dropdown" style="margin:0;"><h5 style="color:white">' . $_SESSION['pseudonyme'] . '<span class="caret"></span></h5></button>
-							          <ul class="dropdown-menu pull-right">
+								echo '<button type="button" class="nav profil-center hidden-sm hidden-md hidden-lg bold" data-toggle="dropdown" style="height:50px; margin:0; padding-top:15px; font-size:120%"><h5 style="color:white; font-weight:bold;">' . $_SESSION['pseudonyme'] . '<span class="caret"></span></h5></button>
+							          <ul class="dropdown-menu pull-right" style="font-size:120%; margin:0px;">
 							            <li><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> '.$str["7"].'</a></li>
 							            <li><a href="deconnexion.php"><i class="fa fa-times" aria-hidden="true"></i> '.$str["8"].'</a></li>
 							          </ul>';
@@ -54,7 +54,7 @@
 								echo '<button type="button" class="nav profil-center hidden-sm hidden-md hidden-lg"><a href="connexion.php"><i class="glyphicon glyphicon-log-in"></i></a></button>';
 							}
 						?>	
-			            <a class = "hidden-lg hidden-md hidden-sm navbar-brand" href="index.php"><img id="prixy" src="images/prixy.png" alt="logo Prixy" style="margin-left:15%; margin-right:85%; top:-5px"></a>
+			            <a id="prixy" class = "hidden-lg hidden-md hidden-sm" href="index.php"><img src="images/prixy.png" alt="logo Prixy" style="top:-5px"></a>
 			        </div>
 			        <!-- menu avec chaque rubrique pour la version desktop -->
 			        <div class="collapse navbar-collapse" id="navbar1">
@@ -76,7 +76,7 @@
 							if(isset($_SESSION['pseudonyme']))
 							{
 								echo '<span class = "hidden-md hidden-sm hidden-xs"></span>
-									  <li class="dropdown blanc">		
+									  <li class="dropdown blanc centrois">		
 					                	  <a class = "" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>  ' . $_SESSION['pseudonyme'] . '<span class="caret"></span><br></a>
 								          <ul class="dropdown-menu">
 								            <li><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i> '.$str["7"].'</a></li>
@@ -106,7 +106,7 @@
 
 <script type="text/javascript">
 	$( "button" ).click(function() {	  
-	  alert($(this).attr("value"));
+	  //alert($(this).attr("value"));
 	  $("a > h5").removeClass();
 	  $("a > h5").addClass($(this).children("h5").attr("class"));
 	  $("#btn-lang span:nth-child(2)").text($(this).text());

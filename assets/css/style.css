@@ -1737,3 +1737,15 @@ html { height: 100%;}
 .back a:hover {
 	color:white;
 }
+
+/* mesInscriptions */
+
+.logo-tab {
+	max-height: 50px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}

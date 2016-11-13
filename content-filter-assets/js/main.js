@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
 
 	//mobile version - detect click event on filters tab
 	var filter_tab_placeholder = $('.cd-tab-filter .placeholder a'),
-		filter_tab_placeholder_default_value = 'Select',
+		filter_tab_placeholder_default_value = '',
 		filter_tab_placeholder_text = filter_tab_placeholder.text();
 	
 	$('.cd-tab-filter li').on('click', function(event){
@@ -126,58 +126,58 @@ jQuery(document).ready(function($){
 	  	}, 0 );
 	});
 
-		$(".cd-filter-content #min, .cd-filter-content #max, .cd-filter-content #dureeMin, .cd-filter-content #dureeMax").click(function(){
-			$(this).val('');
-		});
+	$(".cd-filter-content #min, .cd-filter-content #max, .cd-filter-content #dureeMin, .cd-filter-content #dureeMax").click(function(){
+		$(this).val('');
+	});
 
-		$(".cd-filter-content #min, .cd-filter-content #max").keyup(function(){
+	$(".cd-filter-content #min, .cd-filter-content #max").keyup(function(){
 			//var self = this;
 			
 
-		  	// Delay function invoked to make sure user stopped typing
-		  	var min = $('.cd-filter-content #min');
-		  	var max = $('.cd-filter-content #max');
-		    delay(function(){
-		        /*if(min != null)
-		       		$("#min2").attr("value", min.val());
-		       	if(max != null)
-		        	$("#max2").attr("value", max.val());	*/
+	  	// Delay function invoked to make sure user stopped typing
+	  	var min = $('.cd-filter-content #min');
+	  	var max = $('.cd-filter-content #max');
+	    delay(function(){
+	        /*if(min != null)
+	       		$("#min2").attr("value", min.val());
+	       	if(max != null)
+	        	$("#max2").attr("value", max.val());	*/
 
-		       	/*var min2 = $("#min2").attr("value");
-		       	var max2 = $("#max2").attr("value");*/
+	       	/*var min2 = $("#min2").attr("value");
+	       	var max2 = $("#max2").attr("value");*/
 
-		       	$("#min").attr("value", min.val());
-		        $("#max").attr("value", max.val());
+	       	$("#min").attr("value", min.val());
+	        $("#max").attr("value", max.val());
 
-		       	min = $('.cd-filter-content #min').attr("value");
-		       	max = $('.cd-filter-content #max').attr("value");
+	       	min = $('.cd-filter-content #min').attr("value");
+	       	max = $('.cd-filter-content #max').attr("value");
 
-				console.log(min);
-				console.log(max);
+			console.log(min);
+			console.log(max);
 
-			        
-			  		$('.mix').each(function() {
-			        	var $this = $(this);
-			        
-			        	// add item to be filtered out if input text matches items inside the title   
-			        	if(($this.attr('data-price') <= Number(max)) && ($this.attr('data-price') >= Number(min))) {
-			          		//$matching = $matching.add(this);
-			          		//group.active.push("caca");
-			          		//self.concatenate();
+		        
+		  		$('.mix').each(function() {
+		        	var $this = $(this);
+		        
+		        	// add item to be filtered out if input text matches items inside the title   
+		        	if(($this.attr('data-price') <= Number(max)) && ($this.attr('data-price') >= Number(min))) {
+		          		//$matching = $matching.add(this);
+		          		//group.active.push("caca");
+		          		//self.concatenate();
 
-			          		$this.addClass("prix");
+		          		$this.addClass("prix");
 
-			        	} else {
-			          		// removes any previously matched item
-			          		//$matching = $matching.not(this);
-			          		$this.removeClass("prix");
-			        	}
-			  		});
-			  		//$('.cd-gallery ul').mixItUp('filter', $matching);
-		    }, 0);
-		});
+		        	} else {
+		          		// removes any previously matched item
+		          		//$matching = $matching.not(this);
+		          		$this.removeClass("prix");
+		        	}
+		  		});
+		  		//$('.cd-gallery ul').mixItUp('filter', $matching);
+	    }, 0);
+	});
 
-		$(".cd-filter-content #dureeMin, .cd-filter-content #dureeMax").keyup(function(){
+	$(".cd-filter-content #dureeMin, .cd-filter-content #dureeMax").keyup(function(){
 		//var self = this;
 		
 
@@ -222,6 +222,34 @@ jQuery(document).ready(function($){
 		  		});
 		  		//$('.cd-gallery ul').mixItUp('filter', $matching);
 	    }, 0);
+	});
+
+	$(".cd-filter-content #date").change(function(){
+		var date = $("#date").val();
+
+	    $.getJSON('date.php', function (caca) {
+	      
+	    	$.each(caca, function (key, data) {
+			    //console.log(key)
+			    $.each(data, function (index, data) {
+			        //console.log('index', data));
+			        //$("#date").val();
+			        if(data == date)
+			        {
+			        	//console.log($("#"+key).attr("id"));
+			        	//console.log(data + " = " + date);
+			        	$("#"+key).addClass("date");
+			        }
+			        else
+			        	$("#"+key).removeClass("date");
+			    })
+			})
+
+	      /*for (var i = 0; i < Object.keys(data).length; i++) {
+	      	console.log(data["C001"]);
+	      }*/
+
+	    });   
 	});
 });
 
@@ -291,6 +319,8 @@ var buttonFilter = {
 	    			group.active.push('.duree');
 	    		} else if($this.attr('data-filter') == 'search'){
 	    			group.active.push('.search');
+	    		} else if($this.attr('data-filter') == 'date'){
+	    			group.active.push('.date');
 	    		}
 	    	});    	
 	    }

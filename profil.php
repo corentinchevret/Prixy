@@ -70,7 +70,7 @@
 
 							<div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"><hr></div>
 
-							<div class = "col-lg-4 col-lg-push-4 col-md-4 col-md-push-4 col-sm-12 col-xs-12">
+							<div class = "col-lg-4 col-lg-push-4 col-md-4 col-md-push-4 col-sm-12 col-xs-12 centrois">
 								<a style = "text-decoration:none;" href = "modif_profil.php"><button class = "form-control bold" name = "modifier_profil"><?php echo $str["18"] ?></button></a><br><br>
 							</div>	
 						</div>								

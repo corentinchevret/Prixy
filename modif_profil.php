@@ -188,12 +188,12 @@ session_start(); include('fonction.inc.php'); //var_dump($_SESSION);
 
 					<div class = "col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"><hr></div>
 
-					<div class = "col-lg-2 col-lg-push-1 col-md-3 col-sm-3 col-xs-8 col-xs-offset-2">
+					<div class = "col-lg-2 col-lg-push-1 col-md-3 col-sm-3 col-xs-8 col-xs-offset-2 centrois">
 						<input type = "submit" class = "form-control" name = "valider_profil" value = "<?php echo $str["23"] ?>"/>
 					</div>						
 				</form>
 
-				<div class = "col-lg-2 col-lg-push-1 col-md-3 col-sm-3 col-xs-8 col-xs-offset-2">
+				<div class = "col-lg-2 col-lg-push-1 col-md-3 col-sm-3 col-xs-8 col-xs-offset-2 centrois">
 					<br class = "visible-xs">
 					<a style = "text-decoration:none;" href = "profil.php"><button class = "form-control" name = "annuler_profil"><i class="fa fa-times" aria-hidden="true"></i> <?php echo $str["24"] ?></button></a><br>
 				</div><br>

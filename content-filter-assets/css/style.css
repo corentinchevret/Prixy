@@ -10,7 +10,15 @@ Primary style
 }
 
 html {
-  font-size: 75%;
+  font-size: 80%;
+}
+
+#connexion * {
+  font-size: 103%;
+}
+
+.centrois *{
+  font-size: 103%;
 }
 
 html * {
@@ -264,7 +272,7 @@ xtab-filter
         margin-left: 115px;
   }
 }
-@media only screen and (min-width: 818px) and (max-width: 1400px) {
+@media only screen and (min-width: 818px) and (max-width: 1343px) {
   .cd-tab-filter {
     height:100px;
   }
@@ -403,7 +411,7 @@ xfilter
   right: 0;
   height: 50px;
   line-height: 50px;
-  width: 60px;
+  width: 70px;
   color: #ffffff;
   font-size: 1.3rem;
   text-align: center;
@@ -545,7 +553,9 @@ xcustom form elements
 }
 .cd-filter-block input[type='search'],
 .cd-filter-block input[type='text'],
+.cd-filter-block input[type='date'],
 .cd-filter-block select {
+  height:50px;
   width: 100%;
   padding: .8em;
   -webkit-appearance: none;
@@ -557,6 +567,7 @@ xcustom form elements
 }
 .cd-filter-block input[type='search']:focus,
 .cd-filter-block input[type='text']:focus,
+.cd-filter-block input[type='date']:focus,
 .cd-filter-block select:focus {
   outline: none;
   background-color: #ffffff;
@@ -622,7 +633,7 @@ xcustom form elements
 .cd-filter-block .checkbox-label,
 .cd-filter-block .radio-label {
   padding-left: 24px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

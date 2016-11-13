@@ -74,7 +74,7 @@ if($_GET['t'] == 0)
 		echo"<h1><br><br><a href='#'><i class='fa fa-key' aria-hidden='true'></i> ".$str["1"]."</h1></a><br>";
 
 		// formulaire d'inscription
-		echo'<form method = "post" class="bold">';
+		echo'<form method = "post" class="bold centrois">';
 			// Zone de texte pour le mail, l'adresse, le cp et la ville
 			echo'<div class="row">';	
 				echo'<div class="col-xs-12 col-md-push-3  col-lg-6 col-lg-push-3">';		
@@ -128,7 +128,7 @@ if($_GET['t'] == 1)
 		echo"<h1><br><br><a href='#'><i class='fa fa-key' aria-hidden='true'></i> ".$str["1"]."</h1></a><br>";
 
 		// formulaire d'inscription
-		echo'<form method = "post" class="bold">';
+		echo'<form method = "post" class="bold centrois">';
 			// Zone de texte pour le mail, l'adresse, le cp et la ville
 			echo'<div class="row">';	
 				echo'<div class="col-xs-12 col-md-push-3  col-lg-6 col-lg-push-3">';	

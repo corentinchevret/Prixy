@@ -70,7 +70,7 @@
 ?>
 		<div class="container plein contenu text-center">
 			<br><h1><br><br><a href="nousContacter.php"><i class="glyphicon glyphicon-log-in"></i> <?php echo $str["1"] ?></a></h1><br>
-			<form method = "post">
+			<form class="centrois" method = "post">
 
 				<!-- zone de texte pour le login -->
 				<div class="row">

@@ -20,27 +20,30 @@
 	$categ = "";
 	$certif = "";
 	$certMsg = "";
+	$date = array();
 	$public;
 	for ($i=0; $i < count($formations); $i++) { 
 		// On récupère la catégorie
 		$categ = $formations[$i][1];
 
+		$date[$formations[$i][5]] = execSQL_fetchall("SELECT date_debut_session
+													  FROM session S WHERE ref_form = '".$formations[$i][5]."'");
 		//On récupère la certif
 		if($formations[$i][2] != "C000")
 		{
 			$certif = "cert";
-			$certMsg = "Oui";
+			$certMsg = $str["26"];
 		}
 		else
 		{
 			$certif = "no-cert";
-			$certMsg = "Non";
+			$certMsg = $str["27"];
 		}
 
 		$public = substr($formations[$i][3],0,1);
 
 		// Création de la div avec les filtres recupérer précédemment
-		$listeF .= "<li id='form$i' data-my-order='$i' data-price='".$formations[$i][6]."' data-duree='".$formations[$i][7]."' class='text-left mix color-1 prix duree search $public $certif $categ'>
+		$listeF .= "<li id='".$formations[$i][5]."' data-price='".$formations[$i][6]."' data-duree='".$formations[$i][7]."' class='text-left mix color-1 prix duree search date $public $certif $categ'>
 						<div class='card-container'>
 							<div class='card'>
 								<div class='front'>
@@ -51,13 +54,13 @@
 								<div class='back'>
 									<img src='images/test.jpg'>
 									<h3>
-										Tarif : ".$formations[$i][6]." € <br>
-										Durée : ".$formations[$i][7]." Jour(s) <br>
-										Certification : $certMsg
+										".$str["30"].$formations[$i][6]." € <br>
+										".$str["31"].$formations[$i][7]." ".$str["32"]." <br>".
+										$str["33"]." $certMsg
 									</h3>
 									<a href='laFormation.php?formation=".$formations[$i][5]."'>
 										<div class='btnForm'>
-											En savoir plus
+											".$str["34"]."
 										</div>
 									</a>							
 								</div>
@@ -65,6 +68,8 @@
 						</div>
 					</li>\n";
 	}	
+
+	json_encode($date);
 
     ?>
 
@@ -83,15 +88,15 @@
 				<div class="cd-tab-filter">
 					<ul class="cd-filters">
 						<li class="placeholder"> 
-							<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
+							<a data-type="all" href="#0"><?php echo $str["11"] ?></a> <!-- selected option on mobile -->
 						</li> 
-						<li class="filter"><a class="selected" href="#0">Tous</a></li>
-						<li class="filter" data-filter=".CA03"><a href="#0">Systèmes d'exploitation</a></li>
-						<li class="filter" data-filter=".CA01"><a href="#0">Bureautique</a></li>
-						<li class="filter" data-filter=".CA02"><a href="#0">Langages de programmation</a></li>
-						<li class="filter" data-filter=".CA05"><a href="#0">Le développment web</a></li>
-						<li class="filter" data-filter=".CA04"><a href="#0">Base de données</a></li>
-						<li class="filter" data-filter=".CA06"><a href="#0">MOOC</a></li>
+						<li class="filter"><a class="selected" href="#0"><?php echo $str["4"] ?></a></li>
+						<li class="filter" data-filter=".CA03"><a href="#0"><?php echo $str["5"] ?></a></li>
+						<li class="filter" data-filter=".CA01"><a href="#0"><?php echo $str["6"] ?></a></li>
+						<li class="filter" data-filter=".CA02"><a href="#0"><?php echo $str["7"] ?></a></li>
+						<li class="filter" data-filter=".CA05"><a href="#0"><?php echo $str["8"] ?></a></li>
+						<li class="filter" data-filter=".CA04"><a href="#0"><?php echo $str["9"] ?></a></li>
+						<li class="filter" data-filter=".CA06"><a href="#0"><?php echo $str["10"] ?></a></li>
 					</ul> <!-- cd-filters -->
 				</div> <!-- cd-tab-filter -->
 			</div> <!-- cd-tab-filter-wrapper  MixItUpCFEB09-->
@@ -104,22 +109,25 @@
 					?>
 				</ul>
 
-				<div class="cd-fail-message text-danger"><h3>Aucunes formations correspondantes</h3></div>			
+				<div class="cd-fail-message text-danger"><h3><?php echo $str["29"] ?></h3></div>			
 			</section><!-- cd-gallery -->
 
 			<div class="cd-filter">
 				<form>
 					<div class="cd-filter-block">
-						<h4>Search</h4>
+						<h4><?php echo $str["12"] ?></h4>
 						
 						<div class="cd-filter-content cd-filters">
-							<input data-filter="search" class="filter" type="search" placeholder="Try color-1...">
+							<input data-filter="search" class="filter" type="search" placeholder="<?php echo $str["13"] ?>">
 						</div> <!-- cd-filter-content -->
 					</div> <!-- cd-filter-block -->
 
 					<div class="cd-filter-block">
-						<h4>Date Formation</h4>
+						<h4><?php echo $str["14"] ?></h4>
 
+						<div class="cd-filter-content cd-filters">
+							<input id="date" class="filter" type="date" data-filter="date" value="<?php /*echo date("Y-m-d");*/ ?>"/>
+						</div>
 						<!--<ul class="cd-filter-content cd-filters list">
 							<li>
 								<input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
@@ -139,7 +147,7 @@
 					</div> <!-- cd-filter-block -->
 
 					<div class="cd-filter-block">
-						<h4>Tarif</h4>
+						<h4><?php echo $str["15"] ?></h4>
 						
 						<div class="cd-filter-content col-xs-6 cd-filters">
 							<input data-filter="prix" class="filter" id="min" type="search" placeholder="min" value="0">
@@ -153,24 +161,24 @@
 					</div>
 
 					<div class="cd-filter-block">
-						<h4>Niveau de la formation</h4>
+						<h4><?php echo $str["16"] ?></h4>
 						
 						<div class="cd-filter-content">
 							<div class="cd-select cd-filters">
 								<select class="filter" name="selectThis" id="selectThis">
-									<option value="">Tout Public</option>
-									<option value=".1">Débutant</option>
-									<option value=".2">Amateur</option>
-									<option value=".3">Pro</option>
-									<option value=".4">Pro avancé</option>
-									<option value=".5">Expert</option>
+									<option value=""><?php echo $str["17"] ?></option>
+									<option value=".1"><?php echo $str["18"] ?></option>
+									<option value=".2"><?php echo $str["19"] ?></option>
+									<option value=".3"><?php echo $str["20"] ?></option>
+									<option value=".4"><?php echo $str["21"] ?></option>
+									<option value=".5"><?php echo $str["22"] ?></option>
 								</select>
 							</div> <!-- cd-select -->
 						</div> <!-- cd-filter-content -->
 					</div> <!-- cd-filter-block -->
 
 					<div class="cd-filter-block">
-						<h4>Durée Formation</h4>
+						<h4><?php echo $str["23"] ?></h4>
 						
 						<div class="cd-filter-content col-xs-6 cd-filters">
 							<input data-filter="duree" class="filter" id="dureeMin" type="search" placeholder="min" value="0">
@@ -184,31 +192,31 @@
 					</div>
 
 					<div class="cd-filter-block">
-						<h4>Formation certifié</h4>
+						<h4><?php echo $str["24"] ?></h4>
 
 						<ul class="cd-filter-content cd-filters list">
 							<li>
 								<input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
-								<label class="radio-label" for="radio1">OSEF</label>
+								<label class="radio-label" for="radio1"><?php echo $str["25"] ?></label>
 							</li>
 
 							<li>
 								<input class="filter" data-filter=".cert" type="radio" name="radioButton" id="radio2">
-								<label class="radio-label" for="radio2">Oui</label>
+								<label class="radio-label" for="radio2"><?php echo $str["26"] ?></label>
 							</li>
 
 							<li>
 								<input class="filter" data-filter=".no-cert" type="radio" name="radioButton" id="radio3">
-								<label class="radio-label" for="radio3">Non</label>
+								<label class="radio-label" for="radio3"><?php echo $str["27"] ?></label>
 							</li>
 						</ul> <!-- cd-filter-content -->
 					</div> <!-- cd-filter-block -->
 				</form>
 
-				<a href="#0" class="cd-close">Close</a>
+				<a href="#0" class="cd-close"><?php echo $str["3"] ?></a>
 			</div> <!-- cd-filter -->
 
-			<a href="#0" class="cd-filter-trigger">Filters</a>
+			<a href="#0" class="cd-filter-trigger"><?php echo $str["2"] ?></a>
 		</main> <!-- cd-main-content -->
 	</div>
 
@@ -259,6 +267,6 @@
 	<script src="content-filter-assets/js/jquery.mixitup.min.js"></script>
 	<script src="content-filter-assets/js/main.js"></script> <!-- Resource jQuery -->
 	<script type="text/javascript">
-		$(".cd-gallery .cd-success-message h3").text($(".cd-gallery ul > li").length + " formation(s) correspondante(s)");
+		$(".cd-gallery .cd-success-message h3").text($(".cd-gallery ul > li").length + " <?php echo $str["28"] ?>");
+		//console.log($("#date").attr("value"));	
 	</script>
-

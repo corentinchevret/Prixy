@@ -1,7 +1,7 @@
 		<?php 
 		session_start(); include("fonction.inc.php");
 
- 		$inscr = execSQL_fetchall("SELECT nom_from, session_inscription, etat_inscription, I.ref_form
+ 		$inscr = execSQL_fetchall("SELECT nom_from, session_inscription, etat_inscription, I.ref_form, logo_form
  			FROM inscrire I
  			INNER JOIN formation F ON F.ref_form = I.ref_form
  			WHERE id_membre = '".$_SESSION['id']."'");
@@ -28,11 +28,11 @@
 				<div class="row">
 					<h1><a href="compte.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["1"] ?></a></h1><br>
 				</div>
-				<div class="container">
-					<table class="table">
+				<div class="row container-fluid">
+					<table class="table centrois bold">
 					  <thead>
 					    <tr>
-					      <th>#</th>
+					      <th class='hidden-xs'>#</th>
 					      <th><?php echo $str["2"] ?></th>
 					      <th><?php echo $str["3"] ?></th>
 					      <th><?php echo $str["4"] ?></th>
@@ -46,11 +46,11 @@
 					  		if($language == "en-EN")
 					  		   $inscr[$i-1][1] = date_format(date_create($inscr[$i-1][1]),"Y-m-d");
 			  	  echo "<tr>
-				      		<th scope='row'>$i</th>
-				      		<td>".$inscr[$i-1][0]."</td>
-				      		<td>".$inscr[$i-1][1]."</td>
-				      		<td>".$inscr[$i-1][2]."</td>
-				      		<td><button id='del' class='btn btn-danger' data-toggle='modal' data-target='.modal-del$i'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
+				      		<th class='hidden-xs' style='padding:20px' scope='row'>$i</th>
+				      		<td><img class='logo-tab' src='".$inscr[$i-1][4]."'> <span class='hidden-xs hidden-xs hidden-md'>".$inscr[$i-1][0]."</span></td>
+				      		<td style='padding:20px'>".$inscr[$i-1][1]."</td>
+				      		<td style='padding:20px'>".$inscr[$i-1][2]."</td>
+				      		<td style='padding:15px'><button id='del' class='btn btn-danger' data-toggle='modal' data-target='.modal-del$i'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
 				      		<form method='post'>
 					      		<input id='nom' name='ref' type='text' class='hidden' value='".$inscr[$i-1][3]."'/>
 					      		<input id='date' name='date' type='text' class='hidden' value='".$inscr[$i-1][1]."'/>		
@@ -58,15 +58,15 @@
 									<div class='modal-dialog modal-lg'>
 									    <div class='modal-content'>
 										    <div class='modal-header'>
-									            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+									            <button type='button' class='close  centrois' data-dismiss='modal' aria-label='Close'>
 									              <span aria-hidden='true'>&times;</span>
 									            </button>
-									            <h4 class='modal-title text-danger' id='exampleModalLabel' style='color:inherit;'>".$str["6"]."</h4>
+									            <h3 class='modal-title text-danger' id='exampleModalLabel' style='color:inherit;'>".$str["6"]."</h3>
 									          </div>
 									        <div class='modal-body'>
 											    ".$str["7"]."
 									        </div>
-									        <div class='modal-footer'>		          
+									        <div class='modal-footer centrois'>		          
 									            <button type='submit' class='btn btn-danger'>".$str["8"]."</button>
 									            <button type='button' class='btn btn-secondary' data-dismiss='modal'>".$str["9"]."</button>
 								            </div>

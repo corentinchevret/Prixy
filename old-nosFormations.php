@@ -4,7 +4,7 @@
 
     $titre = 'Prixy - Nos Formations'; include("barnav.php"); 
 
-    $page = "nosFormations";
+    $page = "old-nosFormations";
 	$str = array();
 	$str = return_str($language, $page);
 
@@ -24,7 +24,7 @@
                     <h2 style="color:#ddd; border-bottom:5px solid #ddd; padding:30px;"><i class = "glyphicon glyphicon-cog"></i> <?php echo $str["2"] ?></h2>
                 </li>
                 	<div class = "col-xs-12"><br><br>
-						<form role="form" method="post" action="nosFormations.php">
+						<form role="form" method="post" action="old-nosFormations.php">
 
 						<!-- BOUTON DÉROULANT POUR SELECTIONNER UNE CATGORIE -->
 

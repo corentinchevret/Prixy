@@ -32,11 +32,11 @@
 			}
 		</script>
 		
-		<div id='insc' class="container text-center">
+		<div class="container text-center">
 			<h1><br><br><a href="inscription.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["1"] ?></a></h1><br>
 
 			<!-- formulaire d'inscription -->
-			<form action = "inscription.php" method = "post" class="bold">
+			<form action = "inscription.php" method = "post" class="bold centrois">
 
 				<!-- Zone de texte pour le nom et prénom -->
 				<div class="row">
