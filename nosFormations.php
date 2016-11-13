@@ -12,6 +12,7 @@
 									FROM formation F
 									INNER JOIN appartenir A ON A.ref_form = F.ref_form
 									INNER JOIN delivrer D ON D.ref_form = F.ref_form
+									WHERE nom_langue = '$language'
 									ORDER BY nom_from;");
 
 	//var_dump($formations);
@@ -41,6 +42,8 @@
 		}
 
 		$public = substr($formations[$i][3],0,1);
+
+		//$nom_form = return_str_form($language, $formations[$i][5])[0][0];
 
 		// Création de la div avec les filtres recupérer précédemment
 		$listeF .= "<li id='".$formations[$i][5]."' data-price='".$formations[$i][6]."' data-duree='".$formations[$i][7]."' class='text-left mix color-1 prix duree search date $public $certif $categ'>

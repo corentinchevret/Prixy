@@ -467,6 +467,7 @@
  	function return_str($lang, $page)
 	{
 		$sql = array();
+
 	 	$sql = execSQL_fetchall("SELECT data, id_data FROM STRING WHERE nom_langue = '$lang' AND page='$page' ORDER BY cast(id_data as unsigned)");
 
 	 	$str = array();
@@ -478,5 +479,13 @@
 	 	
 	 	return $str;
 	}
+
+	/*function return_str_form($lang, $ref)
+	{
+		$str = array();
+	 	$str = execSQL_fetchall("SELECT nom_from FROM formation WHERE nom_langue = '$lang' AND ref_form='$ref'");
+	 	
+	 	return $str;
+	}*/
 
  ?>

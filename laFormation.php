@@ -1,8 +1,8 @@
 <?php session_start(); include("fonction.inc.php"); ?>
 <?php $ref_formation = $_GET['formation']; ?>
-<?php $infos_formation = execSQL_fetchall("SELECT logo_form, nom_categ, nom_from, F.ref_form, duree_form, tarif, type_public, lib_certif, ref_form_FORMATION, date_debut_session FROM formation F INNER JOIN session S ON F.ref_form = S.ref_form INNER JOIN delivrer D ON F.ref_form = D.ref_form INNER JOIN certification CE ON D.id_certif = CE.id_certif LEFT OUTER JOIN necessiter N ON F.ref_form = N.ref_form INNER JOIN appartenir A ON F.ref_form = A.ref_form INNER JOIN categorie C ON C.id_categ = A.id_categ WHERE F.ref_form = '$ref_formation'");?>
-<?php $objectifs = execSQL_fetchall("SELECT lib_objectif FROM formation F INNER JOIN objectif O ON F.ref_form = O.ref_form WHERE F.ref_form = '$ref_formation'"); ?>
-<?php $etape = execSQL_fetchall("SELECT lib_etape FROM formation F INNER JOIN prog_etape PE ON F.ref_form = PE.ref_form WHERE F.ref_form = '$ref_formation'");	?>		
+<?php $infos_formation = execSQL_fetchall("SELECT logo_form, nom_categ, nom_from, F.ref_form, duree_form, tarif, type_public, lib_certif, ref_form_FORMATION, date_debut_session FROM formation F INNER JOIN session S ON F.ref_form = S.ref_form INNER JOIN delivrer D ON F.ref_form = D.ref_form INNER JOIN certification CE ON D.id_certif = CE.id_certif LEFT OUTER JOIN necessiter N ON F.ref_form = N.ref_form INNER JOIN appartenir A ON F.ref_form = A.ref_form INNER JOIN categorie C ON C.id_categ = A.id_categ WHERE F.ref_form = '$ref_formation' AND F.nom_langue='$language'");?>
+<?php $objectifs = execSQL_fetchall("SELECT lib_objectif FROM formation F INNER JOIN objectif O ON F.ref_form = O.ref_form WHERE F.ref_form = '$ref_formation' AND O.nom_langue='$language' GROUP BY 1");?>
+<?php $etape = execSQL_fetchall("SELECT lib_etape FROM formation F INNER JOIN prog_etape PE ON F.ref_form = PE.ref_form WHERE F.ref_form = '$ref_formation' AND PE.nom_langue='$language' GROUP BY 1");	?>		
 <?php $titre = 'Prixy - ' . $infos_formation[0][2]; ?>
 <?php include("barnav.php"); 
 
@@ -61,7 +61,7 @@ if(isset($_SESSION["id"])) {
 										$ligne = "0" . $ok;
 								else
 									$ligne = $ok;
-								$sous_etape = execSQL_fetchall("SELECT lib_sous_etape FROM formation F INNER JOIN prog_sous_etape SE ON F.ref_form = SE.ref_form WHERE SE.ref_form = '$ref_formation' AND SE.id_etape = 'PE$ligne'");
+								$sous_etape = execSQL_fetchall("SELECT lib_sous_etape FROM formation F INNER JOIN prog_sous_etape SE ON F.ref_form = SE.ref_form WHERE SE.ref_form = '$ref_formation' AND SE.id_etape = 'PE$ligne' AND SE.nom_langue = '$language' GROUP BY 1");
 								for($j = 0; $j < count($sous_etape); $j++)
 								{ 
 									echo "-&emsp;" . $sous_etape[$j][0] . ".<br>";
@@ -92,7 +92,7 @@ if(isset($_SESSION["id"])) {
 					<br>
 					<h2 class="text-left"><i class="glyphicon glyphicon-piggy-bank"></i> <?php echo $str["8"] ?> <?php echo $infos_formation[0][5] ?> € <?php echo $str["9"] ?></h2>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-user"></i> <?php echo $str["10"] ?></h2> <p class="text-left"><?php echo $infos_formation[0][6] ?></p>
+					<h2 class="text-left"><i class="glyphicon glyphicon-user"></i> <?php echo $str["10"] ?></h2> <p class="text-left"><?php echo substr($infos_formation[0][6],1,-1) ?></p>
 					<br>
 					<h2 class="text-left"><i class="glyphicon glyphicon-education"></i> <?php echo $str["11"] ?></h2><p class="text-left"><?php echo $infos_formation[0][7] ?></p>
 					<br>
