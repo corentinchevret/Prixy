@@ -4,7 +4,7 @@
  		$inscr = execSQL_fetchall("SELECT nom_from, session_inscription, etat_inscription, I.ref_form, logo_form
  			FROM inscrire I
  			INNER JOIN formation F ON F.ref_form = I.ref_form
- 			WHERE id_membre = '".$_SESSION['id']."'");
+ 			WHERE id_membre = '".$_SESSION['id']."' AND F.nom_langue = '$language'");
 
  		if(isset($_POST["ref"]) && isset($_POST["date"]))
  		{
@@ -43,8 +43,8 @@
 					  	<?php
 					  	for($i = 1; $i < count($inscr)+1; $i++)
 					  	{
-					  		if($language == "en-EN")
-					  		   $inscr[$i-1][1] = date_format(date_create($inscr[$i-1][1]),"Y-m-d");
+					  		if($language == "fr-FR")
+					  		   $inscr[$i-1][1] = date_format(date_create($inscr[$i-1][1]),"d/m/Y");
 			  	  echo "<tr>
 				      		<th class='hidden-xs' style='padding:20px' scope='row'>$i</th>
 				      		<td><img class='logo-tab' src='".$inscr[$i-1][4]."'> <span class='hidden-xs hidden-xs hidden-md'>".$inscr[$i-1][0]."</span></td>

@@ -1,6 +1,6 @@
 <?php session_start(); include("fonction.inc.php"); ?>
 <?php $ref_formation = $_GET['formation']; ?>
-<?php $infos_formation = execSQL_fetchall("SELECT logo_form, nom_categ, nom_from, F.ref_form, duree_form, tarif, type_public, lib_certif, ref_form_FORMATION, date_debut_session FROM formation F INNER JOIN session S ON F.ref_form = S.ref_form INNER JOIN delivrer D ON F.ref_form = D.ref_form INNER JOIN certification CE ON D.id_certif = CE.id_certif LEFT OUTER JOIN necessiter N ON F.ref_form = N.ref_form INNER JOIN appartenir A ON F.ref_form = A.ref_form INNER JOIN categorie C ON C.id_categ = A.id_categ WHERE F.ref_form = '$ref_formation' AND F.nom_langue='$language'");?>
+<?php $infos_formation = execSQL_fetchall("SELECT logo_form, nom_categ, nom_from, F.ref_form, duree_form, tarif, type_public, lib_certif, ref_form_FORMATION, date_debut_session FROM formation F INNER JOIN session S ON F.ref_form = S.ref_form INNER JOIN delivrer D ON F.ref_form = D.ref_form INNER JOIN certification CE ON D.id_certif = CE.id_certif LEFT OUTER JOIN necessiter N ON F.ref_form = N.ref_form INNER JOIN appartenir A ON F.ref_form = A.ref_form INNER JOIN categorie C ON C.id_categ = A.id_categ WHERE F.ref_form = '$ref_formation' AND F.nom_langue='$language' GROUP BY date_debut_session");?>
 <?php $objectifs = execSQL_fetchall("SELECT lib_objectif FROM formation F INNER JOIN objectif O ON F.ref_form = O.ref_form WHERE F.ref_form = '$ref_formation' AND O.nom_langue='$language' GROUP BY 1");?>
 <?php $etape = execSQL_fetchall("SELECT lib_etape FROM formation F INNER JOIN prog_etape PE ON F.ref_form = PE.ref_form WHERE F.ref_form = '$ref_formation' AND PE.nom_langue='$language' GROUP BY 1");	?>		
 <?php $titre = 'Prixy - ' . $infos_formation[0][2]; ?>
@@ -14,7 +14,7 @@ $msgVal = "";
 
 if(isset($_SESSION["id"])) {
 	if(isset($_POST["radio"]))
-	{
+	{	var_dump($_GET["formation"], $_SESSION["id"], $_POST["radio"]);
 		execSQL_insert("INSERT INTO inscrire(ref_form, id_membre, session_inscription, etat_inscription)
 			VALUES('".$_GET["formation"]."', '".$_SESSION["id"]."', '".$_POST["radio"]."', 'en cours')");
 		$msgVal = '<script>$("#modal-val").click();</script>' ;
@@ -154,7 +154,7 @@ if(isset($_SESSION["id"])) {
 						    <?php echo $str["20"] ?>
 				        </div>
 				        <div class="modal-footer centrois">		          
-				            <button type="button" class="btn btn-success"><a style="color:white; font-weight:bold" href="inscFormations.php"><?php echo $str["21"] ?></a></button>
+				            <button type="button" class="btn btn-success"><a style="color:white; font-weight:bold" href="mesInscriptions.php"><?php echo $str["21"] ?></a></button>
 				            <button type="button" class="btn btn-secondary" style="font-weight:bold" data-dismiss="modal"><?php echo $str["22"] ?></button>
 			            </div>
 			        </div>

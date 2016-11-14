@@ -270,6 +270,6 @@
 	<script src="content-filter-assets/js/jquery.mixitup.min.js"></script>
 	<script src="content-filter-assets/js/main.js"></script> <!-- Resource jQuery -->
 	<script type="text/javascript">
-		$(".cd-gallery .cd-success-message h3").text($(".cd-gallery ul > li").length + " <?php echo $str["28"] ?>");
+		$(".cd-gallery .cd-success-message h3").text($(".cd-gallery ul > li").length/* + "<?php echo $str["28"] ?>"*/);
 		//console.log($("#date").attr("value"));	
 	</script>
