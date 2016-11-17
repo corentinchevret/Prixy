@@ -1,7 +1,7 @@
 		<?php
 		session_start(); include("fonction.inc.php");
 
-		$titre = 'Prixy - Notre Equipe'; include("barnav.php");
+		$titre = 'Prixy - Mentions légales'; include("barnav.php");
 
 		$page = "mentions";
 		$str = array();
