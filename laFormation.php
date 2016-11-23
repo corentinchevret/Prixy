@@ -35,7 +35,11 @@ if(isset($_SESSION["id"])) {
 				<br><hr><br>
 
 				<div class="center-text centrois">
-					<button id="modal" class="btn btn-success" style="font-weight:bold" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $str["14"] ?></button>
+					<?php if($infos_formation[0][1] == "MOOC")
+							echo '<button id="modal" class="btn btn-primary btn-lg" style="font-weight:bold" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-credit-card" aria-hidden="true"></i> Buy !</button>';
+						  else
+						  	echo '<button id="modal" class="btn btn-success btn-lg" style="font-weight:bold" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> ' . $str["14"] . '</button>';
+					?>
 					<button id="modal-val" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 					<button id="modal-pb" class="btn btn-success hidden" data-toggle="modal" data-target=".modal-val"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 
@@ -92,7 +96,7 @@ if(isset($_SESSION["id"])) {
 					<br>
 					<h2 class="text-left"><i class="glyphicon glyphicon-piggy-bank"></i> <?php echo $str["8"] ?> <?php echo $infos_formation[0][5] ?> € <?php echo $str["9"] ?></h2>
 					<br>
-					<h2 class="text-left"><i class="glyphicon glyphicon-user"></i> <?php echo $str["10"] ?></h2> <p class="text-left"><?php echo substr($infos_formation[0][6],1,-1) ?></p>
+					<h2 class="text-left"><i class="glyphicon glyphicon-user"></i> <?php echo $str["10"] ?></h2> <p class="text-left"><?php echo substr($infos_formation[0][6],1) ?></p>
 					<br>
 					<h2 class="text-left"><i class="glyphicon glyphicon-education"></i> <?php echo $str["11"] ?></h2><p class="text-left"><?php echo $infos_formation[0][7] ?></p>
 					<br>
