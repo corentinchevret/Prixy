@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 23 Novembre 2016 à 14:20
+-- Généré le :  Jeu 24 Novembre 2016 à 12:12
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -52,7 +52,8 @@ INSERT INTO `appartenir` (`ref_form`, `id_categ`) VALUES
 ('BW10', 'CA03'),
 ('TUX1', 'CA03'),
 ('SQL1', 'CA04'),
-('SQL2', 'CA04');
+('SQL2', 'CA04'),
+('MOOC', 'CA06');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ INSERT INTO `categorie` (`id_categ`, `nom_langue`, `nom_categ`) VALUES
 ('CA04', 'en-EN', 'Database'),
 ('CA04', 'fr-FR', 'Bases de données'),
 ('CA05', 'en-EN', 'Web Development'),
-('CA05', 'fr-FR', 'Développement web');
+('CA05', 'fr-FR', 'Développement web'),
+('CA06', 'fr-FR', 'MOOC');
 
 -- --------------------------------------------------------
 
@@ -137,6 +139,7 @@ INSERT INTO `delivrer` (`ref_form`, `id_certif`) VALUES
 ('CPP1', 'C000'),
 ('CSH1', 'C000'),
 ('DEV0', 'C000'),
+('MOOC', 'C000'),
 ('OB01', 'C000'),
 ('PY01', 'C000'),
 ('SQL1', 'C000'),
@@ -191,6 +194,8 @@ INSERT INTO `formation` (`ref_form`, `nom_langue`, `nom_from`, `tarif`, `duree_f
 ('CSH1', 'fr-FR', 'FORMATION L\'ESSENTIEL DU C# ET DE L\'ACCES AUX DONNÉES AVEC VISUAL STUDIO 2010 (sur Paris :D)', 4690, 10, '3Pro : développeur .Net connaissant le C, C++, Java, VB...', 'images/csharp.png'),
 ('DEV0', 'en-EN', 'TRAINING INTRODUCTION TO PROGRAMMING', 1550, 3, '1Novice wishing to prepare for learning a programming language or have just a general overview of programming', 'images/langages.jpg'),
 ('DEV0', 'fr-FR', 'FORMATION INITIATION A LA PROGRAMMATION', 1550, 3, '1Débutant désirant se préparer à l’apprentissage d’un langage de programmation ou disposer tout simplement d’une vue générale sur la programmation', 'images/langages.jpg'),
+('MOOC', 'en-EN', 'TEST MOOC - Create your website with PHP and MySQL', 500, 3, '1Novice be using this environment or developer in Unix or Linux environment', 'images/phpmysql.png'),
+('MOOC', 'fr-FR', 'TEST MOOC - Concevez votre site web avec PHP et MySQL', 500, 3, '1Débutant amené à utiliser cet environnement ou développeur en environnement Unix ou Linux', 'images/phpmysql.png'),
 ('OB01', 'en-EN', 'TRAINING OBJECT-ORIENTED DESIGN (on Paris: D)', 1830, 3, '2Amateur : developer and analyst programmer wishing to move towards the object or project managers', 'images/orienteobjet.jpg'),
 ('OB01', 'fr-FR', 'FORMATION LA CONCEPTION ORIENTÉ OBJET (sur Paris :D)', 1830, 3, '2Amateur développeur et analyste programmeur souhaitant évoluer vers l\'Objet ou chefs de projets', 'images/orienteobjet.jpg'),
 ('PY01', 'en-EN', 'TRAINING DEVELOP WITH PYTHON (on Paris: D)', 2040, 4, '2Amateur : developer or system administrator and network with algorithm knowledge', 'images/python.png'),
@@ -305,6 +310,7 @@ INSERT INTO `objectif` (`id_objectif`, `nom_langue`, `lib_objectif`, `ref_form`)
 ('O001', 'en-EN', 'Acquiring the basic principles of object programming (polymorphism, inheritance, encapsulation)', 'CPP1'),
 ('O001', 'en-EN', 'Having solid bases to develop applications in C #', 'CSH1'),
 ('O001', 'en-EN', 'Have vocabulary (source, library, compilation, execution, bug ...)', 'DEV0'),
+('O001', 'en-EN', 'Try to create his own website', 'MOOC'),
 ('O001', 'en-EN', 'Have the general knowledge needed to learn object development', 'OB01'),
 ('O001', 'en-EN', 'Mastering the Arcana of a Python Development', 'PY01'),
 ('O001', 'en-EN', 'Have a clear view of what a DBMS is', 'SQL1'),
@@ -322,6 +328,7 @@ INSERT INTO `objectif` (`id_objectif`, `nom_langue`, `lib_objectif`, `ref_form`)
 ('O001', 'fr-FR', 'Acquérir les principes de base de la programmation Objet (polymorphisme, héritage, encapsulation)', 'CPP1'),
 ('O001', 'fr-FR', 'Disposer de solides bases pour développer des applications en C#', 'CSH1'),
 ('O001', 'fr-FR', 'Disposer du vocabulaire (source, bibliothèque, compilation, exécution, bug...)', 'DEV0'),
+('O001', 'fr-FR', 'Essayer de concevoir seul son propre site web', 'MOOC'),
 ('O001', 'fr-FR', 'Disposer des connaissances générales nécessaires à l\'apprentissage du développement Objet', 'OB01'),
 ('O001', 'fr-FR', 'Maîtriser les arcanes d\'un développement Python', 'PY01'),
 ('O001', 'fr-FR', 'Disposer d\'une vision claire de ce qu\'est un SGBD', 'SQL1'),
@@ -468,6 +475,7 @@ INSERT INTO `prog_etape` (`id_etape`, `nom_langue`, `lib_etape`, `ref_form`) VAL
 ('PE01', 'en-EN', 'From procedural to object', 'CPP1'),
 ('PE01', 'en-EN', '> PART 1: VISUAL STUDIO 2010 - C # PROGRAMMING WITH MICROSOFT .NET FRAMEWORK 4', 'CSH1'),
 ('PE01', 'en-EN', '> PART 1: DESIGNING A PROGRAM', 'DEV0'),
+('PE01', 'en-EN', 'Learn and know the PHP language', 'MOOC'),
 ('PE01', 'en-EN', '> PART 1: FROM THE NEED FOR THE PROGRAM', 'OB01'),
 ('PE01', 'en-EN', 'Introduction', 'PY01'),
 ('PE01', 'en-EN', 'History', 'SQL1'),
@@ -485,6 +493,7 @@ INSERT INTO `prog_etape` (`id_etape`, `nom_langue`, `lib_etape`, `ref_form`) VAL
 ('PE01', 'fr-FR', 'Du procédural à l\'objet', 'CPP1'),
 ('PE01', 'fr-FR', '> 1ÈRE PARTIE : VISUAL STUDIO 2010 - PROGRAMMATION C# AVEC MICROSOFT .NET FRAMEWORK 4', 'CSH1'),
 ('PE01', 'fr-FR', '> 1ÈRE PARTIE : CONCEVOIR UN PROGRAMME', 'DEV0'),
+('PE01', 'fr-FR', 'Apprendre et comprendre le langage PHP', 'MOOC'),
 ('PE01', 'fr-FR', '> 1ÈRE PARTIE : DU BESOIN UTILISATEUR AU PROGRAMME', 'OB01'),
 ('PE01', 'fr-FR', 'Introduction', 'PY01'),
 ('PE01', 'fr-FR', 'Historique', 'SQL1'),
@@ -502,6 +511,7 @@ INSERT INTO `prog_etape` (`id_etape`, `nom_langue`, `lib_etape`, `ref_form`) VAL
 ('PE02', 'en-EN', 'Object concepts', 'CPP1'),
 ('PE02', 'en-EN', 'Introduction to C # and the .NET Framework', 'CSH1'),
 ('PE02', 'en-EN', 'What is a computer program', 'DEV0'),
+('PE02', 'en-EN', 'Learn and know the SQL language', 'MOOC'),
 ('PE02', 'en-EN', 'The global string', 'OB01'),
 ('PE02', 'en-EN', 'Elementary types', 'PY01'),
 ('PE02', 'en-EN', 'The database management system', 'SQL1'),
@@ -519,6 +529,7 @@ INSERT INTO `prog_etape` (`id_etape`, `nom_langue`, `lib_etape`, `ref_form`) VAL
 ('PE02', 'fr-FR', 'Les concepts objet', 'CPP1'),
 ('PE02', 'fr-FR', 'Introdution à C# et au .NET Framework', 'CSH1'),
 ('PE02', 'fr-FR', 'Qu\'est-ce qu\'un programme informatique', 'DEV0'),
+('PE02', 'fr-FR', 'Apprendre et comprendre le langage SQL', 'MOOC'),
 ('PE02', 'fr-FR', 'La chaîne globale', 'OB01'),
 ('PE02', 'fr-FR', 'Types élémentaires', 'PY01'),
 ('PE02', 'fr-FR', 'Le système de gestion de bases de données', 'SQL1'),
@@ -860,6 +871,7 @@ INSERT INTO `prog_sous_etape` (`id_sous_etape`, `nom_langue`, `lib_sous_etape`, 
 ('SE01', 'en-EN', 'Start Windows 10', 'PE01', 'BW10'),
 ('SE01', 'en-EN', 'Historical', 'PE01', 'C001'),
 ('SE01', 'en-EN', 'Brief history of languages', 'PE01', 'CPP1'),
+('SE01', 'en-EN', 'The PHP SuperGlobals...(it\'s test don\'t more)', 'PE01', 'MOOC'),
 ('SE01', 'en-EN', 'The interpreted script language', 'PE01', 'PY01'),
 ('SE01', 'en-EN', 'The "any file"', 'PE01', 'SQL1'),
 ('SE01', 'en-EN', 'Recall on the relational model', 'PE01', 'SQL2'),
@@ -876,6 +888,7 @@ INSERT INTO `prog_sous_etape` (`id_sous_etape`, `nom_langue`, `lib_sous_etape`, 
 ('SE01', 'en-EN', 'Classes, objects (constructors and default parameters)', 'PE02', 'CPP1'),
 ('SE01', 'en-EN', 'Introduction to the .Net Framework', 'PE02', 'CSH1'),
 ('SE01', 'en-EN', 'Translating Thought into Machine Language', 'PE02', 'DEV0'),
+('SE01', 'en-EN', 'Selection of Data...(it\'s test don\'t more)', 'PE02', 'MOOC'),
 ('SE01', 'en-EN', 'Need for steps between human thought and binary sequences 01010001 ...', 'PE02', 'OB01'),
 ('SE01', 'en-EN', 'Numbers', 'PE02', 'PY01'),
 ('SE01', 'en-EN', 'Component bricks', 'PE02', 'SQL1'),
@@ -1008,6 +1021,7 @@ INSERT INTO `prog_sous_etape` (`id_sous_etape`, `nom_langue`, `lib_sous_etape`, 
 ('SE01', 'fr-FR', 'Démarrer Windows 10', 'PE01', 'BW10'),
 ('SE01', 'fr-FR', 'Historique', 'PE01', 'C001'),
 ('SE01', 'fr-FR', 'Bref historique des langages', 'PE01', 'CPP1'),
+('SE01', 'fr-FR', 'Les Super Globales PHP...(c\'est un test pas plus)', 'PE01', 'MOOC'),
 ('SE01', 'fr-FR', 'Le langage de script interprété', 'PE01', 'PY01'),
 ('SE01', 'fr-FR', 'Le "tout fichier"', 'PE01', 'SQL1'),
 ('SE01', 'fr-FR', 'Rappel sur le modèle relationnel', 'PE01', 'SQL2'),
@@ -1024,6 +1038,7 @@ INSERT INTO `prog_sous_etape` (`id_sous_etape`, `nom_langue`, `lib_sous_etape`, 
 ('SE01', 'fr-FR', 'Classes, objets (constructeurs et paramètres par défaut)', 'PE02', 'CPP1'),
 ('SE01', 'fr-FR', 'Introduction au .Net Framework', 'PE02', 'CSH1'),
 ('SE01', 'fr-FR', 'Traduire la pensée en langage machine', 'PE02', 'DEV0'),
+('SE01', 'fr-FR', 'La Selection de données...(c\'est un test pas plus)', 'PE02', 'MOOC'),
 ('SE01', 'fr-FR', 'Nécessité de paliers entre la pensée humaine et les séquences binaires 01010001...', 'PE02', 'OB01'),
 ('SE01', 'fr-FR', 'Les nombres', 'PE02', 'PY01'),
 ('SE01', 'fr-FR', 'Les briques constitutives', 'PE02', 'SQL1'),
@@ -1532,13 +1547,13 @@ INSERT INTO `prog_sous_etape` (`id_sous_etape`, `nom_langue`, `lib_sous_etape`, 
 ('SE03', 'en-EN', 'Working with attributes and methods (class functions, constructors, destructors and accessors)', 'PE12', 'OB01'),
 ('SE03', 'en-EN', 'Cut / paste', 'PE12', 'TUX1'),
 ('SE03', 'en-EN', 'Imagine the actors of the application', 'PE13', 'OB01'),
-('SE03', 'en-EN', 'Remote connection (telnet)', 'PE13', 'TUX1'),
+('SE03', 'en-EN', 'Remote connection (telnet)', 'PE13', 'TUX1');
+INSERT INTO `prog_sous_etape` (`id_sous_etape`, `nom_langue`, `lib_sous_etape`, `id_etape`, `ref_form`) VALUES
 ('SE03', 'en-EN', 'Use case diagrams: what does our application do?', 'PE14', 'OB01'),
 ('SE03', 'en-EN', 'Database APIs', 'PE15', 'DEV0'),
 ('SE03', 'en-EN', 'Querying the data by SELECT', 'PE16', 'DEV0'),
 ('SE03', 'en-EN', 'Similarity of the standard input-output model', 'PE17', 'DEV0'),
-('SE03', 'fr-FR', 'Utiliser les onglets et le ruban', 'PE01', 'B200');
-INSERT INTO `prog_sous_etape` (`id_sous_etape`, `nom_langue`, `lib_sous_etape`, `id_etape`, `ref_form`) VALUES
+('SE03', 'fr-FR', 'Utiliser les onglets et le ruban', 'PE01', 'B200'),
 ('SE03', 'fr-FR', 'Calculer des pourcentages dans une facture', 'PE01', 'B201'),
 ('SE03', 'fr-FR', 'Totaux (Somme, Moyenne, Nbval, % du total, résultat cumulé)', 'PE01', 'B203'),
 ('SE03', 'fr-FR', 'Calculer une somme suivant une ou plusieurs conditions (Somme.si, Somme.si.ens)', 'PE01', 'B204'),
@@ -2098,6 +2113,7 @@ INSERT INTO `session` (`id_session`, `date_debut_session`, `ref_form`) VALUES
 ('S001', '2016-05-30', 'CPP1'),
 ('S001', '2016-06-20', 'CSH1'),
 ('S001', '2016-04-18', 'DEV0'),
+('S001', '2016-11-24', 'MOOC'),
 ('S001', '2016-07-11', 'OB01'),
 ('S001', '2016-04-25', 'PY01'),
 ('S001', '2016-05-02', 'SQL1'),
